@@ -19,17 +19,17 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="个人技术blog">
 <meta property="og:url" content="https://github.com/Kingbultsea/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="个人技术blog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="个人技术blog">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="个人技术blog" type="application/atom+xml">
 
 
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Hexo</title>
+<title>个人技术blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -121,11 +121,6 @@
                             <div class="ribbon"></div>
                         </div>
                         
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
                         
                         <div class="icon-wrap icon-me hide" data-idx="3">
                             <div class="user"></div>
@@ -140,8 +135,6 @@
                     <ul class="tips-inner">
                         <li>菜单</li>
                         <li>标签</li>
-                        
-                        <li>友情链接</li>
                         
                         
                         <li>关于我</li>
@@ -160,10 +153,6 @@
                             <li><a href="/">主页</a></li>
                         
                             <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/">标签云</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
                         
                         </ul>
                     </nav>
@@ -187,24 +176,12 @@
                 
                 
                 
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                    </div>
-                </section>
-                
 
                 
                 
-                <section class="switch-part switch-part4">
+                <section class="switch-part switch-part3">
                 
-                    <div id="js-aboutme">专注于前端</div>
+                    <div id="js-aboutme">前端是一个敲门砖，我一定要在两年后，就是我毕业之前，能在前端游刃有余。</div>
                 </section>
                 
             </div>
@@ -234,10 +211,6 @@
                 
                     <li><a href="/archives/">所有文章</a></li>
                 
-                    <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
                 <div class="clearfix"></div>
                 </ul>
             </nav>
@@ -255,6 +228,291 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Grid layout example" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/01/Grid layout example/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/Grid layout example/">Flexbox 和 Grid哪个更加好？</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <!DOCTYPE html>
+<html>
+
+
+<body>
+<head>
+<style>
+*{
+  box-sizing:border-box;
+}
+
+.main{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+  
+}
+a{
+  text-decoration: none;
+  
+}
+
+.main div{
+  background-color:#eee;  
+  border:0.3em solid black;
+  border-radius: 5%;
+  
+  max-width:200px;
+  margin:5px;
+  padding:1em;
+  display:flex;
+  flex-flow:column;
+}
+
+.main div img{
+  width:100%;
+  order:-1;
+}
+
+
+.main2{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+  width:100%;
+}
+
+.main2>div{
+  background-color:#eee;  
+  border:0.3em solid black;
+  border-radius: 5%;
+  
+  width:10em;
+  margin:5px;
+  padding:1em;
+  display:flex;
+  flex-flow:column;
+}
+.main2>div>img{
+  width:100%;
+  order:-1;
+}
+
+.all{
+  overflow:hidden;
+  width:100%;
+}
+</style>
+<head>
+<div class="all">
+
+下面这个卡片布局，可以说很常见了。这利用了Flex 套Grid (其实Grid和Flex是没有任何冲突的)
+<p>grid-template-columns: repeat(auto-fit,minmax(100px,150px))是什么？是告诉浏览器：我想要columns，但你来决定多少个column,我想columns最小是100px最大是150px
+。然后就得到下面的例子啦，当你拖动的时候，浏览器会根据宽度来设置columns的数目，取决于浏览器可视宽度。
+</p>
+<a href="http://labs.jensimmons.com/2017/03-009.html" target="_blank" rel="noopener">你可以直接参考</a>
+<p>①grid-template-columns: repeat(auto-fit,minmax(100px,150px));
+和②grid-template-columns: repeat(auto-fit,minmax(100px,1fr)); div的max-width:150px;
+和③grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+有什么区别？</p>
+<p>①当你缩小布局的时候，卡片的width：一直都是150px，直到布局只剩下150px的时候,卡片的width才会跟随缩小，直到width为100px</p>
+<p>②推荐这样设置，特别适合响应式布局，因为这样子不管你布局缩小，右边的空白始终都会被分配到(max-width:200px以下的时候)
+。不过这样有个问题就是当宽度太宽的时候，item之间会留很多空白,因为这个max-width实际上是影响不到grid的。所以你要完美解决max-width对grid影响
+就要像③那样设置了。
+</p>
+<p>其实你喜欢吧，只要符合你自己想要的就OK总的来说,fit :item的宽度不会影响grid(这样的好处是你可以设计一个堆叠式的卡牌)。而
+fill的话，item的宽度是会影响grid了</p>
+<p>当你的item是图片的时候(因为图片是inline-block,会有行高影响，所以为了去掉多余的space)建议你设置成block。还有应该设置width:100%，为了保持图片比例。</p>
+<p>多个item 就直接auto-fit minmax(你喜欢,1fr),因为浏览器很smart的,他会先塞满min,然后在把空白space分配给每个item</p>
+<p>如果那些旧浏览器不支持grid怎么办？你可以用css3的 <a href="http://www.css88.com/book/css/rules/@supports.htm" target="_blank" rel="noopener">@supports</a>
+。Jan说：向后兼容并不难啊，我做得越多我就发现越简单，其实这真的不难。</p>
+<p>当你使用order的时候，要注意下那些使用keyboard的用户们，通过tab来选择。下面的order:-1就设置了，你用用tab键来体验下</p>
+
+
+<div class="main">
+<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
+<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
+<a style="order:-1" href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>order:-1</p></div></a>
+
+<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
+<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
+<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
+</div>
+
+
+<p>卡片收缩布局:</p>
+<div class="main2">
+<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div>
+<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div>
+<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p</p></div>
+
+<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div>
+<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div>
+<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p</p></div>
+</div>
+
+<a href="https://www.youtube.com/watch?v=dQHtT47eH0M&feature=youtu.be" target="_blank" rel="noopener">参考视频</a>
+
+</div>
+</head></head></body>
+</html>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Flexbox and grid" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/01/Flexbox and grid/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><style> *{   box-sizing:border-box; } img{ max-width:100%; } </style>   </p><h1>Flexbox 和 Grid哪个更加好？ </h1> <p> 他们有各自的好处。 Flexbox能做Grid做不到的。 反转也是。  首先说一下Float，Float是不会照顾整个布局的 ，只会向某一个方向排布。 Flexbox，是一个方向的布局的，它不会计算另外一个方向引起的布局的，如果你的布局是方格形式的布局，那么Flexbox并不能做好。 Grid，它有能力处理两条线的布局，意思是他总是根据两个方向上的content的大小不同而互相影响(同时处理rows和columns)。  </p> <img title="5" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftqpy1ueyaj30ui0h1wfv.jpg"><br> <img title="6" src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1ftqpy19hlkj30sq0heabu.jpg">  <p> 还有 Grid布局是可以叠在一起的  而Flex不能<a href="http://labs.jensimmons.com/2017/01-012.html" target="_blank" rel="noopener">例子链接</a> <br><img title="7" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftqqt41fs4j30wy0akkc8.jpg"><br> 这里要设置好align-items:end;然后同时设置grid-column:1/2 grid-row:1/2把他们放同一个位置 (这里我又想到一个，如果display:grid;然后没有grid-templated-rows这些东西，那么浏览器会怎么布局？浏览器会只设置一个空格 各有[1][2]名称的线条) </p>  参考:Jensimmons的<a href="https://www.youtube.com/watch?v=hs3piaN4b5I&feature=youtu.be" target="_blank" rel="noopener">Flexbox vs. CSS Grid — Which is Better?</a><p></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-auto min max-content" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/01/auto min max-content/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><style> *{   box-sizing:border-box; } img{ max-width:100%; display:block; } .main{   color:red;   display:grid;   grid-template-columns: min-content  100px [miao] 100px;   grid-template-rows:   max-content 100px max-content; }  .main div:nth-of-type(3){   background-color:black;   grid-column:1/ miao span; }  .last{   grid-column:3/4 } </style>   <div class="main">    <div>13333333 <div style=""> min-height:20px</div></div>   <div>2</div>   <div>3333333</div>   <div>4</div>   <div>555555  heheh zzzz<br>ff kjkj<p style="width:120px">啊啊</p></div>   <div class="last">last</div>  </div> </p><p>1.我们发现item3 设置成grid-column:2/3  会发现 浏览器会把在item3后面的且没有明确设置的item 直接跟随item3 位置后面 </p>  <p>2.我们设置成column 23 auto  可以发现column 2 3 是跟随浏览器最大宽度的设置</p> <p>3.如果设置 row 23 也是auto会怎么样？ </p> <p>那么到底什么是min 和 max呀？按我猜测 max和min的意思 其实是行或列按照最大或者最小的item而设置 不是的 不是的 这其实很好理解的啊  </p> max:<img title="1" src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1ftq15csue1j30cf0azweg.jpg"><br> min:<img title="2" src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1ftq19toipxj30940anmx3.jpg"> <p> 4.对于column而言 max-content 根据内容调整宽度。min-content就是把文字之间的<i>一堆空格(包括br 但不包括block元素中的空格)转换成换行</i>。</p> 这设置了min-content 啊啊 设置了一定的width 这里也有所不同 heheh没有换行 <img title="3" src="http://wx4.sinaimg.cn/small/006Zdy2vgy1ftq2mg97vfj30440450sk.jpg"> <p> </p><p> 5.对于row而言<img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1ftq2snv772j30jn04waa4.jpg"> </p> 6. grid-column:1/ span 2; span是什么东西 其实这个就是等于 grid-colunm:1/3 span是1的意思吧  你也可以写成 grid-column:1/  2 span;(也就是顺序不同而已)<br>   grid-column:1/  miao span;(这个miao是列之间的名称 其实他就是2)  。<br>错误写法 span  span  ; <p></p><p></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-b" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -286,6 +544,62 @@
       
           
         <p><style> *{ box-sizing:border-box; } .main{ width:60vw; margin:0 auto; padding-top:10vh; } img{ display:block; max-width:100%; } .content{ padding-bottom:3em; overflow:hidden; } </style> <style> .one{ display:grid; grid-template-columns:max-content 100px min-content; grid-template-rows:100px 100px; } .one&gt;div:nth-child(2){ grid-column:3/4; grid-row:2/3; } .one&gt;div:nth-child(3){ grid-column:1/4; grid-row:2/3; } </style> <div class="main"> <h1>关于Grid的尺寸大小设置问题</h1> Grid 长度相关设置: min-content  max-content fr  minmax <img title="18" src="http://wx4.sinaimg.cn/large/006Zdy2vgy1ftsapprvcij30tx0al75a.jpg"> <div class="content"> <h3>一.min-content max-content</h3> <div class="one"> <div>hold the door</div> <div>你好哇</div> <div>break me down</div> </div> <img title="14" src="http://wx4.sinaimg.cn/mw690/006Zdy2vgy1fts8vt2z2aj30ur0gngpm.jpg"> <p>如果你内容超出了grid表格所设定的，建议你用max-content min-content。</p> <p>设置了多个单元格的item(row or column) 将不会影响max-content min-content的布局,他只会遵守其他items所设置的，看下图。</p> <img title="15" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1fts9lwdw4fj30lk0apjwm.jpg"> <p>没有设置grid-row 或者columns的item是会自动被排在设置了的item的后面的。（建议自己摸索下）</p> <a href="http://labs.jensimmons.com/2017/01-007.html" target="_blank" rel="noopener">Link</a> </div> <div class="content"> <h3>二.fr</h3> <p>fr是什么，是分配剩余空间的意思，fr可以是带小数的fr。</p> <p>下图就是利用了fr来分割3个空间，这很好用，完全避免了你去计算width。</p> <img title="16" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftsa7rh3ruj30tn0cqaas.jpg"> <p>下图是Link</p> <a href="gridsetapp.com"><img title="17" src="http://wx1.sinaimg.cn/large/006Zdy2vgy1ftsalgr0k3j30x40ifdpe.jpg"></a> </div> <div class="content"> <h3>三.minmax()</h3> <img title="19" src="http://wx2.sinaimg.cn/large/006Zdy2vgy1ftsb167gcdj30si0h412w.jpg"> <p>当布局变小的时候，优先缩小fr,后缩小minmax。</p> <p>这个我另外一遍文章有例子 Grid layout example。</p> </div> </div></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-css shape -outside polygon" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/01/css shape -outside polygon/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><style> .main{   margin:0 auto;   width:60vw;   padding-top:10vh;   }*{   box-sizing:border-box;   }img{   display:block;   max-width:100%; } .content{   padding-bottom:3em;   overflow:hidden; } </style>   <div class="main"> <h1>谈谈css中的polygon的用法</h1> <p>兼容性:</p> <img title="8" src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1ftr5zghi23j30st09iq42.jpg"> <p>api:</p> <img titile="9" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftr6nd5eu5j30um0du79w.jpg"> <h3>一.circle():</h3> <p>shape-outside:circle();会直接把图形变成圆形，假如你问，我的图形并不是正方形，那浏览器怎么计算呀，和border-radius：50%是一样的。括号里面的默认值是50%，你可以填写下其他数值来感受下变化，这里就不细说了。我这里添加了margin-right:2em 等会说一下margin-box。</p> <div class="content"> <img style="width:10em;float:left;border-radius:50%;shape-outside:circle();margin-right:1em" src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1frycouipnpj305e05e405.jpg"> 喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵，对了我不是猫腔。 </div> <h3>二.ellipse():</h3> 就是椭圆形了ellipse(宽 高 at % %);这里我做个示范 ellipse:(宽/2  高/2 at 50% 50%) <div class="content"> <div style="width:10em;height:16em;background-color:#eee;float:left;shape-outside:ellipse(5em 8em at 50% 50%)"></div> 喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵，对了我不是猫腔。 </div> <h3>三. content-box; border-box; padding-box:</h3> <p>你把第一个例子 设置成shape-outside:border-box;你会发现文档流变近了，这实际上是告诉浏览器：嘿，帮我弄个多边形，以border为准哦。 如果你设置成margin-box;你会发现这和circle()一样。你亲手设置成padding-box试试吧，同一个意思，注意我设置了boxsizing:border-box。</p>  <h3>四.polygon():</h3> <p>这个是用来设置多边形的，例子polygon(50% 0, 100% 50%, 50% 100%, 0 50%,45.3% 36%,48.2%,90%,50% 100%, 0 50%,45.3% 36%);你也许会问，哇这是什么？这个你不用担心用一下tools就可以自动设置了，所以自己设置吧。注意看下版本，我的谷歌版本有点低，没有shape这个工具</p> <img title="10" src="http://wx2.sinaimg.cn/large/006Zdy2vgy1ftr7z612sbj316c0te4p3.jpg"><br><br> <div class="content"> <div style="width:10em;height:16em;background-color:#eee;float:left;"></div> 喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵，对了我不是猫腔。 </div>   <h3>五.url(.png)</h3> <div class="content"> <p>url(.png到底是什么东西？其实就是利用png来控制文档流)</p> <img title="11" src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1ftr8n8cmr7j30mj0fh0xq.jpg"><br> <img title="12" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftr8pm2vz7j30ju0eaac8.jpg"> </div>   <h3>六.shape-outside: inset(10px 10px 10px 10px)</h3> <div class="content"> insert(top right bottom left) 意思是图形的切角  (width/2   -right) 你就会发现文档流向左靠近了right。 <p>参数可以是负值</p> </div>   <h3>七.其他</h3> <div class="content"> <h4>①shape-outside改变的是文档流(floats)，对其他并无影响。</h4> <h4>②shape-outside不仅仅是用在float布局的图片中,可以用在任何float</h4> <img title="13" src="http://wx4.sinaimg.cn/large/006Zdy2vgy1ftr91itd4uj315j0pk1kx.jpg"> </div>  参考:<a href="https://www.youtube.com/watch?v=pOB75oTNhw0&feature=youtu.be" target="_blank" rel="noopener">Obliterate Boxiness with CSS Shapes</a> </div></p>
 
       
     </div>
