@@ -229,6 +229,62 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Flexbox and grid" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/01/Flexbox and grid/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><style> *{   box-sizing:border-box; } img{ max-width:100%; } </style>   </p><h1>Flexbox 和 Grid哪个更加好？ </h1> <p> 他们有各自的好处。 Flexbox能做Grid做不到的。 反转也是。  首先说一下Float，Float是不会照顾整个布局的 ，只会向某一个方向排布。 Flexbox，是一个方向的布局的，它不会计算另外一个方向引起的布局的，如果你的布局是方格形式的布局，那么Flexbox并不能做好。 Grid，它有能力处理两条线的布局，意思是他总是根据两个方向上的content的大小不同而互相影响(同时处理rows和columns)。  </p> <img title="5" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftqpy1ueyaj30ui0h1wfv.jpg"><br> <img title="6" src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1ftqpy19hlkj30sq0heabu.jpg">  <p> 还有 Grid布局是可以叠在一起的  而Flex不能<a href="http://labs.jensimmons.com/2017/01-012.html" target="_blank" rel="noopener">例子链接</a> <br><img title="7" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftqqt41fs4j30wy0akkc8.jpg"><br> 这里要设置好align-items:end;然后同时设置grid-column:1/2 grid-row:1/2把他们放同一个位置 (这里我又想到一个，如果display:grid;然后没有grid-templated-rows这些东西，那么浏览器会怎么布局？浏览器会只设置一个空格 各有[1][2]名称的线条) </p>  参考:Jensimmons的<a href="https://www.youtube.com/watch?v=hs3piaN4b5I&feature=youtu.be" target="_blank" rel="noopener">Flexbox vs. CSS Grid — Which is Better?</a><p></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Grid layout example" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -377,62 +433,6 @@ fill的话，item的宽度是会影响grid了</p>
 </div>
 </head></head></body>
 </html>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Flexbox and grid" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/08/01/Flexbox and grid/" class="article-date">
-      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><style> *{   box-sizing:border-box; } img{ max-width:100%; } </style>   </p><h1>Flexbox 和 Grid哪个更加好？ </h1> <p> 他们有各自的好处。 Flexbox能做Grid做不到的。 反转也是。  首先说一下Float，Float是不会照顾整个布局的 ，只会向某一个方向排布。 Flexbox，是一个方向的布局的，它不会计算另外一个方向引起的布局的，如果你的布局是方格形式的布局，那么Flexbox并不能做好。 Grid，它有能力处理两条线的布局，意思是他总是根据两个方向上的content的大小不同而互相影响(同时处理rows和columns)。  </p> <img title="5" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftqpy1ueyaj30ui0h1wfv.jpg"><br> <img title="6" src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1ftqpy19hlkj30sq0heabu.jpg">  <p> 还有 Grid布局是可以叠在一起的  而Flex不能<a href="http://labs.jensimmons.com/2017/01-012.html" target="_blank" rel="noopener">例子链接</a> <br><img title="7" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftqqt41fs4j30wy0akkc8.jpg"><br> 这里要设置好align-items:end;然后同时设置grid-column:1/2 grid-row:1/2把他们放同一个位置 (这里我又想到一个，如果display:grid;然后没有grid-templated-rows这些东西，那么浏览器会怎么布局？浏览器会只设置一个空格 各有[1][2]名称的线条) </p>  参考:Jensimmons的<a href="https://www.youtube.com/watch?v=hs3piaN4b5I&feature=youtu.be" target="_blank" rel="noopener">Flexbox vs. CSS Grid — Which is Better?</a><p></p>
-
       
     </div>
     
