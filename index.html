@@ -20,7 +20,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="https://github.com/Kingbultsea/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
@@ -256,11 +256,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-a" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-b" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/01/a/" class="article-date">
-      <time datetime="2018-08-01T08:14:41.000Z" itemprop="datePublished">2018-08-01</time>
+      <a href="/2018/08/01/b/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
 </a>
 
 
@@ -275,7 +275,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/a/">a</a>
+      <a class="article-title" href="/2018/08/01/b/">关于Grid的尺寸大小设置问题</a>
     </h1>
   
 
@@ -285,70 +285,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/08/01/hello-world/" class="article-date">
-      <time datetime="2018-08-01T04:12:48.402Z" itemprop="datePublished">2018-08-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p><style> *{ box-sizing:border-box; } .main{ width:60vw; margin:0 auto; padding-top:10vh; } img{ display:block; max-width:100%; } .content{ padding-bottom:3em; overflow:hidden; } </style> <style> .one{ display:grid; grid-template-columns:max-content 100px min-content; grid-template-rows:100px 100px; } .one&gt;div:nth-child(2){ grid-column:3/4; grid-row:2/3; } .one&gt;div:nth-child(3){ grid-column:1/4; grid-row:2/3; } </style> <div class="main"> <h1>关于Grid的尺寸大小设置问题</h1> Grid 长度相关设置: min-content  max-content fr  minmax <img title="18" src="http://wx4.sinaimg.cn/large/006Zdy2vgy1ftsapprvcij30tx0al75a.jpg"> <div class="content"> <h3>一.min-content max-content</h3> <div class="one"> <div>hold the door</div> <div>你好哇</div> <div>break me down</div> </div> <img title="14" src="http://wx4.sinaimg.cn/mw690/006Zdy2vgy1fts8vt2z2aj30ur0gngpm.jpg"> <p>如果你内容超出了grid表格所设定的，建议你用max-content min-content。</p> <p>设置了多个单元格的item(row or column) 将不会影响max-content min-content的布局,他只会遵守其他items所设置的，看下图。</p> <img title="15" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1fts9lwdw4fj30lk0apjwm.jpg"> <p>没有设置grid-row 或者columns的item是会自动被排在设置了的item的后面的。（建议自己摸索下）</p> <a href="http://labs.jensimmons.com/2017/01-007.html" target="_blank" rel="noopener">Link</a> </div> <div class="content"> <h3>二.fr</h3> <p>fr是什么，是分配剩余空间的意思，fr可以是带小数的fr。</p> <p>下图就是利用了fr来分割3个空间，这很好用，完全避免了你去计算width。</p> <img title="16" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftsa7rh3ruj30tn0cqaas.jpg"> <p>下图是Link</p> <a href="gridsetapp.com"><img title="17" src="http://wx1.sinaimg.cn/large/006Zdy2vgy1ftsalgr0k3j30x40ifdpe.jpg"></a> </div> <div class="content"> <h3>三.minmax()</h3> <img title="19" src="http://wx2.sinaimg.cn/large/006Zdy2vgy1ftsb167gcdj30si0h412w.jpg"> <p>当布局变小的时候，优先缩小fr,后缩小minmax。</p> <p>这个我另外一遍文章有例子 Grid layout example。</p> </div> </div></p>
 
       
     </div>
