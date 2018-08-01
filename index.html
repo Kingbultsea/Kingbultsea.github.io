@@ -121,6 +121,11 @@
                             <div class="ribbon"></div>
                         </div>
                         
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
                         
                         <div class="icon-wrap icon-me hide" data-idx="3">
                             <div class="user"></div>
@@ -135,6 +140,8 @@
                     <ul class="tips-inner">
                         <li>菜单</li>
                         <li>标签</li>
+                        
+                        <li>友情链接</li>
                         
                         
                         <li>关于我</li>
@@ -159,7 +166,7 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="/" title="Email"></a>
+                                <a class="fa Email" href="/894275157@qq.com" title="Email"></a>
                             
                                 <a class="fa GitHub" href="https://github.com/Kingbultsea" title="GitHub"></a>
                             
@@ -176,10 +183,22 @@
                 
                 
                 
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
 
                 
                 
-                <section class="switch-part switch-part3">
+                <section class="switch-part switch-part4">
                 
                     <div id="js-aboutme">前端是一个敲门砖，我一定要在两年后，就是我毕业之前，能在前端游刃有余。</div>
                 </section>
@@ -217,7 +236,7 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="/" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/894275157@qq.com" title="Email"></a>
                             
                                 <a class="fa GitHub" target="_blank" href="https://github.com/Kingbultsea" title="GitHub"></a>
                             
@@ -228,62 +247,6 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
-  
-    <article id="post-Flexbox and grid" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/08/01/Flexbox and grid/" class="article-date">
-      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><style> *{   box-sizing:border-box; } img{ max-width:100%; } </style>   </p><h1>Flexbox 和 Grid哪个更加好？ </h1> <p> 他们有各自的好处。 Flexbox能做Grid做不到的。 反转也是。  首先说一下Float，Float是不会照顾整个布局的 ，只会向某一个方向排布。 Flexbox，是一个方向的布局的，它不会计算另外一个方向引起的布局的，如果你的布局是方格形式的布局，那么Flexbox并不能做好。 Grid，它有能力处理两条线的布局，意思是他总是根据两个方向上的content的大小不同而互相影响(同时处理rows和columns)。  </p> <img title="5" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftqpy1ueyaj30ui0h1wfv.jpg"><br> <img title="6" src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1ftqpy19hlkj30sq0heabu.jpg">  <p> 还有 Grid布局是可以叠在一起的  而Flex不能<a href="http://labs.jensimmons.com/2017/01-012.html" target="_blank" rel="noopener">例子链接</a> <br><img title="7" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftqqt41fs4j30wy0akkc8.jpg"><br> 这里要设置好align-items:end;然后同时设置grid-column:1/2 grid-row:1/2把他们放同一个位置 (这里我又想到一个，如果display:grid;然后没有grid-templated-rows这些东西，那么浏览器会怎么布局？浏览器会只设置一个空格 各有[1][2]名称的线条) </p>  参考:Jensimmons的<a href="https://www.youtube.com/watch?v=hs3piaN4b5I&feature=youtu.be" target="_blank" rel="noopener">Flexbox vs. CSS Grid — Which is Better?</a><p></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
   
     <article id="post-Grid layout example" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -514,6 +477,62 @@ fill的话，item的宽度是会影响grid了</p>
 
 
   
+    <article id="post-Flexbox and grid" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/01/Flexbox and grid/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><style> *{   box-sizing:border-box; } img{ max-width:100%; } </style>   </p><h1>Flexbox 和 Grid哪个更加好？ </h1> <p> 他们有各自的好处。 Flexbox能做Grid做不到的。 反转也是。  首先说一下Float，Float是不会照顾整个布局的 ，只会向某一个方向排布。 Flexbox，是一个方向的布局的，它不会计算另外一个方向引起的布局的，如果你的布局是方格形式的布局，那么Flexbox并不能做好。 Grid，它有能力处理两条线的布局，意思是他总是根据两个方向上的content的大小不同而互相影响(同时处理rows和columns)。  </p> <img title="5" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftqpy1ueyaj30ui0h1wfv.jpg"><br> <img title="6" src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1ftqpy19hlkj30sq0heabu.jpg">  <p> 还有 Grid布局是可以叠在一起的  而Flex不能<a href="http://labs.jensimmons.com/2017/01-012.html" target="_blank" rel="noopener">例子链接</a> <br><img title="7" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftqqt41fs4j30wy0akkc8.jpg"><br> 这里要设置好align-items:end;然后同时设置grid-column:1/2 grid-row:1/2把他们放同一个位置 (这里我又想到一个，如果display:grid;然后没有grid-templated-rows这些东西，那么浏览器会怎么布局？浏览器会只设置一个空格 各有[1][2]名称的线条) </p>  参考:Jensimmons的<a href="https://www.youtube.com/watch?v=hs3piaN4b5I&feature=youtu.be" target="_blank" rel="noopener">Flexbox vs. CSS Grid — Which is Better?</a><p></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-b" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -601,6 +620,247 @@ fill的话，item的宽度是会影响grid了</p>
           
         <p><style> .main{   margin:0 auto;   width:60vw;   padding-top:10vh;   }*{   box-sizing:border-box;   }img{   display:block;   max-width:100%; } .content{   padding-bottom:3em;   overflow:hidden; } </style>   <div class="main"> <h1>谈谈css中的polygon的用法</h1> <p>兼容性:</p> <img title="8" src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1ftr5zghi23j30st09iq42.jpg"> <p>api:</p> <img titile="9" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftr6nd5eu5j30um0du79w.jpg"> <h3>一.circle():</h3> <p>shape-outside:circle();会直接把图形变成圆形，假如你问，我的图形并不是正方形，那浏览器怎么计算呀，和border-radius：50%是一样的。括号里面的默认值是50%，你可以填写下其他数值来感受下变化，这里就不细说了。我这里添加了margin-right:2em 等会说一下margin-box。</p> <div class="content"> <img style="width:10em;float:left;border-radius:50%;shape-outside:circle();margin-right:1em" src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1frycouipnpj305e05e405.jpg"> 喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵，对了我不是猫腔。 </div> <h3>二.ellipse():</h3> 就是椭圆形了ellipse(宽 高 at % %);这里我做个示范 ellipse:(宽/2  高/2 at 50% 50%) <div class="content"> <div style="width:10em;height:16em;background-color:#eee;float:left;shape-outside:ellipse(5em 8em at 50% 50%)"></div> 喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵，对了我不是猫腔。 </div> <h3>三. content-box; border-box; padding-box:</h3> <p>你把第一个例子 设置成shape-outside:border-box;你会发现文档流变近了，这实际上是告诉浏览器：嘿，帮我弄个多边形，以border为准哦。 如果你设置成margin-box;你会发现这和circle()一样。你亲手设置成padding-box试试吧，同一个意思，注意我设置了boxsizing:border-box。</p>  <h3>四.polygon():</h3> <p>这个是用来设置多边形的，例子polygon(50% 0, 100% 50%, 50% 100%, 0 50%,45.3% 36%,48.2%,90%,50% 100%, 0 50%,45.3% 36%);你也许会问，哇这是什么？这个你不用担心用一下tools就可以自动设置了，所以自己设置吧。注意看下版本，我的谷歌版本有点低，没有shape这个工具</p> <img title="10" src="http://wx2.sinaimg.cn/large/006Zdy2vgy1ftr7z612sbj316c0te4p3.jpg"><br><br> <div class="content"> <div style="width:10em;height:16em;background-color:#eee;float:left;"></div> 喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵，对了我不是猫腔。 </div>   <h3>五.url(.png)</h3> <div class="content"> <p>url(.png到底是什么东西？其实就是利用png来控制文档流)</p> <img title="11" src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1ftr8n8cmr7j30mj0fh0xq.jpg"><br> <img title="12" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftr8pm2vz7j30ju0eaac8.jpg"> </div>   <h3>六.shape-outside: inset(10px 10px 10px 10px)</h3> <div class="content"> insert(top right bottom left) 意思是图形的切角  (width/2   -right) 你就会发现文档流向左靠近了right。 <p>参数可以是负值</p> </div>   <h3>七.其他</h3> <div class="content"> <h4>①shape-outside改变的是文档流(floats)，对其他并无影响。</h4> <h4>②shape-outside不仅仅是用在float布局的图片中,可以用在任何float</h4> <img title="13" src="http://wx4.sinaimg.cn/large/006Zdy2vgy1ftr91itd4uj315j0pk1kx.jpg"> </div>  参考:<a href="https://www.youtube.com/watch?v=pOB75oTNhw0&feature=youtu.be" target="_blank" rel="noopener">Obliterate Boxiness with CSS Shapes</a> </div></p>
 
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="false-example" class="article article-type-false" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/01/example/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <!DOCTYPE html>
+<html>
+
+
+<body>
+<head>
+<style>
+  *{
+    box-sizing:border-box;
+  }
+
+
+  .main{
+    width:100%;
+    margin:0 auto;
+	padding-top:10vh;
+  }
+  img{
+  display:block;
+  max-width:100%;
+  }
+  .content{
+  padding-bottom:3em;
+  overflow:hidden;
+  }
+  .content img{
+    margin-bottom:1em;
+  }
+  
+</style>
+
+<style>
+  .redp{
+    color:red;
+	padding:1em;
+	background-color:rgba(0,0,0,0.1);
+  }
+</style>
+
+<style>
+.example1{
+background-image:url(/img/Grid教程/background-1.jpg);
+//background-size:auto 100%;
+}
+
+li{
+float:left;
+margin:10px;
+width:100px;
+background-color:rgba(255,192,203,0.68);
+list-style-type: none;
+}
+.example1-header{
+text-align:right;
+color:rgba(216,148,148,0.63);
+padding-right:1em;
+}
+.example1-header-img{
+width:10em;
+margin:1em;
+float:left;
+}
+
+
+  @supports(display:grid){
+  
+    .example1{
+	  
+      display:grid;
+	  grid-template-columns:repeat(5,6rem);
+	  grid-template-rows:repeat(5,6rem);
+	  grid-gap:1rem;
+    }
+	
+	.example1-header{
+	  grid-row:2/3;
+	  grid-column:1/3;
+	}
+	
+	li{
+      width:auto;
+	  height:6rem;
+      margin:0;
+	  display:block;
+	  font-size:0.5em!important;
+	  overflow:hidden;
+    }
+	
+	li::before{
+	  display:none!important;
+	}
+	
+	ul{
+	  margin:0;
+	  display:grid;
+	  padding:0;
+	  grid-row:1/-2;
+	  grid-column:1/2;
+	  grid-template-columns:repeat(5,6rem);
+	  grid-template-rows:repeat(3,6rem);
+	  grid-gap:1rem;
+	  font-size:0.5em!important;
+	}
+	
+	ul h3{
+	  font-size:0.7em!important;
+	}
+	
+	.example1>ul>li:nth-of-type(1){
+	  grid-column:2/3;
+	}
+	.example1>ul>li:nth-of-type(2){
+	  grid-column:4/5;
+	}
+	.example1>ul>li:nth-of-type(3){
+	  grid-column:3/4;
+	}
+	.example1>ul>li:nth-of-type(4){
+	  grid-column:5/6;
+	}
+	.example1>ul>li:nth-of-type(5){
+	  grid-column:1/2;
+	}
+	.example1>ul>li:nth-of-type(6){
+	  grid-column:4/5;
+	}
+	.example1>ul>li:nth-of-type(7){
+	  grid-column:2/3;
+	}
+	.example1>ul>li:nth-of-type(8){
+	  grid-column:5/6;
+	}
+	.example1>ul>li:nth-of-type(9){
+	  grid-column:3/4;
+	}
+	
+	
+	
+	
+	
+	.example1-header-img{
+	  grid-column:1/3;
+	  grid-row:-1/-2;
+	}
+	
+	
+  }
+  
+</style>
+
+</head>
+<div class="main">
+<h1>这是一个grid的例子</h1>
+<p>什么是main标签？他的作用是什么？我们为什么要用这个main标签？</p>
+<img src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftumns88frj30o307lwfp.jpg">
+<p class="redp">可以知道这是一种规范，并不会影响任何布局</p>
+
+  <div class="content">
+    例子：<a href="demons.local/2017/03-008.html">Link</a><img src="http://wx4.sinaimg.cn/large/006Zdy2vgy1ftumnv42yij31160tf7wh.jpg">
+	
+  </div>
+  <p>那么我们来正式布局:</p>
+  <div class="content example1" style="padding:3rem">
+    <img class="example1-header-img" src="/img/Grid教程/jazz-fest-logo.png">
+    <h2 class="example1-header">Thing u want?</h2>
+	<ul>
+	  <li><h3>im the top</h3><p>im content content wowow zzz lol</p></li>
+	  <li><h3>the winter is coming<p>im content content wowow zzz lol for us </p></h3></li>
+	  <li><h3>im the top</h3><p>im content content wowow zzz lol</p></li>
+	  <li><h3>im the top</h3><p>im content content it can save you  wowow zzz lol</p></li>
+	  <li><h3>im the top</h3><p>im content content wowow zzz lol</p></li>
+	  <li><h3>im the top</h3><p>im content content breath wowow zzz lol</p></li>
+	  <li><h3>im the top</h3><p>im content content wowow zzz lol</p></li>
+	  <li><h3>im the top</h3><p>im content content wowow zzz lol sometime in life is not just wakeup and breath</p></li>
+	  <li><h3>im the top</h3><p>im content content it can save you  wowow zzz lol</p></li>
+	 
+	</ul>
+  </div>
+  <p class="redp">这里利用了@supports(display:grid)，目的是为了兼容那些不支持grid的浏览器，你可以把display:grid修改成ggggggggrid，这样就可以看到不支持的浏览器的布局了</p>
+  <p class="redp">里面利用了很多技巧，真心劝你自己手动撸出来一个。为什么要利用两个Grid?
+	方便管理，符合格式规范。</p>
+	<p class="redp">为什么两个Grid要做到重合？重合性，可以让info和header和ul-grid 布局之间的配合。这里注意下Grid的设置，ul-grid的单位和父Grid的单位，推荐用rem或者vw，因为
+	我在做这个布局的时候，利用了fr，但是这两个布局不会重合，原因出在我的ul-grid是放在一个clomun的cell中，导致没有剩余空间。那为什么我要ul放在一个cell而不是一个area?好吧，其实我也在琢磨这个问题，其实Jensimmons 把grid-column 打多了一个s进去，这是个BUG。</p>
+参考 <a href="http://labs.jensimmons.com/2016/examples/grid-content-1.html" target="_blank" rel="noopener">Link</a>
+</div>
+</body>
+</html>
       
     </div>
     

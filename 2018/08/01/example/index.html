@@ -11,7 +11,7 @@
 
 
   .main{
-    width:60vw;
+    width:100%;
     margin:0 auto;
 	padding-top:10vh;
   }
@@ -39,7 +39,7 @@
 
 <style>
 .example1{
-background-image:url(images/background-1.jpg);
+background-image:url(/img/Grid教程/background-1.jpg);
 //background-size:auto 100%;
 }
 
@@ -82,7 +82,13 @@ float:left;
 	  height:6rem;
       margin:0;
 	  display:block;
+	  font-size:0.5em!important;
+	  overflow:hidden;
     }
+	
+	li::before{
+	  display:none!important;
+	}
 	
 	ul{
 	  margin:0;
@@ -93,7 +99,11 @@ float:left;
 	  grid-template-columns:repeat(5,6rem);
 	  grid-template-rows:repeat(3,6rem);
 	  grid-gap:1rem;
-	  font-size:0.5em;
+	  font-size:0.5em!important;
+	}
+	
+	ul h3{
+	  font-size:0.7em!important;
 	}
 	
 	.example1>ul>li:nth-of-type(1){
@@ -142,20 +152,20 @@ float:left;
 <div class="main">
 <h1>这是一个grid的例子</h1>
 <p>什么是main标签？他的作用是什么？我们为什么要用这个main标签？</p>
-<img  src="images/20.png">
+<img src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftumns88frj30o307lwfp.jpg">
 <p class="redp">可以知道这是一种规范，并不会影响任何布局</p>
 
   <div class="content">
-    例子：<a href="demons.local/2017/03-008.html">Link</a><img src="images/21.png"/>
+    例子：<a href="demons.local/2017/03-008.html">Link</a><img src="http://wx4.sinaimg.cn/large/006Zdy2vgy1ftumnv42yij31160tf7wh.jpg">
 	
   </div>
   <p>那么我们来正式布局:</p>
   <div class="content example1" style="padding:3rem">
-    <img class="example1-header-img" src="images/jazz-fest-logo.png">
+    <img class="example1-header-img" src="/img/Grid教程/jazz-fest-logo.png">
     <h2 class="example1-header">Thing u want?</h2>
 	<ul>
 	  <li><h3>im the top</h3><p>im content content wowow zzz lol</p></li>
-	  <li><h3>the winter is coming</h1><p>im content content wowow zzz lol for us </p></li>
+	  <li><h3>the winter is coming<p>im content content wowow zzz lol for us </p></h3></li>
 	  <li><h3>im the top</h3><p>im content content wowow zzz lol</p></li>
 	  <li><h3>im the top</h3><p>im content content it can save you  wowow zzz lol</p></li>
 	  <li><h3>im the top</h3><p>im content content wowow zzz lol</p></li>
@@ -171,7 +181,7 @@ float:left;
 	方便管理，符合格式规范。</p>
 	<p class="redp">为什么两个Grid要做到重合？重合性，可以让info和header和ul-grid 布局之间的配合。这里注意下Grid的设置，ul-grid的单位和父Grid的单位，推荐用rem或者vw，因为
 	我在做这个布局的时候，利用了fr，但是这两个布局不会重合，原因出在我的ul-grid是放在一个clomun的cell中，导致没有剩余空间。那为什么我要ul放在一个cell而不是一个area?好吧，其实我也在琢磨这个问题，其实Jensimmons 把grid-column 打多了一个s进去，这是个BUG。</p>
-参考 <a href="http://labs.jensimmons.com/2016/examples/grid-content-1.html">Link</a>
+参考 <a href="http://labs.jensimmons.com/2016/examples/grid-content-1.html" target="_blank" rel="noopener">Link</a>
 </div>
 </body>
 </html>
