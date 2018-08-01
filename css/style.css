@@ -262,7 +262,7 @@ a {
   position: absolute;
   right: 0;
   min-height: 100%;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.3);
   left: 300px;
   width: auto;
 }
@@ -1104,7 +1104,7 @@ color
   position: relative;
   margin: 0 30px;
   padding-right: 1.5em;
-  border-bottom: 1px solid #eee;
+  border-bottom: 3px solid rgba(0,0,0,0.5);
   background: #fff;
 }
 .archives-wrap:first-child {
@@ -1134,8 +1134,8 @@ color
 .archives .archive-article {
   margin-left: 160px;
   padding: 0.5em 0;
-  border-bottom: 1px solid #eee;
-  border-top: 1px solid #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+  border-top: 1px solid rgba(0,0,0,0.5);
   position: relative;
 }
 .archives .archive-article:first-child {
@@ -1249,7 +1249,7 @@ color
   margin: 30px;
   margin-bottom: 5px;
   position: relative;
-  background: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.9);
   -webkit-transition: all 0.2s ease-in;
 }
 .article.show {
@@ -1553,7 +1553,7 @@ color
   z-index: 1;
 }
 .article-meta time {
-  color: #aaa;
+  color: #010101;
   float: right;
 }
 .article-meta time:before {
@@ -1958,7 +1958,7 @@ aside.comment-bar:active {
   position: relative;
   margin: 0 30px;
   padding-right: 1.5em;
-  border-bottom: 1px solid #eee;
+  border-bottom: 3px solid rgba(0,0,0,0.5);
   background: #fff;
 }
 .archives-wrap:first-child {
@@ -1988,8 +1988,8 @@ aside.comment-bar:active {
 .archives .archive-article {
   margin-left: 160px;
   padding: 0.5em 0;
-  border-bottom: 1px solid #eee;
-  border-top: 1px solid #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+  border-top: 1px solid rgba(0,0,0,0.5);
   position: relative;
 }
 .archives .archive-article:first-child {
