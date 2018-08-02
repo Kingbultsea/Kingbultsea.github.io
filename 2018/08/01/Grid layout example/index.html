@@ -15,12 +15,12 @@
 
 
 
-<meta name="description" content="*{   box-sizing:border-box; }  .main{   display:grid;   grid-template-columns: repeat(auto-fit,minmax(100px,1fr));    } a{   text-decoration: none;    }  .main div{   background-color:#eee;">
+<meta name="description" content="&amp;lt;!DOCTYPE html&amp;gt; a{  color:red!important;}*{  box-sizing:border-box;}.main{  display:grid;  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));}a{  text-decoration: none;}.main div{  backg">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flexbox 和 Grid哪个更加好？">
 <meta property="og:url" content="https://github.com/Kingbultsea/2018/08/01/Grid layout example/index.html">
 <meta property="og:site_name" content="个人技术blog">
-<meta property="og:description" content="*{   box-sizing:border-box; }  .main{   display:grid;   grid-template-columns: repeat(auto-fit,minmax(100px,1fr));    } a{   text-decoration: none;    }  .main div{   background-color:#eee;">
+<meta property="og:description" content="&amp;lt;!DOCTYPE html&amp;gt; a{  color:red!important;}*{  box-sizing:border-box;}.main{  display:grid;  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));}a{  text-decoration: none;}.main div{  backg">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg">
@@ -34,10 +34,10 @@
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg">
-<meta property="og:updated_time" content="2018-08-01T16:34:58.631Z">
+<meta property="og:updated_time" content="2018-08-01T18:00:03.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flexbox 和 Grid哪个更加好？">
-<meta name="twitter:description" content="*{   box-sizing:border-box; }  .main{   display:grid;   grid-template-columns: repeat(auto-fit,minmax(100px,1fr));    } a{   text-decoration: none;    }  .main div{   background-color:#eee;">
+<meta name="twitter:description" content="&amp;lt;!DOCTYPE html&amp;gt; a{  color:red!important;}*{  box-sizing:border-box;}.main{  display:grid;  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));}a{  text-decoration: none;}.main div{  backg">
 <meta name="twitter:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -86,7 +86,7 @@
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: 
+        search: false
     }
 </script>
 
@@ -294,125 +294,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <!DOCTYPE html>
-<html>
-
-
-<body>
-<head>
-<style>
-*{
-  box-sizing:border-box;
-}
-
-.main{
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
-  
-}
-a{
-  text-decoration: none;
-  
-}
-
-.main div{
-  background-color:#eee;  
-  border:0.3em solid black;
-  border-radius: 5%;
-  
-  max-width:200px;
-  margin:5px;
-  padding:1em;
-  display:flex;
-  flex-flow:column;
-}
-
-.main div img{
-  width:100%;
-  order:-1;
-}
-
-
-.main2{
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
-  width:100%;
-}
-
-.main2>div{
-  background-color:#eee;  
-  border:0.3em solid black;
-  border-radius: 5%;
-  
-  width:10em;
-  margin:5px;
-  padding:1em;
-  display:flex;
-  flex-flow:column;
-}
-.main2>div>img{
-  width:100%;
-  order:-1;
-}
-
-.all{
-  overflow:hidden;
-  width:100%;
-}
-</style>
-<head>
-<div class="all">
-
-下面这个卡片布局，可以说很常见了。这利用了Flex 套Grid (其实Grid和Flex是没有任何冲突的)
-<p>grid-template-columns: repeat(auto-fit,minmax(100px,150px))是什么？是告诉浏览器：我想要columns，但你来决定多少个column,我想columns最小是100px最大是150px
-。然后就得到下面的例子啦，当你拖动的时候，浏览器会根据宽度来设置columns的数目，取决于浏览器可视宽度。
-</p>
-<a href="http://labs.jensimmons.com/2017/03-009.html" target="_blank" rel="noopener">你可以直接参考</a>
-<p>①grid-template-columns: repeat(auto-fit,minmax(100px,150px));
-和②grid-template-columns: repeat(auto-fit,minmax(100px,1fr)); div的max-width:150px;
-和③grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
-有什么区别？</p>
-<p>①当你缩小布局的时候，卡片的width：一直都是150px，直到布局只剩下150px的时候,卡片的width才会跟随缩小，直到width为100px</p>
-<p>②推荐这样设置，特别适合响应式布局，因为这样子不管你布局缩小，右边的空白始终都会被分配到(max-width:200px以下的时候)
-。不过这样有个问题就是当宽度太宽的时候，item之间会留很多空白,因为这个max-width实际上是影响不到grid的。所以你要完美解决max-width对grid影响
-就要像③那样设置了。
-</p>
-<p>其实你喜欢吧，只要符合你自己想要的就OK总的来说,fit :item的宽度不会影响grid(这样的好处是你可以设计一个堆叠式的卡牌)。而
-fill的话，item的宽度是会影响grid了</p>
-<p>当你的item是图片的时候(因为图片是inline-block,会有行高影响，所以为了去掉多余的space)建议你设置成block。还有应该设置width:100%，为了保持图片比例。</p>
-<p>多个item 就直接auto-fit minmax(你喜欢,1fr),因为浏览器很smart的,他会先塞满min,然后在把空白space分配给每个item</p>
-<p>如果那些旧浏览器不支持grid怎么办？你可以用css3的 <a href="http://www.css88.com/book/css/rules/@supports.htm" target="_blank" rel="noopener">@supports</a>
-。Jan说：向后兼容并不难啊，我做得越多我就发现越简单，其实这真的不难。</p>
-<p>当你使用order的时候，要注意下那些使用keyboard的用户们，通过tab来选择。下面的order:-1就设置了，你用用tab键来体验下</p>
-
-
-<div class="main">
-<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
-<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
-<a style="order:-1" href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>order:-1</p></div></a>
-
-<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
-<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
-<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
-</div>
-
-
-<p>卡片收缩布局:</p>
-<div class="main2">
-<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div>
-<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div>
-<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p</p></div>
-
-<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div>
-<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div>
-<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p</p></div>
-</div>
-
-<a href="https://www.youtube.com/watch?v=dQHtT47eH0M&feature=youtu.be" target="_blank" rel="noopener">参考视频</a>
-
-</div>
-</head></head></body>
-</html>
+        <p>&lt;!DOCTYPE html&gt;</p>
+<html><br><br><br><body><br><head><br><style><br>a{<br>  color:red!important;<br>}<br>*{<br>  box-sizing:border-box;<br>}<br><br>.main{<br>  display:grid;<br>  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));<br><br>}<br>a{<br>  text-decoration: none;<br><br>}<br><br>.main div{<br>  background-color:#eee;<br>  border:0.3em solid black;<br>  border-radius: 5%;<br><br>  max-width:200px;<br>  margin:5px;<br>  padding:1em;<br>  display:flex;<br>  flex-flow:column;<br>}<br><br>.main div img{<br>  width:100%;<br>  order:-1;<br>}<br><br><br>.main2{<br>  display:grid;<br>  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));<br>  width:100%;<br>}<br><br>.main2&gt;div{<br>  background-color:#eee;<br>  border:0.3em solid black;<br>  border-radius: 5%;<br><br>  width:10em;<br>  margin:5px;<br>  padding:1em;<br>  display:flex;<br>  flex-flow:column;<br>}<br>.main2&gt;div&gt;img{<br>  width:100%;<br>  order:-1;<br>}<br><br>.all{<br>  overflow:hidden;<br>  width:100%;<br>}<br></style><br><head><br><div class="all"><br><br>下面这个卡片布局，可以说很常见了。这利用了Flex 套Grid (其实Grid和Flex是没有任何冲突的)<br><p>grid-template-columns: repeat(auto-fit,minmax(100px,150px))是什么？是告诉浏览器：我想要columns，但你来决定多少个column,我想columns最小是100px最大是150px<br>。然后就得到下面的例子啦，当你拖动的时候，浏览器会根据宽度来设置columns的数目，取决于浏览器可视宽度。<br></p><br><a href="http://labs.jensimmons.com/2017/03-009.html" target="_blank" rel="noopener">你可以直接参考</a><br><p>①grid-template-columns: repeat(auto-fit,minmax(100px,150px));<br>和②grid-template-columns: repeat(auto-fit,minmax(100px,1fr)); div的max-width:150px;<br>和③grid-template-columns: repeat(auto-fill,minmax(100px,1fr));<br>有什么区别？</p><br><p>①当你缩小布局的时候，卡片的width：一直都是150px，直到布局只剩下150px的时候,卡片的width才会跟随缩小，直到width为100px</p><br><p>②推荐这样设置，特别适合响应式布局，因为这样子不管你布局缩小，右边的空白始终都会被分配到(max-width:200px以下的时候)<br>。不过这样有个问题就是当宽度太宽的时候，item之间会留很多空白,因为这个max-width实际上是影响不到grid的。所以你要完美解决max-width对grid影响<br>就要像③那样设置了。<br></p><br><p>其实你喜欢吧，只要符合你自己想要的就OK总的来说,fit :item的宽度不会影响grid(这样的好处是你可以设计一个堆叠式的卡牌)。而<br>fill的话，item的宽度是会影响grid了</p><br><p>当你的item是图片的时候(因为图片是inline-block,会有行高影响，所以为了去掉多余的space)建议你设置成block。还有应该设置width:100%，为了保持图片比例。</p><br><p>多个item 就直接auto-fit minmax(你喜欢,1fr),因为浏览器很smart的,他会先塞满min,然后在把空白space分配给每个item</p><br><p>如果那些旧浏览器不支持grid怎么办？你可以用css3的 <a href="http://www.css88.com/book/css/rules/@supports.htm" target="_blank" rel="noopener">@supports</a><br>。Jan说：向后兼容并不难啊，我做得越多我就发现越简单，其实这真的不难。</p><br><p>当你使用order的时候，要注意下那些使用keyboard的用户们，通过tab来选择。下面的order:-1就设置了，你用用tab键来体验下</p><br><br><br><div class="main"><br><a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a><br><a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a><br><a style="order:-1" href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>order:-1</p></div></a><br><br><a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a><br><a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a><br><a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a><br></div><br><br><br><p>卡片收缩布局:</p><br><div class="main2"><br><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div><br><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div><br><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p</p></div><br><br><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div><br><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div><br><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p</p></div><br></div><br><br><a href="https://www.youtube.com/watch?v=dQHtT47eH0M&feature=youtu.be" target="_blank" rel="noopener">参考视频</a><br><br></div><br></head></head></body><br></html>
       
     </div>
     
@@ -423,7 +306,7 @@ fill的话，item的宽度是会影响grid了</p>
         <p><span>本文标题:</span><a href="/2018/08/01/Grid layout example/">Flexbox 和 Grid哪个更加好？</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">hodor(kbsee)</a></p>
         <p><span>发布时间:</span>2018-08-01, 23:13:31</p>
-        <p><span>最后更新:</span>2018-08-02, 00:34:58</p>
+        <p><span>最后更新:</span>2018-08-02, 02:00:03</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/01/Grid layout example/" title="Flexbox 和 Grid哪个更加好？">https://github.com/Kingbultsea/2018/08/01/Grid layout example/</a>
             <span class="copy-path" data-clipboard-text="原文: https://github.com/Kingbultsea/2018/08/01/Grid layout example/　　作者: hodor(kbsee)" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -439,8 +322,8 @@ fill的话，item的宽度是会影响grid了</p>
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/01/Flexbox and grid/">
-                    Flexbox 和 Grid哪个更加好？
+                <a href="/2018/08/01/b/">
+                    关于Grid的尺寸大小设置问题
                 </a>
             </div>
         
@@ -515,7 +398,7 @@ fill的话，item的宽度是会影响grid了</p>
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/01/Flexbox and grid/" title="上一篇: Flexbox 和 Grid哪个更加好？">
+            <a href="/2018/08/01/b/" title="上一篇: 关于Grid的尺寸大小设置问题">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -529,7 +412,7 @@ fill的话，item的宽度是会影响grid了</p>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/b/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/b/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li></ul>
 
 
 

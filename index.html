@@ -74,7 +74,7 @@
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: 
+        search: false
     }
 </script>
 
@@ -304,6 +304,62 @@
 
 
   
+    <article id="post-b" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/01/b/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/b/">关于Grid的尺寸大小设置问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><style> *{ box-sizing:border-box; } .main{ width:60vw; margin:0 auto; padding-top:10vh; } img{ display:block; max-width:100%; } .content{ padding-bottom:3em; overflow:hidden; } </style> <style> .one{ display:grid; grid-template-columns:max-content 100px min-content; grid-template-rows:100px 100px; } .one&gt;div:nth-child(2){ grid-column:3/4; grid-row:2/3; } .one&gt;div:nth-child(3){ grid-column:1/4; grid-row:2/3; } </style> <div class="main"> <h1>关于Grid的尺寸大小设置问题</h1> Grid 长度相关设置: min-content  max-content fr  minmax <img title="18" src="http://wx4.sinaimg.cn/large/006Zdy2vgy1ftsapprvcij30tx0al75a.jpg"> <div class="content"> <h3>一.min-content max-content</h3> <div class="one"> <div>hold the door</div> <div>你好哇</div> <div>break me down</div> </div> <img title="14" src="http://wx4.sinaimg.cn/mw690/006Zdy2vgy1fts8vt2z2aj30ur0gngpm.jpg"> <p>如果你内容超出了grid表格所设定的，建议你用max-content min-content。</p> <p>设置了多个单元格的item(row or column) 将不会影响max-content min-content的布局,他只会遵守其他items所设置的，看下图。</p> <img title="15" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1fts9lwdw4fj30lk0apjwm.jpg"> <p>没有设置grid-row 或者columns的item是会自动被排在设置了的item的后面的。（建议自己摸索下）</p> <a href="http://labs.jensimmons.com/2017/01-007.html" target="_blank" rel="noopener">Link</a> </div> <div class="content"> <h3>二.fr</h3> <p>fr是什么，是分配剩余空间的意思，fr可以是带小数的fr。</p> <p>下图就是利用了fr来分割3个空间，这很好用，完全避免了你去计算width。</p> <img title="16" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftsa7rh3ruj30tn0cqaas.jpg"> <p>下图是Link</p> <a href="gridsetapp.com"><img title="17" src="http://wx1.sinaimg.cn/large/006Zdy2vgy1ftsalgr0k3j30x40ifdpe.jpg"></a> </div> <div class="content"> <h3>三.minmax()</h3> <img title="19" src="http://wx2.sinaimg.cn/large/006Zdy2vgy1ftsb167gcdj30si0h412w.jpg"> <p>当布局变小的时候，优先缩小fr,后缩小minmax。</p> <p>这个我另外一遍文章有例子 Grid layout example。</p> </div> </div></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Grid layout example" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -333,125 +389,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <!DOCTYPE html>
-<html>
-
-
-<body>
-<head>
-<style>
-*{
-  box-sizing:border-box;
-}
-
-.main{
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
-  
-}
-a{
-  text-decoration: none;
-  
-}
-
-.main div{
-  background-color:#eee;  
-  border:0.3em solid black;
-  border-radius: 5%;
-  
-  max-width:200px;
-  margin:5px;
-  padding:1em;
-  display:flex;
-  flex-flow:column;
-}
-
-.main div img{
-  width:100%;
-  order:-1;
-}
-
-
-.main2{
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
-  width:100%;
-}
-
-.main2>div{
-  background-color:#eee;  
-  border:0.3em solid black;
-  border-radius: 5%;
-  
-  width:10em;
-  margin:5px;
-  padding:1em;
-  display:flex;
-  flex-flow:column;
-}
-.main2>div>img{
-  width:100%;
-  order:-1;
-}
-
-.all{
-  overflow:hidden;
-  width:100%;
-}
-</style>
-<head>
-<div class="all">
-
-下面这个卡片布局，可以说很常见了。这利用了Flex 套Grid (其实Grid和Flex是没有任何冲突的)
-<p>grid-template-columns: repeat(auto-fit,minmax(100px,150px))是什么？是告诉浏览器：我想要columns，但你来决定多少个column,我想columns最小是100px最大是150px
-。然后就得到下面的例子啦，当你拖动的时候，浏览器会根据宽度来设置columns的数目，取决于浏览器可视宽度。
-</p>
-<a href="http://labs.jensimmons.com/2017/03-009.html" target="_blank" rel="noopener">你可以直接参考</a>
-<p>①grid-template-columns: repeat(auto-fit,minmax(100px,150px));
-和②grid-template-columns: repeat(auto-fit,minmax(100px,1fr)); div的max-width:150px;
-和③grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
-有什么区别？</p>
-<p>①当你缩小布局的时候，卡片的width：一直都是150px，直到布局只剩下150px的时候,卡片的width才会跟随缩小，直到width为100px</p>
-<p>②推荐这样设置，特别适合响应式布局，因为这样子不管你布局缩小，右边的空白始终都会被分配到(max-width:200px以下的时候)
-。不过这样有个问题就是当宽度太宽的时候，item之间会留很多空白,因为这个max-width实际上是影响不到grid的。所以你要完美解决max-width对grid影响
-就要像③那样设置了。
-</p>
-<p>其实你喜欢吧，只要符合你自己想要的就OK总的来说,fit :item的宽度不会影响grid(这样的好处是你可以设计一个堆叠式的卡牌)。而
-fill的话，item的宽度是会影响grid了</p>
-<p>当你的item是图片的时候(因为图片是inline-block,会有行高影响，所以为了去掉多余的space)建议你设置成block。还有应该设置width:100%，为了保持图片比例。</p>
-<p>多个item 就直接auto-fit minmax(你喜欢,1fr),因为浏览器很smart的,他会先塞满min,然后在把空白space分配给每个item</p>
-<p>如果那些旧浏览器不支持grid怎么办？你可以用css3的 <a href="http://www.css88.com/book/css/rules/@supports.htm" target="_blank" rel="noopener">@supports</a>
-。Jan说：向后兼容并不难啊，我做得越多我就发现越简单，其实这真的不难。</p>
-<p>当你使用order的时候，要注意下那些使用keyboard的用户们，通过tab来选择。下面的order:-1就设置了，你用用tab键来体验下</p>
-
-
-<div class="main">
-<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
-<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
-<a style="order:-1" href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>order:-1</p></div></a>
-
-<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
-<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
-<a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a>
-</div>
-
-
-<p>卡片收缩布局:</p>
-<div class="main2">
-<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div>
-<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div>
-<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p</p></div>
-
-<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div>
-<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div>
-<div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p</p></div>
-</div>
-
-<a href="https://www.youtube.com/watch?v=dQHtT47eH0M&feature=youtu.be" target="_blank" rel="noopener">参考视频</a>
-
-</div>
-</head></head></body>
-</html>
+        <p>&lt;!DOCTYPE html&gt;</p>
+<html><br><br><br><body><br><head><br><style><br>a{<br>  color:red!important;<br>}<br>*{<br>  box-sizing:border-box;<br>}<br><br>.main{<br>  display:grid;<br>  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));<br><br>}<br>a{<br>  text-decoration: none;<br><br>}<br><br>.main div{<br>  background-color:#eee;<br>  border:0.3em solid black;<br>  border-radius: 5%;<br><br>  max-width:200px;<br>  margin:5px;<br>  padding:1em;<br>  display:flex;<br>  flex-flow:column;<br>}<br><br>.main div img{<br>  width:100%;<br>  order:-1;<br>}<br><br><br>.main2{<br>  display:grid;<br>  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));<br>  width:100%;<br>}<br><br>.main2&gt;div{<br>  background-color:#eee;<br>  border:0.3em solid black;<br>  border-radius: 5%;<br><br>  width:10em;<br>  margin:5px;<br>  padding:1em;<br>  display:flex;<br>  flex-flow:column;<br>}<br>.main2&gt;div&gt;img{<br>  width:100%;<br>  order:-1;<br>}<br><br>.all{<br>  overflow:hidden;<br>  width:100%;<br>}<br></style><br><head><br><div class="all"><br><br>下面这个卡片布局，可以说很常见了。这利用了Flex 套Grid (其实Grid和Flex是没有任何冲突的)<br><p>grid-template-columns: repeat(auto-fit,minmax(100px,150px))是什么？是告诉浏览器：我想要columns，但你来决定多少个column,我想columns最小是100px最大是150px<br>。然后就得到下面的例子啦，当你拖动的时候，浏览器会根据宽度来设置columns的数目，取决于浏览器可视宽度。<br></p><br><a href="http://labs.jensimmons.com/2017/03-009.html" target="_blank" rel="noopener">你可以直接参考</a><br><p>①grid-template-columns: repeat(auto-fit,minmax(100px,150px));<br>和②grid-template-columns: repeat(auto-fit,minmax(100px,1fr)); div的max-width:150px;<br>和③grid-template-columns: repeat(auto-fill,minmax(100px,1fr));<br>有什么区别？</p><br><p>①当你缩小布局的时候，卡片的width：一直都是150px，直到布局只剩下150px的时候,卡片的width才会跟随缩小，直到width为100px</p><br><p>②推荐这样设置，特别适合响应式布局，因为这样子不管你布局缩小，右边的空白始终都会被分配到(max-width:200px以下的时候)<br>。不过这样有个问题就是当宽度太宽的时候，item之间会留很多空白,因为这个max-width实际上是影响不到grid的。所以你要完美解决max-width对grid影响<br>就要像③那样设置了。<br></p><br><p>其实你喜欢吧，只要符合你自己想要的就OK总的来说,fit :item的宽度不会影响grid(这样的好处是你可以设计一个堆叠式的卡牌)。而<br>fill的话，item的宽度是会影响grid了</p><br><p>当你的item是图片的时候(因为图片是inline-block,会有行高影响，所以为了去掉多余的space)建议你设置成block。还有应该设置width:100%，为了保持图片比例。</p><br><p>多个item 就直接auto-fit minmax(你喜欢,1fr),因为浏览器很smart的,他会先塞满min,然后在把空白space分配给每个item</p><br><p>如果那些旧浏览器不支持grid怎么办？你可以用css3的 <a href="http://www.css88.com/book/css/rules/@supports.htm" target="_blank" rel="noopener">@supports</a><br>。Jan说：向后兼容并不难啊，我做得越多我就发现越简单，其实这真的不难。</p><br><p>当你使用order的时候，要注意下那些使用keyboard的用户们，通过tab来选择。下面的order:-1就设置了，你用用tab键来体验下</p><br><br><br><div class="main"><br><a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a><br><a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a><br><a style="order:-1" href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>order:-1</p></div></a><br><br><a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a><br><a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a><br><a href="#"><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div></a><br></div><br><br><br><p>卡片收缩布局:</p><br><div class="main2"><br><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div><br><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div><br><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p</p></div><br><br><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div><br><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p </p></div><br><div><p>title</p><img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1frycovbf8cj304z0553zu.jpg"><p>i m p</p></div><br></div><br><br><a href="https://www.youtube.com/watch?v=dQHtT47eH0M&feature=youtu.be" target="_blank" rel="noopener">参考视频</a><br><br></div><br></head></head></body><br></html>
       
     </div>
     
@@ -533,10 +472,10 @@ fill的话，item的宽度是会影响grid了</p>
 
 
   
-    <article id="post-b" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="false-example" class="article article-type-false" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/01/b/" class="article-date">
+      <a href="/2018/08/01/example/" class="article-date">
       <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
 </a>
 
@@ -552,7 +491,7 @@ fill的话，item的宽度是会影响grid了</p>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/b/">关于Grid的尺寸大小设置问题</a>
+      <a class="article-title" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a>
     </h1>
   
 
@@ -562,8 +501,193 @@ fill的话，item的宽度是会影响grid了</p>
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><style> *{ box-sizing:border-box; } .main{ width:60vw; margin:0 auto; padding-top:10vh; } img{ display:block; max-width:100%; } .content{ padding-bottom:3em; overflow:hidden; } </style> <style> .one{ display:grid; grid-template-columns:max-content 100px min-content; grid-template-rows:100px 100px; } .one&gt;div:nth-child(2){ grid-column:3/4; grid-row:2/3; } .one&gt;div:nth-child(3){ grid-column:1/4; grid-row:2/3; } </style> <div class="main"> <h1>关于Grid的尺寸大小设置问题</h1> Grid 长度相关设置: min-content  max-content fr  minmax <img title="18" src="http://wx4.sinaimg.cn/large/006Zdy2vgy1ftsapprvcij30tx0al75a.jpg"> <div class="content"> <h3>一.min-content max-content</h3> <div class="one"> <div>hold the door</div> <div>你好哇</div> <div>break me down</div> </div> <img title="14" src="http://wx4.sinaimg.cn/mw690/006Zdy2vgy1fts8vt2z2aj30ur0gngpm.jpg"> <p>如果你内容超出了grid表格所设定的，建议你用max-content min-content。</p> <p>设置了多个单元格的item(row or column) 将不会影响max-content min-content的布局,他只会遵守其他items所设置的，看下图。</p> <img title="15" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1fts9lwdw4fj30lk0apjwm.jpg"> <p>没有设置grid-row 或者columns的item是会自动被排在设置了的item的后面的。（建议自己摸索下）</p> <a href="http://labs.jensimmons.com/2017/01-007.html" target="_blank" rel="noopener">Link</a> </div> <div class="content"> <h3>二.fr</h3> <p>fr是什么，是分配剩余空间的意思，fr可以是带小数的fr。</p> <p>下图就是利用了fr来分割3个空间，这很好用，完全避免了你去计算width。</p> <img title="16" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftsa7rh3ruj30tn0cqaas.jpg"> <p>下图是Link</p> <a href="gridsetapp.com"><img title="17" src="http://wx1.sinaimg.cn/large/006Zdy2vgy1ftsalgr0k3j30x40ifdpe.jpg"></a> </div> <div class="content"> <h3>三.minmax()</h3> <img title="19" src="http://wx2.sinaimg.cn/large/006Zdy2vgy1ftsb167gcdj30si0h412w.jpg"> <p>当布局变小的时候，优先缩小fr,后缩小minmax。</p> <p>这个我另外一遍文章有例子 Grid layout example。</p> </div> </div></p>
+        <!DOCTYPE html>
+<html>
 
+
+<body>
+<head>
+<style>
+  *{
+    box-sizing:border-box;
+  }
+
+
+  .main{
+    width:100%;
+    margin:0 auto;
+	padding-top:10vh;
+  }
+  img{
+  display:block;
+  max-width:100%;
+  }
+  .content{
+  padding-bottom:3em;
+  overflow:hidden;
+  }
+  .content img{
+    margin-bottom:1em;
+  }
+  
+</style>
+
+<style>
+  .redp{
+    color:red;
+	padding:1em;
+	background-color:rgba(0,0,0,0.1);
+  }
+</style>
+
+<style>
+.example1{
+background-image:url(/img/Grid教程/background-1.jpg);
+//background-size:auto 100%;
+}
+
+li{
+float:left;
+margin:10px;
+width:100px;
+background-color:rgba(255,192,203,0.68);
+list-style-type: none;
+}
+.example1-header{
+text-align:right;
+color:rgba(216,148,148,0.63);
+padding-right:1em;
+}
+.example1-header-img{
+width:10em;
+margin:1em;
+float:left;
+}
+
+
+  @supports(display:grid){
+  
+    .example1{
+	  
+      display:grid;
+	  grid-template-columns:repeat(5,6rem);
+	  grid-template-rows:repeat(5,6rem);
+	  grid-gap:1rem;
+    }
+	
+	.example1-header{
+	  grid-row:2/3;
+	  grid-column:1/3;
+	}
+	
+	li{
+      width:auto;
+	  height:6rem;
+      margin:0;
+	  display:block;
+	  font-size:0.5em!important;
+	  overflow:hidden;
+    }
+	
+	li::before{
+	  display:none!important;
+	}
+	
+	ul{
+	  margin:0;
+	  display:grid;
+	  padding:0;
+	  grid-row:1/-2;
+	  grid-column:1/2;
+	  grid-template-columns:repeat(5,6rem);
+	  grid-template-rows:repeat(3,6rem);
+	  grid-gap:1rem;
+	  font-size:0.5em!important;
+	}
+	
+	ul h3{
+	  font-size:0.7em!important;
+	}
+	
+	.example1>ul>li:nth-of-type(1){
+	  grid-column:2/3;
+	}
+	.example1>ul>li:nth-of-type(2){
+	  grid-column:4/5;
+	}
+	.example1>ul>li:nth-of-type(3){
+	  grid-column:3/4;
+	}
+	.example1>ul>li:nth-of-type(4){
+	  grid-column:5/6;
+	}
+	.example1>ul>li:nth-of-type(5){
+	  grid-column:1/2;
+	}
+	.example1>ul>li:nth-of-type(6){
+	  grid-column:4/5;
+	}
+	.example1>ul>li:nth-of-type(7){
+	  grid-column:2/3;
+	}
+	.example1>ul>li:nth-of-type(8){
+	  grid-column:5/6;
+	}
+	.example1>ul>li:nth-of-type(9){
+	  grid-column:3/4;
+	}
+	
+	
+	
+	
+	
+	.example1-header-img{
+	  grid-column:1/3;
+	  grid-row:-1/-2;
+	}
+	
+	
+  }
+  
+</style>
+
+</head>
+<div class="main">
+<h1>这是一个grid的例子</h1>
+<p>什么是main标签？他的作用是什么？我们为什么要用这个main标签？</p>
+<img src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftumns88frj30o307lwfp.jpg">
+<p class="redp">可以知道这是一种规范，并不会影响任何布局</p>
+
+  <div class="content">
+    例子：<a href="demons.local/2017/03-008.html">Link</a><img src="http://wx4.sinaimg.cn/large/006Zdy2vgy1ftumnv42yij31160tf7wh.jpg">
+	
+  </div>
+  <p>那么我们来正式布局:</p>
+  <div class="content example1" style="padding:3rem">
+    <img class="example1-header-img" src="/img/Grid教程/jazz-fest-logo.png">
+    <h2 class="example1-header">Thing u want?</h2>
+	<ul>
+	  <li><h3>im the top</h3><p>im content content wowow zzz lol</p></li>
+	  <li><h3>the winter is coming<p>im content content wowow zzz lol for us </p></h3></li>
+	  <li><h3>im the top</h3><p>im content content wowow zzz lol</p></li>
+	  <li><h3>im the top</h3><p>im content content it can save you  wowow zzz lol</p></li>
+	  <li><h3>im the top</h3><p>im content content wowow zzz lol</p></li>
+	  <li><h3>im the top</h3><p>im content content breath wowow zzz lol</p></li>
+	  <li><h3>im the top</h3><p>im content content wowow zzz lol</p></li>
+	  <li><h3>im the top</h3><p>im content content wowow zzz lol sometime in life is not just wakeup and breath</p></li>
+	  <li><h3>im the top</h3><p>im content content it can save you  wowow zzz lol</p></li>
+	 
+	</ul>
+  </div>
+  <p class="redp">这里利用了@supports(display:grid)，目的是为了兼容那些不支持grid的浏览器，你可以把display:grid修改成ggggggggrid，这样就可以看到不支持的浏览器的布局了</p>
+  <p class="redp">里面利用了很多技巧，真心劝你自己手动撸出来一个。为什么要利用两个Grid?
+	方便管理，符合格式规范。</p>
+	<p class="redp">为什么两个Grid要做到重合？重合性，可以让info和header和ul-grid 布局之间的配合。这里注意下Grid的设置，ul-grid的单位和父Grid的单位，推荐用rem或者vw，因为
+	我在做这个布局的时候，利用了fr，但是这两个布局不会重合，原因出在我的ul-grid是放在一个clomun的cell中，导致没有剩余空间。那为什么我要ul放在一个cell而不是一个area?好吧，其实我也在琢磨这个问题，其实Jensimmons 把grid-column 打多了一个s进去，这是个BUG。</p>
+参考 <a href="http://labs.jensimmons.com/2016/examples/grid-content-1.html" target="_blank" rel="noopener">Link</a>
+</div>
+</body>
+</html>
       
     </div>
     
