@@ -122,7 +122,7 @@ html {
 }
 body {
   font-family: "Lucida Grande", Verdana, "Helvetica Neue", Arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
-  background: #fff;
+  background-color: #ecdcdf !important;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   -moz-font-feature-settings: "liga" on;
