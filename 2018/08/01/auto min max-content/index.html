@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1ftq19toipxj30940anmx3.jpg">
 <meta property="og:image" content="http://wx4.sinaimg.cn/small/006Zdy2vgy1ftq2mg97vfj30440450sk.jpg">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1ftq2snv772j30jn04waa4.jpg">
-<meta property="og:updated_time" content="2018-08-02T06:45:53.795Z">
+<meta property="og:updated_time" content="2018-08-02T07:24:16.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="auto min max-content in css Grid">
 <meta name="twitter:description" content="记录了一些Grid的小知识点">
@@ -352,6 +352,18 @@ min:<img title="2" src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1ftq19toipxj30940a
 6. grid-column:1/ span 2; span是什么东西 其实这个就是等于 grid-colunm:1/3 span是1的意思吧  你也可以写成
 grid-column:1/  2 span;(也就是顺序不同而已)<br>   grid-column:1/  miao span;(这个miao是列之间的名称 其实他就是2)  。<br>错误写法 span  span  ;
 <p></p>
+
+<p>建议用float 当你所有item都是拥有一样的宽高比
+display :inline-block    | inline 这样会有默认行高哦？然后设置成block 这样我们就可以不要行高了</p>
+
+<p>现在Grid的兼容性非常好了 现在是level one阶段
+假如你有文字作为item 那么这个对于开发者是anonymous item但对用户来说是存在的
+subgrid将要到来(这个应该就是 我的example那样继承了吧)</p>
+
+<p>grid-gap是无法放置内容的 假如你想放置内容 你可以设置大的track和小的track这样来制造小cell大cell</p>
+
+<a href="caniuse.com">caniuse.com/#/search-CSS Grid</a>
+
 </body>
 </html>
 
@@ -365,7 +377,7 @@ grid-column:1/  2 span;(也就是顺序不同而已)<br>   grid-column:1/  miao 
         <p><span>本文标题:</span><a href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">hodor(kbsee)</a></p>
         <p><span>发布时间:</span>2018-08-01, 23:13:31</p>
-        <p><span>最后更新:</span>2018-08-02, 14:45:53</p>
+        <p><span>最后更新:</span>2018-08-02, 15:24:16</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/01/auto min max-content/" title="auto min max-content in css Grid">https://github.com/Kingbultsea/2018/08/01/auto min max-content/</a>
             <span class="copy-path" data-clipboard-text="原文: https://github.com/Kingbultsea/2018/08/01/auto min max-content/　　作者: hodor(kbsee)" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -381,15 +393,15 @@ grid-column:1/  2 span;(也就是顺序不同而已)<br>   grid-column:1/  miao 
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/01/Flexbox and grid/">
-                    Flexbox 和 Grid哪个更加好？
+                <a href="/2018/08/01/css shape -outside polygon/">
+                    css shape的用法
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/01/Grid layout example/">
-                    Grid的fit fill
+                <a href="/2018/08/01/example/">
+                    这是一个在杂志看到的布局，我们使用Grid来实现一个
                 </a>
             </div>
         
@@ -458,7 +470,7 @@ grid-column:1/  2 span;(也就是顺序不同而已)<br>   grid-column:1/  miao 
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/01/Flexbox and grid/" title="上一篇: Flexbox 和 Grid哪个更加好？">
+            <a href="/2018/08/01/css shape -outside polygon/" title="上一篇: css shape的用法">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -466,13 +478,13 @@ grid-column:1/  2 span;(也就是顺序不同而已)<br>   grid-column:1/  miao 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/01/Grid layout example/" title="下一篇: Grid的fit fill">
+            <a href="/2018/08/01/example/" title="下一篇: 这是一个在杂志看到的布局，我们使用Grid来实现一个">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li></ul>
 
 
 
