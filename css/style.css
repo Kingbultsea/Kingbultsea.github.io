@@ -104,6 +104,16 @@ ol {
   list-style: decimal;
   padding-left: 20px;
 }
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.red-p {
+  padding: 2em;
+  background-color: #eee;
+  color: rgba(236,53,85,0.8);
+}
 ul {
   list-style: none;
 }
