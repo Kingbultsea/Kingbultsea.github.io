@@ -88,7 +88,7 @@ require([], function (){
         if(!!yiliaConfig.isHome) {
             require([yiliaConfig.scrollreveal], function (ScrollReveal) {
                 var animationNames = [
-                 "fadeIn","fadeInRight", "lightSpeedIn", "slideInUp","zoomIn",
+                 "fadeIn","fadeInRight"
                 ],
                 len = animationNames.length,
                 randomAnimationName = animationNames[Math.ceil(Math.random() * len) - 1];
