@@ -18,16 +18,13 @@
     
 
 
-<meta name="description" content="Kingbultsea">
 <meta property="og:type" content="website">
 <meta property="og:title" content="个人技术blog">
-<meta property="og:url" content="https://github.com/Kingbultsea/index.html">
+<meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="个人技术blog">
-<meta property="og:description" content="Kingbultsea">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="个人技术blog">
-<meta name="twitter:description" content="Kingbultsea">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -278,7 +275,13 @@
     <p class="red-p">Prerender-SPA-Plugin，生成静态页面站点，是一个预渲染插件</p>
 	<h3 id="two">配置</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">webpack.conf.js</span><br><span class="line">var path = require(&apos;path&apos;)</span><br><span class="line">var PrerenderSpaPlugin = require(&apos;prerender-spa-plugin&apos;)</span><br><span class="line"> </span><br><span class="line">module.exports = &#123;</span><br><span class="line">  // ...</span><br><span class="line">  plugins: [</span><br><span class="line">    new PrerenderSpaPlugin(</span><br><span class="line">      // Absolute path to compiled SPA</span><br><span class="line">      path.join(__dirname, &apos;../dist&apos;),</span><br><span class="line">      // List of routes to prerender</span><br><span class="line">      [ &apos;/&apos;, &apos;/about&apos;, &apos;/contact&apos; ]</span><br><span class="line">    )</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-	
+<p>我遇到了一个问题.. 就是dist那些文件 路径错了。
+解决方法，就是config的index.js文件，修改build的路径 assetsPublicPath: '../'。
+就是上一级，好吧，坑又来了。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Uncaught ReferenceError: webpackJsonp is not defined</span><br><span class="line">   at /E:/vue_cli_test/myvuetest/dist/static/js/1.68bf31c38271f32f9606.js:1</span><br><span class="line">  解决方法</span><br><span class="line">     chunks: [&apos;manifest&apos;, &apos;vendor&apos;, &apos;app&apos;]</span><br><span class="line">  //有什么问题干他https://www.cnblogs.com/hcxy/p/7999360.html</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+然后又有坑啦，就是空白页面，我试试把mode删除。
+</p><p>好难啊，要去学习ngnix才行，我现在先去学习SSR了。今晚烧烤~2018年8月5日15点00分</p>
+<p></p>
   </div>
 
 
@@ -512,6 +515,72 @@
 
 
   
+    <article id="post-Grid layout example" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/08/01/Grid layout example/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/Grid layout example/">Grid的fit fill</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这写了一下repeat(fit | fill)的不同点，以及怎么利用，内有实例（堆叠式布局，卡片式布局）Grid。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/08/01/Grid layout example/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Sizing" class="article article-type-post" itemscope itemprop="blogPost">
   
   
@@ -644,11 +713,11 @@
 
 
   
-    <article id="post-Grid layout example" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-css shape -outside polygon" class="article article-type-post" itemscope itemprop="blogPost">
   
   
     <div class="article-meta">
-      <a href="/2018/08/01/Grid layout example/" class="article-date">
+      <a href="/2018/08/01/css shape -outside polygon/" class="article-date">
       <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
 </a>
 
@@ -664,7 +733,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/Grid layout example/">Grid的fit fill</a>
+      <a class="article-title" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a>
     </h1>
   
 
@@ -674,7 +743,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              这写了一下repeat(fit | fill)的不同点，以及怎么利用，内有实例（堆叠式布局，卡片式布局）Grid。
+              我的firefox只有61 用不出shape，然后用谷歌打开，但是又没有可以设置polygon，建议61版本以上的，自己手动设置下下面的实例来练习下。
           
       
     </div>
@@ -685,12 +754,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-shape/">css-shape</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a href="/2018/08/01/Grid layout example/#more">more >></a>
+          <a href="/2018/08/01/css shape -outside polygon/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -757,72 +826,6 @@
       
         <p class="article-more-link">
           <a href="/2018/08/01/example/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-css shape -outside polygon" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/08/01/css shape -outside polygon/" class="article-date">
-      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              我的firefox只有61 用不出shape，然后用谷歌打开，但是又没有可以设置polygon，建议61版本以上的，自己手动设置下下面的实例来练习下。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-shape/">css-shape</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/08/01/css shape -outside polygon/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

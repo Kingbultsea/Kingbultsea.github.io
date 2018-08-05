@@ -19,11 +19,11 @@
 <meta name="keywords" content="webpack,plugin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Prerender-SPA-Plugin是什么东西?">
-<meta property="og:url" content="https://github.com/Kingbultsea/2018/08/04/Prerender-SPA-Plugin是什么东西/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/08/04/Prerender-SPA-Plugin是什么东西/index.html">
 <meta property="og:site_name" content="个人技术blog">
 <meta property="og:description" content="@import &quot;css/main.css&quot;           介绍     Prerender-SPA-Plugin，生成静态页面站点，是一个预渲染插件 	配置 123456789101112131415webpack.conf.jsvar path = require(&amp;apos;path&amp;apos;)var PrerenderSpaPlugin = require(&amp;apos">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-04T08:47:03.581Z">
+<meta property="og:updated_time" content="2018-08-05T07:00:27.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Prerender-SPA-Plugin是什么东西?">
 <meta name="twitter:description" content="@import &quot;css/main.css&quot;           介绍     Prerender-SPA-Plugin，生成静态页面站点，是一个预渲染插件 	配置 123456789101112131415webpack.conf.jsvar path = require(&amp;apos;path&amp;apos;)var PrerenderSpaPlugin = require(&amp;apos">
@@ -284,7 +284,13 @@
     <p class="red-p">Prerender-SPA-Plugin，生成静态页面站点，是一个预渲染插件</p>
 	<h3 id="two">配置</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">webpack.conf.js</span><br><span class="line">var path = require(&apos;path&apos;)</span><br><span class="line">var PrerenderSpaPlugin = require(&apos;prerender-spa-plugin&apos;)</span><br><span class="line"> </span><br><span class="line">module.exports = &#123;</span><br><span class="line">  // ...</span><br><span class="line">  plugins: [</span><br><span class="line">    new PrerenderSpaPlugin(</span><br><span class="line">      // Absolute path to compiled SPA</span><br><span class="line">      path.join(__dirname, &apos;../dist&apos;),</span><br><span class="line">      // List of routes to prerender</span><br><span class="line">      [ &apos;/&apos;, &apos;/about&apos;, &apos;/contact&apos; ]</span><br><span class="line">    )</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-	
+<p>我遇到了一个问题.. 就是dist那些文件 路径错了。
+解决方法，就是config的index.js文件，修改build的路径 assetsPublicPath: '../'。
+就是上一级，好吧，坑又来了。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Uncaught ReferenceError: webpackJsonp is not defined</span><br><span class="line">   at /E:/vue_cli_test/myvuetest/dist/static/js/1.68bf31c38271f32f9606.js:1</span><br><span class="line">  解决方法</span><br><span class="line">     chunks: [&apos;manifest&apos;, &apos;vendor&apos;, &apos;app&apos;]</span><br><span class="line">  //有什么问题干他https://www.cnblogs.com/hcxy/p/7999360.html</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+然后又有坑啦，就是空白页面，我试试把mode删除。
+</p><p>好难啊，要去学习ngnix才行，我现在先去学习SSR了。今晚烧烤~2018年8月5日15点00分</p>
+<p></p>
   </div>
 
 
@@ -300,10 +306,10 @@
         <p><span>本文标题:</span><a href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">头不秃，终究是一枚垃圾，power来自于卤蛋。</a></p>
         <p><span>发布时间:</span>2018-08-04, 14:17:53</p>
-        <p><span>最后更新:</span>2018-08-04, 16:47:03</p>
+        <p><span>最后更新:</span>2018-08-05, 15:00:27</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/" title="Prerender-SPA-Plugin是什么东西?">https://github.com/Kingbultsea/2018/08/04/Prerender-SPA-Plugin是什么东西/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://github.com/Kingbultsea/2018/08/04/Prerender-SPA-Plugin是什么东西/　　作者: 头不秃，终究是一枚垃圾，power来自于卤蛋。" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/" title="Prerender-SPA-Plugin是什么东西?">http://yoursite.com/2018/08/04/Prerender-SPA-Plugin是什么东西/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/08/04/Prerender-SPA-Plugin是什么东西/　　作者: 头不秃，终究是一枚垃圾，power来自于卤蛋。" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -399,7 +405,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li></ul>
 
 
 
