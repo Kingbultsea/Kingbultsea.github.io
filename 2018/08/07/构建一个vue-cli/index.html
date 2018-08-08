@@ -15,18 +15,21 @@
 
 
 
-<meta name="description" content="就是现在webpack4也出来了，想好好自己深入了解一番，构建一个很好的脚手架出来，然后再来个SSR吧（SSR学习进度 60%）。">
+<meta name="description" content="@import &apos;css/main.css&apos;           什么是--inline ? 	在 dev-server 的两种不同模式之间切换。默认情况下，应用程序启用内联模式(inline mode)。这意味着一段处理实时重载的脚本被插入到你的包(bundle)中，并且构建消息将会出现在浏览器控制台。  	什么是--progress ? 	将运行进度输出到控制台。  	2018年">
 <meta name="keywords" content="webpack,plugin,vue-cli">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue-cli 构建">
+<meta property="og:title" content="vue-cli 构建(期限2天内，因为还不是很熟悉webpack)">
 <meta property="og:url" content="http://yoursite.com/2018/08/07/构建一个vue-cli/index.html">
 <meta property="og:site_name" content="个人技术blog">
-<meta property="og:description" content="就是现在webpack4也出来了，想好好自己深入了解一番，构建一个很好的脚手架出来，然后再来个SSR吧（SSR学习进度 60%）。">
+<meta property="og:description" content="@import &apos;css/main.css&apos;           什么是--inline ? 	在 dev-server 的两种不同模式之间切换。默认情况下，应用程序启用内联模式(inline mode)。这意味着一段处理实时重载的脚本被插入到你的包(bundle)中，并且构建消息将会出现在浏览器控制台。  	什么是--progress ? 	将运行进度输出到控制台。  	2018年">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-07T14:08:45.267Z">
+<meta property="og:image" content="http://yoursite.com/2018/08/07/构建一个vue-cli/img/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/07/构建一个vue-cli/img/2.png">
+<meta property="og:updated_time" content="2018-08-08T13:13:50.599Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue-cli 构建">
-<meta name="twitter:description" content="就是现在webpack4也出来了，想好好自己深入了解一番，构建一个很好的脚手架出来，然后再来个SSR吧（SSR学习进度 60%）。">
+<meta name="twitter:title" content="vue-cli 构建(期限2天内，因为还不是很熟悉webpack)">
+<meta name="twitter:description" content="@import &apos;css/main.css&apos;           什么是--inline ? 	在 dev-server 的两种不同模式之间切换。默认情况下，应用程序启用内联模式(inline mode)。这意味着一段处理实时重载的脚本被插入到你的包(bundle)中，并且构建消息将会出现在浏览器控制台。  	什么是--progress ? 	将运行进度输出到控制台。  	2018年">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/07/构建一个vue-cli/img/1.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +61,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>vue-cli 构建 | 个人技术blog</title>
+<title>vue-cli 构建(期限2天内，因为还不是很熟悉webpack) | 个人技术blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -247,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      vue-cli 构建
+      vue-cli 构建(期限2天内，因为还不是很熟悉webpack)
     </h1>
   
 
@@ -275,12 +278,34 @@
 <body>
 <head>
 <style>
-
+@import 'css/main.css'
 </style>
 </head>
 
   <div class="main">
-
+    什么是--inline ?
+	<blockquote><p>在 dev-server 的两种不同模式之间切换。默认情况下，应用程序启用内联模式(inline mode)。这意味着一段处理实时重载的脚本被插入到你的包(bundle)中，并且构建消息将会出现在浏览器控制台。</p>
+</blockquote>
+	什么是--progress ?
+	<blockquote><p>将运行进度输出到控制台。</p>
+</blockquote>
+	2018年8月8日19点47分
+	我弄了一个可以正常使用的vue了。
+	里面的坑有 improt vue from "vue"，然后运行的时候，告诉我不能使用template。
+	我去看看vue的package.json文件，发现，哇。
+	<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;main&quot;: &quot;dist/vue.runtime.common.js&quot;</span><br></pre></td></tr></table></figure>
+	现在可以去查查vue.runtime.common.js是什么文件了。
+	<img src="img/1.png">
+	<blockquote><p>运行时：用来创建 Vue 实例、渲染并处理虚拟 DOM 等的代码。基本上就是除去编译器的其它一切。</p>
+</blockquote>
+	<img src="img/2.png">
+	
+	我是按照vue-cli那样搭建的，我也感觉不需要优化吧。<br>
+	<p class="red-p">= = 因为我想不到有什么很好的办法。</p>
+	<a>https://www.cnblogs.com/hefty/p/6221183.html</a>
+	
+	
+	
   </div>
 
 
@@ -293,12 +318,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/07/构建一个vue-cli/">vue-cli 构建</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">头不秃，终究是一枚垃圾，power来自于卤蛋。</a></p>
         <p><span>发布时间:</span>2018-08-07, 22:08:53</p>
-        <p><span>最后更新:</span>2018-08-07, 22:08:45</p>
+        <p><span>最后更新:</span>2018-08-08, 21:13:50</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/07/构建一个vue-cli/" title="vue-cli 构建">http://yoursite.com/2018/08/07/构建一个vue-cli/</a>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/07/构建一个vue-cli/" title="vue-cli 构建(期限2天内，因为还不是很熟悉webpack)">http://yoursite.com/2018/08/07/构建一个vue-cli/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/08/07/构建一个vue-cli/　　作者: 头不秃，终究是一枚垃圾，power来自于卤蛋。" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -363,7 +388,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"vue-cli 构建　| 个人技术blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"vue-cli 构建(期限2天内，因为还不是很熟悉webpack)　| 个人技术blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -395,7 +420,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/07/构建一个vue-cli/">vue-cli 构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li></ul>
 
 
 
