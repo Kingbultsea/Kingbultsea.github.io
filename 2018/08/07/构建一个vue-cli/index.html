@@ -11,7 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no" />
-<meta name="author" content="头不秃，终究是一枚垃圾，power来自于卤蛋。" />
+<meta name="author" content="月光停在树上，树上少年郎...    我教你吹笛子吧~" />
 
 
 
@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/08/07/构建一个vue-cli/img/2.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/07/构建一个vue-cli/img/3.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/07/构建一个vue-cli/img/4.png">
-<meta property="og:updated_time" content="2018-08-08T15:52:52.918Z">
+<meta property="og:updated_time" content="2018-08-09T19:11:16.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-cli 构建(期限2天内，因为还不是很熟悉webpack)">
 <meta name="twitter:description" content="@import &apos;css/main.css&apos;           什么是--inline ? 	在 dev-server 的两种不同模式之间切换。默认情况下，应用程序启用内联模式(inline mode)。这意味着一段处理实时重载的脚本被插入到你的包(bundle)中，并且构建消息将会出现在浏览器控制台。  	什么是--progress ? 	将运行进度输出到控制台。  	2018年">
@@ -106,7 +106,7 @@
             <img src="/img/one-prorify.png" class="animated zoomIn">
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">头不秃，终究是一枚垃圾，power来自于卤蛋。</a></h1>
+          <h1 class="header-author"><a href="/">月光停在树上，树上少年郎...    我教你吹笛子吧~</a></h1>
         </hgroup>
 
         
@@ -198,7 +198,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1  class="header-author js-mobile-header hide"><a href="/" style="color:black" title="回到主页">头不秃，终究是一枚垃圾，power来自于卤蛋。</a></h1>
+          <h1  class="header-author js-mobile-header hide"><a href="/" style="color:black" title="回到主页">月光停在树上，树上少年郎...    我教你吹笛子吧~</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -206,7 +206,7 @@
                 <img src="/img/one-prorify.png" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">头不秃，终究是一枚垃圾，power来自于卤蛋。</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">月光停在树上，树上少年郎...    我教你吹笛子吧~</a></h1>
             </hgroup>
             
             <nav class="header-menu">
@@ -303,11 +303,31 @@
 	<img src="img/2.png">
 	
 	我是按照vue-cli那样搭建的，我也感觉不需要优化吧。<br>
-	<p class="red-p">= = 因为我想不到有什么很好的办法。直接标签引入就好啦。</p>
+	<p class="red-p">= = 因为我想不到有什么很好的办法。“直接标签引入就好啦。“不不，这需要编译器的。”mount("#app)呢“不清楚...哦 直接render丢进去绝对OK的。</p>
 	<a>https://www.cnblogs.com/hefty/p/6221183.html</a>
 	<h3 id="four">compress前后</h3>
 	<img src="img/3.png">
 	<img src="img/4.png">
+	<h3 id="five">一定要使用copy-webpack-plugin(虚拟,相关可以查devServer)</h3>
+	
+	  我到现在还不明白 我使用file-loader加载图片，然后也看了vue-loader相关资源文档，告诉我
+	  图片会使用require('')来处理
+	  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">createElement(&apos;img&apos;, &#123;</span><br><span class="line">       attrs: &#123;</span><br><span class="line">           src: require(&apos;../image.png&apos;) // 现在这是一个模块的请求了</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br><span class="line"></span><br><span class="line">transformToRequire:&#123;</span><br><span class="line">       video: [&apos;src&apos;, &apos;poster&apos;],</span><br><span class="line">       source: &apos;src&apos;,</span><br><span class="line">       img: &apos;src&apos;,</span><br><span class="line">       image: &apos;xlink:href&apos;</span><br><span class="line">   &#125;//这是vue-loader那的一个options</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+	  也就是说不需要使用file-loader(我也看到vue-cli的base没有使用
+	  file-loader)。好吧，我搞了很久，一直都说路径有
+	  问题，明明是正确的，可是就是有问题。
+	  然后又看了<br>
+	     <p class="red-p">vue-html-loader and css-loader translates non-root URLs to relative paths. In order to treat it like a module path, prefix it with ~:
+         <br>
+         img class="logo" src="~assets/logo.png"
+		 <br>
+		 </p>
+		 这根本就不是我想要的。
+		 怎么办？直接vue-cli一探究竟吧！
+	  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   new CopyWebpackPlugin([</span><br><span class="line">     &#123;</span><br><span class="line">       from: path.resolve(__dirname, &apos;../static&apos;),</span><br><span class="line">       to: config.dev.assetsSubDirectory,</span><br><span class="line">       ignore: [&apos;.*&apos;]</span><br><span class="line">     &#125;</span><br><span class="line">   ])</span><br><span class="line"></span><br><span class="line">devserver.contentBase:false</span><br></pre></td></tr></table></figure>
+	  这下可以猜测:
+	  <blockquote><p>我所查的那些东西，和vue-loader所说的东西！是mode:production的。<br>我想要的devServer可不管这些东西。所以正确做法就是使用<br><a id="link" href="https://blog.csdn.net/qianqian901108_/article/details/77987814" target="_blank" rel="noopener">copy-webpack-plugin</a><br>你可以再深入点，为什么这个插件也是虚拟的。我觉得的可能性有一.这个插件根据mode的情况来判断。<br>二.devServer的特性就是不真正处理文件。<br>自己研究吧，把mode: ‘development’改一下。</p>
+</blockquote>
 	
   </div>
 
@@ -322,12 +342,12 @@
     
     <div class="copyright">
         <p><span>本文标题:</span><a href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">头不秃，终究是一枚垃圾，power来自于卤蛋。</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">月光停在树上，树上少年郎...    我教你吹笛子吧~</a></p>
         <p><span>发布时间:</span>2018-08-07, 22:08:53</p>
-        <p><span>最后更新:</span>2018-08-08, 23:52:52</p>
+        <p><span>最后更新:</span>2018-08-10, 03:11:16</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/07/构建一个vue-cli/" title="vue-cli 构建(期限2天内，因为还不是很熟悉webpack)">http://yoursite.com/2018/08/07/构建一个vue-cli/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/08/07/构建一个vue-cli/　　作者: 头不秃，终究是一枚垃圾，power来自于卤蛋。" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/08/07/构建一个vue-cli/　　作者: 月光停在树上，树上少年郎...    我教你吹笛子吧~" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -355,7 +375,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#one"><span class="toc-number">1.</span> <span class="toc-text">什么是--inline ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#two"><span class="toc-number">2.</span> <span class="toc-text">什么是--progress ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#three"><span class="toc-number">3.</span> <span class="toc-text">我弄了一个可以正常使用的vue了。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#four"><span class="toc-number">4.</span> <span class="toc-text">compress前后</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#one"><span class="toc-number">1.</span> <span class="toc-text">什么是--inline ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#two"><span class="toc-number">2.</span> <span class="toc-text">什么是--progress ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#three"><span class="toc-number">3.</span> <span class="toc-text">我弄了一个可以正常使用的vue了。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#four"><span class="toc-number">4.</span> <span class="toc-text">compress前后</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#five"><span class="toc-number">5.</span> <span class="toc-text">一定要使用copy-webpack-plugin(虚拟,相关可以查devServer)</span></a></li></ol>
         
     </div>
     <style>
@@ -437,7 +457,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2018 头不秃，终究是一枚垃圾，power来自于卤蛋。
+                2018 月光停在树上，树上少年郎...    我教你吹笛子吧~
             </div>
             <div class="footer-right">
                 <a href="https://github.com/Kingbultsea" target="_blank" title="超超超欢迎">Hold</a>  Hold the door
