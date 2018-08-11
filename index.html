@@ -170,7 +170,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-grid/">css-grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-shape/">css-shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fr/">fr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plugin/">plugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-grid/">css-grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-shape/">css-shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fr/">fr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plugin/">plugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指令/">指令</a></li></ul>
                     </div>
                 </section>
                 
@@ -229,6 +229,72 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-构建一个延迟渲染指令(拆v-if 来渲染)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/" class="article-date">
+      <time datetime="2018-08-11T06:17:53.000Z" itemprop="datePublished">2018-08-11</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              休息了好几天 没什么做，先订下这个目标
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-构建一个vue-cli" class="article article-type-post" itemscope itemprop="blogPost">
   
   
@@ -259,67 +325,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <!DOCTYPE html>
-<html>
-
-
-<body>
-<head>
-<style>
-@import 'css/main.css'
-</style>
-</head>
-
-  <div class="main">
-    <h3 id="one">什么是--inline ?</h3>
-	<blockquote><p>在 dev-server 的两种不同模式之间切换。默认情况下，应用程序启用内联模式(inline mode)。这意味着一段处理实时重载的脚本被插入到你的包(bundle)中，并且构建消息将会出现在浏览器控制台。</p>
-</blockquote>
-	<h3 id="two">什么是--progress ?</h3>
-	<blockquote><p>将运行进度输出到控制台。</p>
-</blockquote>
-	2018年8月8日19点47分
-	<h3 id="three">我弄了一个可以正常使用的vue了。</h3>
-	里面的坑有 improt vue from "vue"，然后运行的时候，告诉我不能使用template。
-	我去看看vue的package.json文件，发现，哇。
-	<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;main&quot;: &quot;dist/vue.runtime.common.js&quot;</span><br></pre></td></tr></table></figure>
-	现在可以去查查vue.runtime.common.js是什么文件了。
-	<img src="img/1.png">
-	<blockquote><p>运行时：用来创建 Vue 实例、渲染并处理虚拟 DOM 等的代码。基本上就是除去编译器的其它一切。</p>
-</blockquote>
-	<img src="img/2.png">
-	
-	我是按照vue-cli那样搭建的，我也感觉不需要优化吧。<br>
-	<p class="red-p">= = 因为我想不到有什么很好的办法。“直接标签引入就好啦。“不不，这需要编译器的。”mount("#app)呢“不清楚...哦 直接render丢进去绝对OK的。</p>
-	<a>https://www.cnblogs.com/hefty/p/6221183.html</a>
-	<h3 id="four">compress前后</h3>
-	<img src="img/3.png">
-	<img src="img/4.png">
-	<h3 id="five">一定要使用copy-webpack-plugin(虚拟,相关可以查devServer)</h3>
-	
-	  我到现在还不明白 我使用file-loader加载图片，然后也看了vue-loader相关资源文档，告诉我
-	  图片会使用require('')来处理
-	  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">createElement(&apos;img&apos;, &#123;</span><br><span class="line">       attrs: &#123;</span><br><span class="line">           src: require(&apos;../image.png&apos;) // 现在这是一个模块的请求了</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br><span class="line"></span><br><span class="line">transformToRequire:&#123;</span><br><span class="line">       video: [&apos;src&apos;, &apos;poster&apos;],</span><br><span class="line">       source: &apos;src&apos;,</span><br><span class="line">       img: &apos;src&apos;,</span><br><span class="line">       image: &apos;xlink:href&apos;</span><br><span class="line">   &#125;//这是vue-loader那的一个options</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-	  也就是说不需要使用file-loader(我也看到vue-cli的base没有使用
-	  file-loader)。好吧，我搞了很久，一直都说路径有
-	  问题，明明是正确的，可是就是有问题。
-	  然后又看了<br>
-	     <p class="red-p">vue-html-loader and css-loader translates non-root URLs to relative paths. In order to treat it like a module path, prefix it with ~:
-         <br>
-         img class="logo" src="~assets/logo.png"
-		 <br>
-		 </p>
-		 这根本就不是我想要的。
-		 怎么办？直接vue-cli一探究竟吧！
-	  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   new CopyWebpackPlugin([</span><br><span class="line">     &#123;</span><br><span class="line">       from: path.resolve(__dirname, &apos;../static&apos;),</span><br><span class="line">       to: config.dev.assetsSubDirectory,</span><br><span class="line">       ignore: [&apos;.*&apos;]</span><br><span class="line">     &#125;</span><br><span class="line">   ])</span><br><span class="line"></span><br><span class="line">devserver.contentBase:false</span><br></pre></td></tr></table></figure>
-	  这下可以猜测:
-	  <blockquote><p>我所查的那些东西，和vue-loader所说的东西！是mode:production的。<br>我想要的devServer可不管这些东西。所以正确做法就是使用<br><a id="link" href="https://blog.csdn.net/qianqian901108_/article/details/77987814" target="_blank" rel="noopener">copy-webpack-plugin</a><br>你可以再深入点，为什么这个插件也是虚拟的。我觉得的可能性有一.这个插件根据mode的情况来判断。<br>二.devServer的特性就是不真正处理文件。<br>自己研究吧，把mode: ‘development’改一下。</p>
-</blockquote>
-	
-  </div>
-
-
-</body>
-</html>
+              构建了dev , 速度很快。 production还没有去构建。
+          
       
     </div>
     
@@ -332,6 +339,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/plugin/">plugin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2018/08/07/构建一个vue-cli/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -614,6 +625,72 @@
 
 
   
+    <article id="post-example" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/08/01/example/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              我们来实现一个比较复杂的布局吧，我也详细看过Jansimmon的代码，为了分析她为什么要这样写。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/08/01/example/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Flexbox and grid" class="article article-type-post" itemscope itemprop="blogPost">
   
   
@@ -812,138 +889,10 @@
 
 
   
-    <article id="post-css shape -outside polygon" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    <div class="article-meta">
-      <a href="/2018/08/01/css shape -outside polygon/" class="article-date">
-      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              我的firefox只有61 用不出shape，然后用谷歌打开，但是又没有可以设置polygon，建议61版本以上的，自己手动设置下下面的实例来练习下。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-shape/">css-shape</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/08/01/css shape -outside polygon/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-example" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/08/01/example/" class="article-date">
-      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              我们来实现一个比较复杂的布局吧，我也详细看过Jansimmon的代码，为了分析她为什么要这样写。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/08/01/example/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">

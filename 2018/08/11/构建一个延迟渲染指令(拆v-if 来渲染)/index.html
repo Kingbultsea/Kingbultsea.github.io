@@ -15,26 +15,18 @@
 
 
 
-<meta name="description" content="我的firefox只有61 用不出shape，然后用谷歌打开，但是又没有可以设置polygon，建议61版本以上的，自己手动设置下下面的实例来练习下。">
-<meta name="keywords" content="css,css-shape">
+<meta name="description" content="休息了好几天 没什么做，先订下这个目标">
+<meta name="keywords" content="指令,vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css shape的用法">
-<meta property="og:url" content="http://yoursite.com/2018/08/01/css shape -outside polygon/index.html">
+<meta property="og:title" content="构建一个延迟渲染指令(拆v-if 来渲染)">
+<meta property="og:url" content="http://yoursite.com/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/index.html">
 <meta property="og:site_name" content="个人技术blog">
-<meta property="og:description" content="我的firefox只有61 用不出shape，然后用谷歌打开，但是又没有可以设置polygon，建议61版本以上的，自己手动设置下下面的实例来练习下。">
+<meta property="og:description" content="休息了好几天 没什么做，先订下这个目标">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1ftr5zghi23j30st09iq42.jpg">
-<meta property="og:image" content="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftr6nd5eu5j30um0du79w.jpg">
-<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1frycouipnpj305e05e405.jpg">
-<meta property="og:image" content="http://wx2.sinaimg.cn/large/006Zdy2vgy1ftr7z612sbj316c0te4p3.jpg">
-<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1ftr8n8cmr7j30mj0fh0xq.jpg">
-<meta property="og:image" content="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftr8pm2vz7j30ju0eaac8.jpg">
-<meta property="og:image" content="http://wx4.sinaimg.cn/large/006Zdy2vgy1ftr91itd4uj315j0pk1kx.jpg">
-<meta property="og:updated_time" content="2018-08-02T14:42:12.915Z">
+<meta property="og:updated_time" content="2018-08-11T10:07:16.353Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css shape的用法">
-<meta name="twitter:description" content="我的firefox只有61 用不出shape，然后用谷歌打开，但是又没有可以设置polygon，建议61版本以上的，自己手动设置下下面的实例来练习下。">
-<meta name="twitter:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1ftr5zghi23j30st09iq42.jpg">
+<meta name="twitter:title" content="构建一个延迟渲染指令(拆v-if 来渲染)">
+<meta name="twitter:description" content="休息了好几天 没什么做，先订下这个目标">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -66,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>css shape的用法 | 个人技术blog</title>
+<title>构建一个延迟渲染指令(拆v-if 来渲染) | 个人技术blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -235,12 +227,12 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-css shape -outside polygon" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-构建一个延迟渲染指令(拆v-if 来渲染)" class="article article-type-post" itemscope itemprop="blogPost">
   
   
     <div class="article-meta">
-      <a href="/2018/08/01/css shape -outside polygon/" class="article-date">
-      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+      <a href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/" class="article-date">
+      <time datetime="2018-08-11T06:17:53.000Z" itemprop="datePublished">2018-08-11</time>
 </a>
 
 
@@ -255,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      css shape的用法
+      构建一个延迟渲染指令(拆v-if 来渲染)
     </h1>
   
 
@@ -266,7 +258,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-shape/">css-shape</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -283,89 +275,17 @@
 <body>
 <head>
 <style>
-.main{
-  margin:0 auto;
-  width:100%;
-  padding-top:10vh;
-  
-}
-*{
-  box-sizing:border-box;
-}
-.main img{
-  display:block;
-  max-width:100%;
-}
-.content{
-  padding-bottom:3em;
-  overflow:hidden;
-}
+@import "css/main.css"
 </style>
 </head>
 
-<div class="main">
-<h1 id="top-one">谈谈css中的polygon的用法</h1>
-<p>兼容性:</p>
-<img title="8" src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1ftr5zghi23j30st09iq42.jpg">
-<p>api:</p>
-<img titile="9" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftr6nd5eu5j30um0du79w.jpg">
-<h3 id="one">一.circle():</h3>
-<p>shape-outside:circle();会直接把图形变成圆形，假如你问，我的图形并不是正方形，那浏览器怎么计算呀，和border-radius：50%是一样的。括号里面的默认值是50%，你可以填写下其他数值来感受下变化，这里就不细说了。我这里添加了margin-right:2em 等会说一下margin-box。</p>
-<div class="content">
-<div style="width:10em;float:left;border-radius:50%;shape-outside:circle();margin-right:1em;overflow:hidden;"><img src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1frycouipnpj305e05e405.jpg"></div>
-喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵，对了我不是猫腔。
-</div>
-<h3 id="two">二.ellipse():</h3>
-就是椭圆形了ellipse(宽 高 at % %);这里我做个示范 ellipse:(宽/2  高/2 at 50% 50%)
-<div class="content">
-<div style="width:10em;height:16em;background-color:#eee;float:left;shape-outside:ellipse(5em 8em at 50% 50%)"></div>
-喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵，对了我不是猫腔。
-</div>
-<h3 id="three">三.
-content-box;
-border-box;
-padding-box:</h3>
-<p>你把第一个例子 设置成shape-outside:border-box;你会发现文档流变近了，这实际上是告诉浏览器：嘿，帮我弄个多边形，以border为准哦。
-如果你设置成margin-box;你会发现这和circle()一样。你亲手设置成padding-box试试吧，同一个意思，注意我设置了boxsizing:border-box。</p>
+  <div class="main">
+   
 
-<h3 id="four">四.polygon():</h3>
-<p>这个是用来设置多边形的，例子polygon(50% 0, 100% 50%, 50% 100%, 0 50%,45.3% 36%,48.2%,90%,50% 100%, 0 50%,45.3% 36%);你也许会问，哇这是什么？这个你不用担心用一下tools就可以自动设置了，所以自己设置吧。注意看下版本，我的谷歌版本有点低，没有shape这个工具</p>
-<img title="10" src="http://wx2.sinaimg.cn/large/006Zdy2vgy1ftr7z612sbj316c0te4p3.jpg"><br><br>
-<div class="content">
-<div style="width:10em;height:16em;background-color:#eee;float:left;"></div>
-喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵，这个给你实现好吧？。
-</div>
+  </div>
 
-
-<h3 id="five">五.url(.png)</h3>
-<div class="content">
-<p>url(.png到底是什么东西？其实就是利用png来控制文档流)</p>
-<img title="11" src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1ftr8n8cmr7j30mj0fh0xq.jpg"><br>
-<img title="12" src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1ftr8pm2vz7j30ju0eaac8.jpg">
-</div>
-
-
-<h3 id="six">六.shape-outside: inset(10px 10px 10px 10px)</h3>
-<div class="content">
-insert(top right bottom left)
-意思是图形的切角  (width/2   -right) 你就会发现文档流向左靠近了right。
-<p>参数可以是负值</p>
-</div>
-
-
-<h3 id="seven">七.其他</h3>
-<div class="content">
-<h4>①shape-outside改变的是文档流(floats)，对其他并无影响。</h4>
-<h4>②shape-outside不仅仅是用在float布局的图片中,可以用在任何float</h4>
-<img title="13" src="http://wx4.sinaimg.cn/large/006Zdy2vgy1ftr91itd4uj315j0pk1kx.jpg">
-    clip-path也可以使用polygon 这是拿来切图的而已
-</div>
-
-参考:<a href="https://www.youtube.com/watch?v=pOB75oTNhw0&feature=youtu.be" target="_blank" rel="noopener">Obliterate Boxiness with CSS Shapes</a>
-</div>
 
 </body>
-
 </html>
       
     </div>
@@ -374,13 +294,13 @@ insert(top right bottom left)
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">月光停在树上，树上少年郎...    我教你吹笛子吧~</a></p>
-        <p><span>发布时间:</span>2018-08-01, 23:13:31</p>
-        <p><span>最后更新:</span>2018-08-02, 22:42:12</p>
+        <p><span>发布时间:</span>2018-08-11, 14:17:53</p>
+        <p><span>最后更新:</span>2018-08-11, 18:07:16</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/01/css shape -outside polygon/" title="css shape的用法">http://yoursite.com/2018/08/01/css shape -outside polygon/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/08/01/css shape -outside polygon/　　作者: 月光停在树上，树上少年郎...    我教你吹笛子吧~" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/" title="构建一个延迟渲染指令(拆v-if 来渲染)">http://yoursite.com/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/　　作者: 月光停在树上，树上少年郎...    我教你吹笛子吧~" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -392,12 +312,12 @@ insert(top right bottom left)
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/01/Sizing/">
-                    关于Grid的尺寸大小设置问题
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/08/07/构建一个vue-cli/">
+                    vue-cli 构建(期限2天内，因为还不是很熟悉webpack)
                 </a>
             </div>
-        
         
     </nav>
 
@@ -408,10 +328,7 @@ insert(top right bottom left)
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#top-one"><span class="toc-number">1.</span> <span class="toc-text">谈谈css中的polygon的用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#one"><span class="toc-number">1.0.1.</span> <span class="toc-text">一.circle():</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#two"><span class="toc-number">1.0.2.</span> <span class="toc-text">二.ellipse():</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#three"><span class="toc-number">1.0.3.</span> <span class="toc-text">三.
-content-box;
-border-box;
-padding-box:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#four"><span class="toc-number">1.0.4.</span> <span class="toc-text">四.polygon():</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#five"><span class="toc-number">1.0.5.</span> <span class="toc-text">五.url(.png)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#six"><span class="toc-number">1.0.6.</span> <span class="toc-text">六.shape-outside: inset(10px 10px 10px 10px)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#seven"><span class="toc-number">1.0.7.</span> <span class="toc-text">七.其他</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.0.7.1.</span> <span class="toc-text">①shape-outside改变的是文档流(floats)，对其他并无影响。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.0.7.2.</span> <span class="toc-text">②shape-outside不仅仅是用在float布局的图片中,可以用在任何float</span></a></li></ol></li></ol></li></ol></li></ol>
+            
         
     </div>
     <style>
@@ -447,7 +364,7 @@ padding-box:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"css shape的用法　| 个人技术blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"构建一个延迟渲染指令(拆v-if 来渲染)　| 个人技术blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -467,15 +384,15 @@ padding-box:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/01/Sizing/" title="上一篇: 关于Grid的尺寸大小设置问题">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/08/07/构建一个vue-cli/" title="下一篇: vue-cli 构建(期限2天内，因为还不是很熟悉webpack)">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
