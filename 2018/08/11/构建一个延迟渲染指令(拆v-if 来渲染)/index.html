@@ -15,18 +15,20 @@
 
 
 
-<meta name="description" content="休息了好几天 没什么做，先订下这个目标">
+<meta name="description" content="好难啊">
 <meta name="keywords" content="指令,vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="构建一个延迟渲染指令(拆v-if 来渲染)">
 <meta property="og:url" content="http://yoursite.com/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/index.html">
 <meta property="og:site_name" content="个人技术blog">
-<meta property="og:description" content="休息了好几天 没什么做，先订下这个目标">
+<meta property="og:description" content="好难啊">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-11T10:07:16.353Z">
+<meta property="og:image" content="http://yoursite.com/2018/08/11/构建一个延迟渲染指令(拆v-if%20来渲染)/img/1.png">
+<meta property="og:updated_time" content="2018-08-12T14:29:34.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="构建一个延迟渲染指令(拆v-if 来渲染)">
-<meta name="twitter:description" content="休息了好几天 没什么做，先订下这个目标">
+<meta name="twitter:description" content="好难啊">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/11/构建一个延迟渲染指令(拆v-if%20来渲染)/img/1.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -275,14 +277,23 @@
 <body>
 <head>
 <style>
-@import "css/main.css"
 </style>
 </head>
 
-  <div class="main">
-   
+<h3 id="one">teriminal</h3>
+<img src="img/1.png">
+<blockquote><p>Vue 通过递归遍历 DOM 树来编译模块。但是当它遇到 terminal 指令时会停止遍历这个元素的后代元素。这个指令将接管编译这个元素及其后代元素的任务。v-if 和 v-for 都是 terminal 指令。</p>
+</blockquote>
+设置terminal:true。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">directives: &#123;</span><br><span class="line">		lazy: &#123;</span><br><span class="line">			teriminal: true,</span><br><span class="line">			bind()&#123;</span><br><span class="line">				console.log(&quot;haha&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">template: &lt;p v-lazy&gt;</span><br><span class="line">              &lt;my-component /&gt;</span><br><span class="line">          &lt;/p&gt;</span><br><span class="line">		  </span><br><span class="line">template: /*my-component*/</span><br><span class="line">          &lt;div&gt;</span><br><span class="line">          &lt;img src=&quot;assets/pro.png&quot;  /&gt;</span><br><span class="line">          &lt;p&gt;&lt;/p&gt;</span><br><span class="line">          &lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
-  </div>
+开启后asd并没有被渲染出来,但是template出来了,
+设置下my-component的created(){ console.log('zz') }后
+控制台输出了zz。
+<p class="red-p">先停下，我看的1.0 好像在2.0不需要了，我要去看看vue渲染是怎么渲染的
+，还是说1.0才有这种情况</p>
+
+
 
 
 </body>
@@ -297,7 +308,7 @@
         <p><span>本文标题:</span><a href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">月光停在树上，树上少年郎...    我教你吹笛子吧~</a></p>
         <p><span>发布时间:</span>2018-08-11, 14:17:53</p>
-        <p><span>最后更新:</span>2018-08-11, 18:07:16</p>
+        <p><span>最后更新:</span>2018-08-12, 22:29:34</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/" title="构建一个延迟渲染指令(拆v-if 来渲染)">http://yoursite.com/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/　　作者: 月光停在树上，树上少年郎...    我教你吹笛子吧~" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -328,7 +339,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#one"><span class="toc-number">1.</span> <span class="toc-text">teriminal</span></a></li></ol>
         
     </div>
     <style>
@@ -396,7 +407,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li></ul>
 
 
 
