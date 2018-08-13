@@ -15,19 +15,21 @@
 
 
 
-<meta name="description" content="这是一个SSR实例的踩坑，教程去看vue官网的SSR指南 无意中发现 123456export function a()&amp;#123;//这样写才是合法的&amp;#125;export a()&amp;#123;//这样写是会报错的&amp;#125;  官网上给的示例，记住跳到构建配置，配置client和server">
+<meta name="description" content="这是一个SSR实例的踩坑，教程去看vue官网的SSR指南 无意中发现 123456export function a()&amp;#123;//这样写才是合法的&amp;#125;export a()&amp;#123;//这样写是会报错的&amp;#125;  官网上给的示例，记住跳到构建配置，配置client和server。   构建成功后的项目，会像上面那两张图的样子，难是挺难的，即使有教程，vue-">
 <meta name="keywords" content="SSR,vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSR">
 <meta property="og:url" content="http://yoursite.com/2018/08/13/SSR构建/index.html">
 <meta property="og:site_name" content="个人技术blog">
-<meta property="og:description" content="这是一个SSR实例的踩坑，教程去看vue官网的SSR指南 无意中发现 123456export function a()&amp;#123;//这样写才是合法的&amp;#125;export a()&amp;#123;//这样写是会报错的&amp;#125;  官网上给的示例，记住跳到构建配置，配置client和server">
+<meta property="og:description" content="这是一个SSR实例的踩坑，教程去看vue官网的SSR指南 无意中发现 123456export function a()&amp;#123;//这样写才是合法的&amp;#125;export a()&amp;#123;//这样写是会报错的&amp;#125;  官网上给的示例，记住跳到构建配置，配置client和server。   构建成功后的项目，会像上面那两张图的样子，难是挺难的，即使有教程，vue-">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/08/13/SSR构建/1.png">
-<meta property="og:updated_time" content="2018-08-13T13:15:42.710Z">
+<meta property="og:image" content="http://yoursite.com/2018/08/13/SSR构建/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/13/SSR构建/3.png">
+<meta property="og:updated_time" content="2018-08-13T18:21:12.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSR">
-<meta name="twitter:description" content="这是一个SSR实例的踩坑，教程去看vue官网的SSR指南 无意中发现 123456export function a()&amp;#123;//这样写才是合法的&amp;#125;export a()&amp;#123;//这样写是会报错的&amp;#125;  官网上给的示例，记住跳到构建配置，配置client和server">
+<meta name="twitter:description" content="这是一个SSR实例的踩坑，教程去看vue官网的SSR指南 无意中发现 123456export function a()&amp;#123;//这样写才是合法的&amp;#125;export a()&amp;#123;//这样写是会报错的&amp;#125;  官网上给的示例，记住跳到构建配置，配置client和server。   构建成功后的项目，会像上面那两张图的样子，难是挺难的，即使有教程，vue-">
 <meta name="twitter:image" content="http://yoursite.com/2018/08/13/SSR构建/1.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -285,9 +287,13 @@
 <p>无意中发现</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export function a()&#123;</span><br><span class="line">//这样写才是合法的</span><br><span class="line">&#125;</span><br><span class="line">export a()&#123;</span><br><span class="line">//这样写是会报错的</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <img src="1.png">
-<p>官网上给的示例，记住跳到构建配置，配置client和server</p>
+<p>官网上给的示例，记住跳到构建配置，配置client和server。</p>
+<img src="2.png">
+<img src="3.png">
+<blockquote><p>构建成功后的项目，会像上面那两张图的样子，难是挺难的，即使有教程，vue-router先不要设置，不然里面是个巨坑，明天再搞，今天太迟了，不过也总算知道SSR的真实面貌了。<br>02点19分 mark。</p>
+</blockquote>
 
-
+ 
 
 
 
@@ -305,7 +311,7 @@
         <p><span>本文标题:</span><a href="/2018/08/13/SSR构建/">SSR</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">灼热的思绪膨胀 翻涌迷惘填充幻想</a></p>
         <p><span>发布时间:</span>2018-08-13, 23:13:31</p>
-        <p><span>最后更新:</span>2018-08-13, 21:15:42</p>
+        <p><span>最后更新:</span>2018-08-14, 02:21:12</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/13/SSR构建/" title="SSR">http://yoursite.com/2018/08/13/SSR构建/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/08/13/SSR构建/　　作者: 灼热的思绪膨胀 翻涌迷惘填充幻想" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -404,7 +410,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/SSR构建/">SSR</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/SSR构建/">SSR</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li></ul>
 
 
 
