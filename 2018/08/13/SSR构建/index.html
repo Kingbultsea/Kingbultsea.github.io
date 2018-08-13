@@ -15,13 +15,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人技术blog">
-<meta property="og:url" content="http://yoursite.com/archives/2018/08/page/2/index.html">
+<meta name="description" content="这是一个SSR实例的踩坑，教程去看vue官网的SSR指南 无意中发现 123456export function a()&amp;#123;//这样写才是合法的&amp;#125;export a()&amp;#123;//这样写是会报错的&amp;#125;">
+<meta name="keywords" content="vue,SSR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSR">
+<meta property="og:url" content="http://yoursite.com/2018/08/13/SSR构建/index.html">
 <meta property="og:site_name" content="个人技术blog">
+<meta property="og:description" content="这是一个SSR实例的踩坑，教程去看vue官网的SSR指南 无意中发现 123456export function a()&amp;#123;//这样写才是合法的&amp;#125;export a()&amp;#123;//这样写是会报错的&amp;#125;">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2018/08/13/SSR构建/1.png">
+<meta property="og:updated_time" content="2018-08-13T10:12:36.789Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人技术blog">
+<meta name="twitter:title" content="SSR">
+<meta name="twitter:description" content="这是一个SSR实例的踩坑，教程去看vue官网的SSR指南 无意中发现 123456export function a()&amp;#123;//这样写才是合法的&amp;#125;export a()&amp;#123;//这样写是会报错的&amp;#125;">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/13/SSR构建/1.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -53,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives: 2018/8 | 个人技术blog</title>
+<title>SSR | 个人技术blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -63,8 +70,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -222,93 +229,189 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-SSR构建" class="article article-type-post" itemscope itemprop="blogPost">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/08/01/css shape -outside polygon/" class="archive-article-date">
-      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">08-01</time>
+    <div class="article-meta">
+      <a href="/2018/08/13/SSR构建/" class="article-date">
+      <time datetime="2018-08-13T15:13:31.000Z" itemprop="datePublished">2018-08-13</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SSR
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
+        
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-shape/">css-shape</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSR/">SSR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <!DOCTYPE html>
+<html>
+
+
+<body>
+<head>
+
+
+
+</head>
+
+<h1 id="one">这是一个SSR实例的踩坑，教程去看vue官网的SSR指南</h1>
+<p>无意中发现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export function a()&#123;</span><br><span class="line">//这样写才是合法的</span><br><span class="line">&#125;</span><br><span class="line">export a()&#123;</span><br><span class="line">//这样写是会报错的</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="1.png">
+
+
+
+
+
+
+
+</body>
+
+</html>
+      
+    </div>
+    
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/08/01/example/" class="archive-article-date">
-      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">08-01</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/08/13/SSR构建/">SSR</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">灼热的思绪膨胀 翻涌迷惘填充幻想</a></p>
+        <p><span>发布时间:</span>2018-08-13, 23:13:31</p>
+        <p><span>最后更新:</span>2018-08-13, 18:12:36</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/13/SSR构建/" title="SSR">http://yoursite.com/2018/08/13/SSR构建/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/08/13/SSR构建/　　作者: 灼热的思绪膨胀 翻涌迷惘填充幻想" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/08/">&laquo; Prev</a><a class="page-number" href="/archives/2018/08/">1</a><span class="page-number current">2</span>
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">
+                    构建一个延迟渲染指令(拆v-if 来渲染)
+                </a>
+            </div>
+        
     </nav>
-  
 
+  
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#one"><span class="toc-number">1.</span> <span class="toc-text">这是一个SSR实例的踩坑，教程去看vue官网的SSR指南</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"SSR　| 个人技术blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/" title="下一篇: 构建一个延迟渲染指令(拆v-if 来渲染)">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/SSR构建/">SSR</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
