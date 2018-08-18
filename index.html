@@ -286,8 +286,9 @@
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot; data-server-rendered=&quot;true&quot;&gt;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
 = = 可是 问题来了 如何同时让client.json server.json 热加载互相配合koa？ 
  
- 
- 
+<h3 id="two">setup-dev-server</h3>
+ <blockquote><p>   这是一个什么样的文件？ <a href="https://github.com/vuejs/vue-hackernews-2.0/blob/master/build/setup-dev-server.js" target="_blank" rel="noopener">Link</a><br>目的是为了把client.json server.json 在内存中被koa所读取，创建<br>setupDevServer(app, templatePath, callback) app就是new Koa() ,templatePath就是Index.html (不是dist那个，基础问题，因为inject会把原来引入的js也给保留)，<br>callback就是createBundleRender。</p>
+</blockquote>
  
  
 
@@ -787,72 +788,6 @@
 
 
   
-    <article id="post-Flexbox and grid" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/08/01/Flexbox and grid/" class="article-date">
-      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              有些人觉得Grid可以取代Flex对吧？其实不是的。Flex能做到的，Grid可能做不到，相反亦是。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/08/01/Flexbox and grid/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Sizing" class="article article-type-post" itemscope itemprop="blogPost">
   
   
@@ -900,6 +835,72 @@
       
         <p class="article-more-link">
           <a href="/2018/08/01/Sizing/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Flexbox and grid" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/08/01/Flexbox and grid/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              有些人觉得Grid可以取代Flex对吧？其实不是的。Flex能做到的，Grid可能做不到，相反亦是。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/08/01/Flexbox and grid/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
