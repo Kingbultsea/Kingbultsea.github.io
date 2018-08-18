@@ -287,8 +287,17 @@
 = = 可是 问题来了 如何同时让client.json server.json 热加载互相配合koa？ 
  
 <h3 id="two">setup-dev-server</h3>
- <blockquote><p>   这是一个什么样的文件？ <a href="https://github.com/vuejs/vue-hackernews-2.0/blob/master/build/setup-dev-server.js" target="_blank" rel="noopener">Link</a><br>目的是为了把client.json server.json 在内存中被koa所读取，创建<br>setupDevServer(app, templatePath, callback) app就是new Koa() ,templatePath就是Index.html (不是dist那个，基础问题，因为inject会把原来引入的js也给保留)，<br>callback就是createBundleRender。</p>
+ <blockquote><p>   这是一个什么样的文件？ <a href="https://github.com/vuejs/vue-hackernews-2.0/blob/master/build/setup-dev-server.js" target="_blank" rel="noopener">Link</a><br>目的是为了把client.json server.json 在内存中被koa所读取，创建<br>setupDevServer(app, templatePath, callback) app就是new Koa() ,templatePath就是Index.html (dist那个 创建的话 不要dist那个 要index.template.html 为嘛？webpak常识 = =！)，<br>callback就是createBundleRender。</p>
+<p></p><p class="red-p">报错 next is not a function</p><br>这个时候果断去看源码啦！下面是根据main:index.js推断代码在middware.js (你看报错内容也行)<p></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function goNext() &#123;</span><br><span class="line">    if (!context.options.serverSideRender) &#123;</span><br><span class="line">      return next();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return new Promise(((resolve) =&gt; &#123;</span><br><span class="line">      ready(context, () =&gt; &#123;</span><br><span class="line">        res.locals.webpackStats = context.webpackStats;</span><br><span class="line">        resolve(next());</span><br><span class="line">      &#125;, req);</span><br><span class="line">    &#125;));</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Koa v2.x 的中间件是基于 Promise 的<br>所以我需要primise,所以要把context.options.serverSideRender = true。</p>
 </blockquote>
+ 05点03分 我先睡觉了吧(别问我为什么这么多天了，还没搞完？我这几天都忙 没什么空)... 搞完了 也搞成功了，终于热重载了，明天来说我遇到哪些坑，然后怎么一步步解决的。
+ <img src="http://wx4.sinaimg.cn/mw690/006Zdy2vgy1fuejmjc2scj30jy0g8go8.jpg">
+ <img src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1fuejmju9ozj30xf0gpdgl.jpg">
+ 
+ 
  
  
 
@@ -656,138 +665,6 @@
 
 
   
-    <article id="post-Grid layout example" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/08/01/Grid layout example/" class="article-date">
-      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/Grid layout example/">Grid的fit fill</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              这写了一下repeat(fit | fill)的不同点，以及怎么利用，内有实例（堆叠式布局，卡片式布局）Grid。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/08/01/Grid layout example/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-example" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/08/01/example/" class="article-date">
-      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              我们来实现一个比较复杂的布局吧，我也详细看过Jansimmon的代码，为了分析她为什么要这样写。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/08/01/example/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Sizing" class="article article-type-post" itemscope itemprop="blogPost">
   
   
@@ -854,11 +731,11 @@
 
 
   
-    <article id="post-Flexbox and grid" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-auto min max-content" class="article article-type-post" itemscope itemprop="blogPost">
   
   
     <div class="article-meta">
-      <a href="/2018/08/01/Flexbox and grid/" class="article-date">
+      <a href="/2018/08/01/auto min max-content/" class="article-date">
       <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
 </a>
 
@@ -874,7 +751,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a>
+      <a class="article-title" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a>
     </h1>
   
 
@@ -884,7 +761,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              有些人觉得Grid可以取代Flex对吧？其实不是的。Flex能做到的，Grid可能做不到，相反亦是。
+              记录了一些Grid的小知识点
           
       
     </div>
@@ -900,7 +777,139 @@
 
       
         <p class="article-more-link">
-          <a href="/2018/08/01/Flexbox and grid/#more">more >></a>
+          <a href="/2018/08/01/auto min max-content/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Grid layout example" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/08/01/Grid layout example/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/Grid layout example/">Grid的fit fill</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这写了一下repeat(fit | fill)的不同点，以及怎么利用，内有实例（堆叠式布局，卡片式布局）Grid。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/08/01/Grid layout example/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-css shape -outside polygon" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/08/01/css shape -outside polygon/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              我的firefox只有61 用不出shape，然后用谷歌打开，但是又没有可以设置polygon，建议61版本以上的，自己手动设置下下面的实例来练习下。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-shape/">css-shape</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/08/01/css shape -outside polygon/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
