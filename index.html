@@ -415,8 +415,26 @@ res.statusCode = res.statusCode || 200;
 依旧使用了await next() 那么就会被设置成404了。好了，那么就强行设置成200吧... 然后又不调用await next()试试，会怎么样？
 结果是：浏览器一直在等待。既然我们不熟悉koa的返回正确内容的流畅，那么我们不妨在中间件koa-route上打断点试试？看看koa-route帮
 我们设置了什么？哈哈哈，才不要！ 这个是个麻瓜的方式，因为，我们这样代表这我们一点都不清楚koa了。
-我们使用koa的时候 不用router的时候 是不是 ctx.response.body = 'Hello World'; 然后就发送正确？ 那么这个很可能就是getter body(){}
-我们去查看源码是不是真的是这样吧！
+我们使用koa的时候 不用router的时候 是不是 ctx.response.body = 'Hello World'; 然后就发送正确？嗯，直接发送hellow world到浏览器了。
+那么其他文件之类的，只设置body会怎么样？
+<img src="7.png">
+那么是不是成功了？ 
+慢着，middle.js还为我们设置了字段的
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//middle.js (webpack-dev-middle 里面的middle.js)</span><br><span class="line">    res.setHeader(&apos;Content-Type&apos;, contentType);</span><br><span class="line">    res.setHeader(&apos;Content-Length&apos;, content.length);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">await devMiddleware(context.req, </span><br><span class="line">			&#123;</span><br><span class="line">				send(content)&#123;context.response.body = content&#125;,</span><br><span class="line">				setHeader(...arg)&#123;context.set(arguments)&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			, () =&gt; Promise.resolve(&apos;123&apos;))</span><br></pre></td></tr></table></figure>
+what???神奇的是，文件找成功了！为什么？不是说文件会被设置成404的吗？如果继续调用await next()
+<img src="8.png">
+<img src="9.png">
+果不其然，报错了。
+注释掉await next()
+<img src="10.png">
+OK这下知道了什么回事了！404是因为那个webpack-hot-middleware 更新页面吧(我预感是这样的,因为设置了5second)
+思路：我仅仅想获取文件的时候，不调用下一个中间件，而需要匹配路由的内容，就需要await next()
+那么我们去写代码吧！
+
+
+
 
 <% endblockquote="" %="">
 </%></%></body>
