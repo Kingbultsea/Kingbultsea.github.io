@@ -891,7 +891,7 @@ a {
   background-size: 103%;
 }
 #header .header-nav .social .GitHub {
-  background: url("//cdn.bootcss.com/logos/0.2.0/github-octocat.svg") no-repeat #fff;
+  background: url("/img/github64.png") no-repeat #fff;
   -webkit-background-size: 90%;
   -moz-background-size: 90%;
   background-size: 90%;
@@ -2295,10 +2295,8 @@ pre .javascript .function {
 #footer {
   font-size: 0.8rem;
   font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
-  text-shadow: 0 1px #fff;
   position: absolute;
   bottom: 20px;
-  opacity: 0.75;
   width: 100%;
   text-align: center;
 }
@@ -2424,6 +2422,9 @@ pre .javascript .function {
 }
 #page-nav:hover .extend {
   opacity: 1;
+}
+.fancybox-opened .fancybox-title {
+  visibility: hidden !important;
 }
 #post-instagram {
   padding: 30px;
