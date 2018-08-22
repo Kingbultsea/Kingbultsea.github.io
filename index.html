@@ -37,8 +37,6 @@
 
 
 
-    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
-
 
 
     <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
@@ -52,8 +50,6 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
-    <style> .article { opacity: 0;} </style>
-
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
@@ -66,7 +62,7 @@
 <script>
     var yiliaConfig = {
         fancybox: true,
-        animate: true,
+        animate: false,
         isHome: true,
         isPost: false,
         isArchive: false,
@@ -259,28 +255,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <!DOCTYPE html>
-<html>
-
-
-<body>
-<head>
-<style>
-
-</style>
-<head>
-
-<h3>兼容性</h3>
-<img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1fuf57n15u1j31840oowgp.jpg">
-
-   <blockquote><p>  2018年8月19日 更新——-<br>  display: contents to the rescue</p>
-  <p>With display: contents, we can have our markup and our grid placement. This property makes the element so that it no longer seems to exist. It does not generate a box, so backgrounds, borders and other box-related properties will no longer work on it. Grid placement properties will also no longer work. But all of these things will work for the element’s children. The spec says the element behaves ‘as if it had been replaced […] by its contents’. If that sounds weird, I can recommend Ire Aderinokun’s detailed explainer.</p>
-
-<p>  <img src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1fuf57mh38xj30kz07oabf.jpg"><br>  意思就是 ul是li的markup ，但是我不想用div来包裹，我更愿意用li(li的好处是浏览器的阅读模式it will stay a list outside the context of our page, for example in Safari Reader mode, it will show as a list)<br>  然后设置ul为 display:content 这样就OK了 li就成为grid-item了。<br>  但是display:content 在firefox 62中 只是stept five。<br>   detal info:<a href="https://hiddedevries.nl/en/blog/2018-04-21-more-accessible-markup-with-display-contents" target="_blank" rel="noopener"> link</a><br><a href="https://twitter.com/jensimmons/status/1030125167199113216" target="_blank" rel="noopener">Jen simmon</a></p>
-</blockquote>
-
-</head></head></body>
-</html>
+              css display:content 是用来把ul的子元素li设置成grid-item
+          
       
     </div>
     
@@ -289,6 +265,14 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/08/19/css display：content/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -964,9 +948,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <!--<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
     <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>-->
 </div>
 <script>
     // Open in New Window
