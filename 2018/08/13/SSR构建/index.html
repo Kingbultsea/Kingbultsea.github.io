@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw690/006Zdy2vgy1fu8mub6lrgj30ij05nq33.jpg">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1fu8mubru7aj30sg0ngn4s.jpg">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1fu8muc8lm5j30vr02rq2w.jpg">
-<meta property="og:updated_time" content="2018-08-20T23:10:29.825Z">
+<meta property="og:updated_time" content="2018-08-22T04:37:25.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSR">
 <meta name="twitter:description" content="这是一个SSR实例的踩坑，教程去看vue官网的SSR指南 无意中发现 123456export function a()&amp;#123;//这样写才是合法的&amp;#125;export a()&amp;#123;//这样写是会报错的&amp;#125;  官网上给的示例，记住跳到构建配置，配置client和server。   123456ctx.response.body = await ( new">
@@ -309,14 +309,44 @@
 
 为什么404 但是返回的内容是正确的？
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">use(fn) &#123;</span><br><span class="line">  if (typeof fn !== &apos;function&apos;) throw new TypeError(&apos;middleware must be a function!&apos;);</span><br><span class="line">  if (isGeneratorFunction(fn)) &#123;</span><br><span class="line">    deprecate(&apos;Support for generators will be removed in v3. &apos; +</span><br><span class="line">              &apos;See the documentation for examples of how to convert old middleware &apos; +</span><br><span class="line">              &apos;https://github.com/koajs/koa/blob/master/docs/migration.md&apos;);</span><br><span class="line">    fn = convert(fn);</span><br><span class="line">  &#125;</span><br><span class="line">  debug(&apos;use %s&apos;, fn._name || fn.name || &apos;-&apos;);</span><br><span class="line">  this.middleware.push(fn);</span><br><span class="line">  return this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-看源码 看看koa的use是什么，我就不深究了，看到他会push进koa.middleware
- 
- 
- 
- 
+
+debugger;
+appServer.listen( 8083 ) 打个断点步入看下会使用那些方法。<br>
+listen -->  
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">listen(...args) &#123;</span><br><span class="line">  debug(&apos;listen&apos;);</span><br><span class="line">  const server = http.createServer(this.callback());</span><br><span class="line">  return server.listen(...args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+debug -->
+<blockquote><p>/**</p>
+<ul>
+<li>This is the common logic for both the Node.js and web browser</li>
+<li>implementations of <code>debug()</code>.<br>*</li>
+<li>Expose <code>debug()</code> as the module.<br>*/<br>debug 不深究 </li>
+</ul>
+</blockquote>
+
+callback -->
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">callback() &#123;</span><br><span class="line">  const fn = compose(this.middleware);</span><br><span class="line"></span><br><span class="line">  if (!this.listenerCount(&apos;error&apos;)) this.on(&apos;error&apos;, this.onerror);</span><br><span class="line"></span><br><span class="line">  const handleRequest = (req, res) =&gt; &#123;</span><br><span class="line">    const ctx = this.createContext(req, res);</span><br><span class="line">    return this.handleRequest(ctx, fn);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  return handleRequest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-</body>
+compose -->
+
+<blockquote><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">function compose (middleware) &#123;</span><br><span class="line">  if (!Array.isArray(middleware)) throw new TypeError(&apos;Middleware stack must be an array!&apos;)</span><br><span class="line">  for (const fn of middleware) &#123;</span><br><span class="line">    if (typeof fn !== &apos;function&apos;) throw new TypeError(&apos;Middleware must be composed of functions!&apos;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  /*<em></em></span><br><span class="line">    @param &#123;Object&#125; context</span><br><span class="line">   <em> @return &#123;Promise&#125;</em></span><br><span class="line">    @api public</span><br><span class="line">   */</span><br><span class="line"></span><br><span class="line">  return function (context, next) &#123;</span><br><span class="line">    // last called middleware #</span><br><span class="line">    let index = -1</span><br><span class="line">    return dispatch(0)</span><br><span class="line">    function dispatch (i) &#123;</span><br><span class="line">      if (i &lt;= index) return Promise.reject(new Error(&apos;next() called multiple times&apos;))</span><br><span class="line">      index = i</span><br><span class="line">      let fn = middleware[i]</span><br><span class="line">      if (i === middleware.length) fn = next</span><br><span class="line">      if (!fn) return Promise.resolve()</span><br><span class="line">      try &#123;</span><br><span class="line">        return Promise.resolve(fn(context, dispatch.bind(null, i + 1)));</span><br><span class="line">      &#125; catch (err) &#123;</span><br><span class="line">        return Promise.reject(err)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>把middleware数组(就是use进去的)封装成fn(ctx,next)</p>
+</blockquote>
+ 
+onerror -->
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//这是 if (!this.listenerCount(&apos;error&apos;)) this.on(&apos;error&apos;, this.onerror); </span><br><span class="line">  onerror(err) &#123;</span><br><span class="line">    if (!(err instanceof Error)) throw new TypeError(util.format(&apos;non-error thrown: %j&apos;, err));</span><br><span class="line"></span><br><span class="line">    if (404 == err.status || err.expose) return;</span><br><span class="line">    if (this.silent) return;</span><br><span class="line"></span><br><span class="line">    const msg = err.stack || err.toString();</span><br><span class="line">    console.error();</span><br><span class="line">    console.error(msg.replace(/^/gm, &apos;  &apos;));</span><br><span class="line">    console.error();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+handleRequest -->
+<blockquote><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">handleRequest(ctx, fnMiddleware) &#123;</span><br><span class="line">  const res = ctx.res;</span><br><span class="line">  res.statusCode = 404;</span><br><span class="line">  const onerror = err =&gt; ctx.onerror(err);</span><br><span class="line">  const handleResponse = () =&gt; respond(ctx);</span><br><span class="line">  onFinished(res, onerror);</span><br><span class="line">  return fnMiddleware(ctx).then(handleResponse).catch(onerror);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>找到了，就是这个把res.statusCode 默认是404。我就推测koa-router模块对于找到的router，会修改statusCode为200吧。<br>那现在的问题是，devMiddleware帮我找到了文件，但是没有修改res.statusCode。(我没有去使用koa-static是因为这个是在磁盘上的)<br>在express的兼容性 完全没有问题。</p>
+</blockquote>
+<h3 id="jjk">那现在先去查看devmiddle的源码吧</h3>
+<% blockquote="" %="">
+步入middleware.js 
+res.statusCode = res.statusCode || 200;
+看到了吗？中间件处理，因为koa的默认是404，所以现在statusCode是404。
+那该怎么解决呢？
+<% endblockquote="" %="">
+</%></%></body>
 
 </html>
       
@@ -329,7 +359,7 @@
         <p><span>本文标题:</span><a href="/2018/08/13/SSR构建/">SSR</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">灼热的思绪膨胀 翻涌迷惘填充幻想</a></p>
         <p><span>发布时间:</span>2018-08-13, 23:13:31</p>
-        <p><span>最后更新:</span>2018-08-21, 07:10:29</p>
+        <p><span>最后更新:</span>2018-08-22, 12:37:25</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/13/SSR构建/" title="SSR">http://yoursite.com/2018/08/13/SSR构建/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/08/13/SSR构建/　　作者: 灼热的思绪膨胀 翻涌迷惘填充幻想" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -366,7 +396,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#one"><span class="toc-number">1.</span> <span class="toc-text">这是一个SSR实例的踩坑，教程去看vue官网的SSR指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#two"><span class="toc-number">1.0.1.</span> <span class="toc-text">setup-dev-server</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#one"><span class="toc-number">1.</span> <span class="toc-text">这是一个SSR实例的踩坑，教程去看vue官网的SSR指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#two"><span class="toc-number">1.0.1.</span> <span class="toc-text">setup-dev-server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jjk"><span class="toc-number">1.0.2.</span> <span class="toc-text">那现在先去查看devmiddle的源码吧</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -436,7 +466,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/css display：content/">display:conetnt可以用来干嘛？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/SSR构建/">SSR</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/css display：content/">display:conetnt可以用来干嘛？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/SSR构建/">SSR</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li></ul>
 
 
 
