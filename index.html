@@ -410,6 +410,12 @@ handleRequest -->
 res.statusCode = res.statusCode || 200;
 看到了吗？中间件处理，因为koa的默认是404，所以现在statusCode是404。
 那该怎么解决呢？
+<img src="6.png">
+这图是一个请求一个静态资源的时候，返回的404。那应该可以推断出koa框架的中间件，当遇不到其他中间件的时候，但是你
+依旧使用了await next() 那么就会被设置成404了。好了，那么就强行设置成200吧... 然后又不调用await next()试试，会怎么样？
+结果是：浏览器一直在等待。既然我们不熟悉koa的返回正确内容的流畅，那么我们不妨在中间件koa-route上打断点试试？看看koa-route帮
+我们设置了什么？
+
 <% endblockquote="" %="">
 </%></%></body>
 
@@ -774,6 +780,72 @@ res.statusCode = res.statusCode || 200;
 
 
   
+    <article id="post-auto min max-content" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/08/01/auto min max-content/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              记录了一些Grid的小知识点
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/08/01/auto min max-content/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Flexbox and grid" class="article article-type-post" itemscope itemprop="blogPost">
   
   
@@ -840,11 +912,11 @@ res.statusCode = res.statusCode || 200;
 
 
   
-    <article id="post-Sizing" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Grid layout example" class="article article-type-post" itemscope itemprop="blogPost">
   
   
     <div class="article-meta">
-      <a href="/2018/08/01/Sizing/" class="article-date">
+      <a href="/2018/08/01/Grid layout example/" class="article-date">
       <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
 </a>
 
@@ -860,7 +932,7 @@ res.statusCode = res.statusCode || 200;
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a>
+      <a class="article-title" href="/2018/08/01/Grid layout example/">Grid的fit fill</a>
     </h1>
   
 
@@ -870,73 +942,7 @@ res.statusCode = res.statusCode || 200;
     <div class="article-entry" itemprop="articleBody">
       
           
-              Grid里面的长度单位fr以及其他的单位，应该怎么使用？min-content auto max-content又是一些什么东西？
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fr/">fr</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/08/01/Sizing/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-example" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/08/01/example/" class="article-date">
-      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              我们来实现一个比较复杂的布局吧，我也详细看过Jansimmon的代码，为了分析她为什么要这样写。
+              这写了一下repeat(fit | fill)的不同点，以及怎么利用，内有实例（堆叠式布局，卡片式布局）Grid。
           
       
     </div>
@@ -952,7 +958,7 @@ res.statusCode = res.statusCode || 200;
 
       
         <p class="article-more-link">
-          <a href="/2018/08/01/example/#more">more >></a>
+          <a href="/2018/08/01/Grid layout example/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
