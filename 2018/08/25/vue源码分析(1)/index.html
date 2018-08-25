@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="这个我是简单去了解了一下spa预加载，还有Build的一部分坑，后面再打算SSR服务端渲染，现在正在学习，想自己构建一个vue-cli，然后用SSR吧。">
-<meta name="keywords" content="webpack,plugin">
+<meta name="description" content="vue源码分析，过程可能会有点久。">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Prerender-SPA-Plugin是什么东西?">
-<meta property="og:url" content="https://kingbultsea.github.io/2018/08/04/Prerender-SPA-Plugin是什么东西/index.html">
+<meta property="og:title" content="vue源码分析(1)">
+<meta property="og:url" content="https://kingbultsea.github.io/2018/08/25/vue源码分析(1)/index.html">
 <meta property="og:site_name" content="个人技术blog">
-<meta property="og:description" content="这个我是简单去了解了一下spa预加载，还有Build的一部分坑，后面再打算SSR服务端渲染，现在正在学习，想自己构建一个vue-cli，然后用SSR吧。">
+<meta property="og:description" content="vue源码分析，过程可能会有点久。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-12T15:34:09.084Z">
+<meta property="og:updated_time" content="2018-08-25T18:01:56.660Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Prerender-SPA-Plugin是什么东西?">
-<meta name="twitter:description" content="这个我是简单去了解了一下spa预加载，还有Build的一部分坑，后面再打算SSR服务端渲染，现在正在学习，想自己构建一个vue-cli，然后用SSR吧。">
+<meta name="twitter:title" content="vue源码分析(1)">
+<meta name="twitter:description" content="vue源码分析，过程可能会有点久。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Prerender-SPA-Plugin是什么东西? | 个人技术blog</title>
+<title>vue源码分析(1) | 个人技术blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -225,12 +225,12 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Prerender-SPA-Plugin是什么东西" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-vue源码分析(1)" class="article article-type-post" itemscope itemprop="blogPost">
   
   
     <div class="article-meta">
-      <a href="/2018/08/04/Prerender-SPA-Plugin是什么东西/" class="article-date">
-      <time datetime="2018-08-04T06:17:53.000Z" itemprop="datePublished">2018-08-04</time>
+      <a href="/2018/08/25/vue源码分析(1)/" class="article-date">
+      <time datetime="2018-08-25T05:13:31.000Z" itemprop="datePublished">2018-08-25</time>
 </a>
 
 
@@ -245,7 +245,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Prerender-SPA-Plugin是什么东西?
+      vue源码分析(1)
     </h1>
   
 
@@ -256,7 +256,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/plugin/">plugin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -273,31 +273,20 @@
 <body>
 <head>
 <style>
-@import "css/main.css"
+
 </style>
-</head>
+<head>
+vue用得也有点久了，现在想去看看vue框架是怎么创造出来的，加深我对vue的印象。<br>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123; initMixin &#125; from &apos;./init.js&apos;</span><br><span class="line"></span><br><span class="line">class Vue &#123;</span><br><span class="line">    constructor(options)&#123;</span><br><span class="line">	    this._init(options) //放在了原型链上了</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">initMixin(Vue)</span><br><span class="line"></span><br><span class="line">export default Vue</span><br></pre></td></tr></table></figure>
 
-  <div class="main">
-    <h3 id="one">介绍</h3>
-    <p class="red-p">Prerender-SPA-Plugin，生成静态页面站点，是一个预渲染插件</p>
-	<h3 id="two">配置</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">webpack.conf.js</span><br><span class="line">var path = require(&apos;path&apos;)</span><br><span class="line">var PrerenderSpaPlugin = require(&apos;prerender-spa-plugin&apos;)</span><br><span class="line"> </span><br><span class="line">module.exports = &#123;</span><br><span class="line">  // ...</span><br><span class="line">  plugins: [</span><br><span class="line">    new PrerenderSpaPlugin(</span><br><span class="line">      // Absolute path to compiled SPA</span><br><span class="line">      path.join(__dirname, &apos;../dist&apos;),</span><br><span class="line">      // List of routes to prerender</span><br><span class="line">      [ &apos;/&apos;, &apos;/about&apos;, &apos;/contact&apos; ]</span><br><span class="line">    )</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我遇到了一个问题.. 就是dist那些文件 路径错了。
-解决方法，就是config的index.js文件，修改build的路径 assetsPublicPath: '../'。
-就是上一级，好吧，坑又来了。
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Uncaught ReferenceError: webpackJsonp is not defined</span><br><span class="line">   at /E:/vue_cli_test/myvuetest/dist/static/js/1.68bf31c38271f32f9606.js:1</span><br><span class="line">  解决方法</span><br><span class="line">     chunks: [&apos;manifest&apos;, &apos;vendor&apos;, &apos;app&apos;]</span><br><span class="line">  //有什么问题干他https://www.cnblogs.com/hcxy/p/7999360.html</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-然后又有坑啦，就是空白页面，我试试把mode删除。
-</p><p>好难啊，要去学习ngnix才行，我现在先去学习SSR了。今晚烧烤~2018年8月5日15点00分</p>
-<p></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//init.js</span><br><span class="line">const uid = 0</span><br><span class="line"></span><br><span class="line">export function initMixin (Vue: Class&lt;component&gt;/*ts*/)&#123;</span><br><span class="line">    Vue.prototype._init = function (options?:Object)&#123;</span><br><span class="line">	    const vm: Component = this</span><br><span class="line">		vm._uid = uid++</span><br><span class="line">		</span><br><span class="line">		vm.$options = mergeOptions(</span><br><span class="line">		    resolveConstructorOptions(vm.constructor),</span><br><span class="line">			options || &#123;&#125;,</span><br><span class="line">			vm</span><br><span class="line">		)   //这里是为vue实例添加option 例如vue.$options.el https://vuefe.cn/v2/api/#vm-options</span><br><span class="line">		</span><br><span class="line">		initState(vm)</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>最终结果：</p>
-<blockquote><p>我搞不明白什么预渲染… 我不会nginx。<br>我的理解是 dev的情况下 不需要使用spa  spa是在build使用的，目的仅仅是为了生成单页面，但是有利于seo吗？<br>所以，SSR才是最利于SEO的。如果我以后遇到什么问题，用SSR解决这些吧。<br>vue-loader已经全部渲染完毕了，直接丢进根vue的。</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">//state.js</span><br><span class="line">import &#123; bind &#125; from &apos;../util/index&apos; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export function initState (vm: Component) &#123;</span><br><span class="line">    const opts = vm.$options</span><br><span class="line">	if (opts.methods) initMethods(vm, opts.methods)  //初始化methods</span><br><span class="line">	if (opts.data) &#123; </span><br><span class="line">	    initData(vm)  //直接存vm么？</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//258</span><br><span class="line">function initMethods (vm: Component,methods: Object)&#123;</span><br><span class="line">    const props = vm.$options.props</span><br><span class="line">	for (const key in methods)&#123;</span><br><span class="line">	    if (methods[key] == null) &#123;</span><br><span class="line">		    warn(</span><br><span class="line">              `Method &quot;$&#123;key&#125;&quot; has an undefined value in the component definition. ` +</span><br><span class="line">              `Did you reference the function correctly?`,</span><br><span class="line">              vm</span><br><span class="line">            )</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	    if(props &amp;&amp; hasOwn(props, key) )&#123;</span><br><span class="line">		    warn(`Method &quot;$&#123;key&#125;&quot; has already been defined as a prop.`, vm)</span><br><span class="line">			//props = [] 嗯 知道了不能props 和 methods的方法名不能同时存在，就是我平时组件的时候</span><br><span class="line">			//可以this.method吧  而不是像data那样 this.$data.data (冲突的时候的话，嘛我猜的，到时候看到这就OK了)</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		if((key in vm) &amp;&amp; isReserved(key))&#123;</span><br><span class="line">		    warn(</span><br><span class="line">            `Method &quot;$&#123;key&#125;&quot; conflicts with an existing Vue instance method. ` +</span><br><span class="line">            `Avoid defining component methods that start with _ or $.`</span><br><span class="line">            )</span><br><span class="line">			//不能定义vue自带的方法</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		vm[key] = bind(methods[key], vm)</span><br><span class="line">		//你传进来的options.methods的方法，this就被绑定在这个vue实例上了</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-  </div>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//shared\util.js</span><br><span class="line"></span><br><span class="line">function nativeBind (fn: Function, ctx: Object): Function &#123;</span><br><span class="line">  return fn.bind(ctx)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export const bind = Function.prototype.bind</span><br><span class="line">  ? nativeBind</span><br><span class="line">  : polyfillBind</span><br></pre></td></tr></table></figure>
 
 
-</body>
+</head></head></body>
 </html>
       
     </div>
@@ -306,13 +295,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/25/vue源码分析(1)/">vue源码分析(1)</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">最近也是无聊，那就去分析Vue源码啦，估计要很久</a></p>
-        <p><span>发布时间:</span>2018-08-04, 14:17:53</p>
-        <p><span>最后更新:</span>2018-08-12, 23:34:09</p>
+        <p><span>发布时间:</span>2018-08-25, 13:13:31</p>
+        <p><span>最后更新:</span>2018-08-26, 02:01:56</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/" title="Prerender-SPA-Plugin是什么东西?">https://kingbultsea.github.io/2018/08/04/Prerender-SPA-Plugin是什么东西/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/08/04/Prerender-SPA-Plugin是什么东西/　　作者: 最近也是无聊，那就去分析Vue源码啦，估计要很久" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/25/vue源码分析(1)/" title="vue源码分析(1)">https://kingbultsea.github.io/2018/08/25/vue源码分析(1)/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/08/25/vue源码分析(1)/　　作者: 最近也是无聊，那就去分析Vue源码啦，估计要很久" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -324,16 +313,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/07/构建一个vue-cli/">
-                    vue-cli 构建(期限2天内，因为还不是很熟悉webpack)
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/03/我现在想在blog处理sass/">
-                    我现在想在blog处理sass
+                <a href="/2018/08/19/css display：content/">
+                    display:conetnt可以用来干嘛？
                 </a>
             </div>
         
@@ -346,7 +329,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#one"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#two"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -382,7 +365,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Prerender-SPA-Plugin是什么东西?　| 个人技术blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"vue源码分析(1)　| 个人技术blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -402,15 +385,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/07/构建一个vue-cli/" title="上一篇: vue-cli 构建(期限2天内，因为还不是很熟悉webpack)">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/03/我现在想在blog处理sass/" title="下一篇: 我现在想在blog处理sass">
+            <a href="/2018/08/19/css display：content/" title="下一篇: display:conetnt可以用来干嘛？">
                 <i class="fa fa-angle-right"></i>
             </a>
         
