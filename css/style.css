@@ -346,7 +346,7 @@ a {
     font-size: 14px;
   }
   #container .article {
-    margin: 0.625rem 10px;
+    margin: 0.1rem 0.2rem;
   }
   #container .article .article-entry {
     padding-left: 0;
@@ -356,7 +356,7 @@ a {
     padding: 0.35em 0.6em;
   }
   #container .article .article-title {
-    display: block;
+    display: 200;
     margin: 0;
     font-size: 1.5rem;
     font-weight: bold;
@@ -365,7 +365,7 @@ a {
     display: none;
   }
   #container .article-inner {
-    padding: 12px;
+    padding: 0.9rem;
   }
   #container .archive-article-inner .article-meta {
     top: 0;
@@ -557,6 +557,9 @@ a {
   #container .tags a {
     line-height: 45px;
   }
+}
+.body-wrap {
+  margin-top: 70px;
 }
 .header-author {
   text-align: center;
@@ -1256,8 +1259,8 @@ color
   overflow: hidden;
 }
 .article {
-  margin: 30px;
-  margin-bottom: 5px;
+  margin-left: 3vw;
+  margin-right: 3vw;
   position: relative;
   background: rgba(255,255,255,0.9);
   -webkit-transition: all 0.2s ease-in;
