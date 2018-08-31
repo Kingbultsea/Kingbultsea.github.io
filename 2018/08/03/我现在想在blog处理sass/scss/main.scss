@@ -5,3 +5,10 @@
     max-width:100%;
   }
 }
+
+@function caculation ($a,$b){
+  @return ($a + $b) + px;
+}
+p {
+  font-size: caculation(1,2);
+}
