@@ -241,7 +241,7 @@ a {
   margin: 3px;
 }
 #container .left-col {
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.61);
   width: 300px;
   position: fixed;
   opacity: 1;
@@ -575,7 +575,7 @@ a {
   width: 100%;
 }
 #header a {
-  color: #696969;
+  color: #565454;
 }
 #header a:hover {
   color: #b0a0aa;
@@ -1262,7 +1262,7 @@ color
   margin-left: 3vw;
   margin-right: 3vw;
   position: relative;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.61);
   -webkit-transition: all 0.2s ease-in;
 }
 .article.show {
