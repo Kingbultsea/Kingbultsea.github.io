@@ -1759,10 +1759,10 @@ li:hover {
   background: none;
 }
 #toc ol.toc a.toc-link {
-  color: #808080;
+  color: #1f1f1f;
 }
 #toc ol.toc a.toc-link:visited {
-  color: #f48385;
+  color: #1b1a1a;
 }
 #toc ol.toc a.toc-link:hover {
   color: #88acdb;
