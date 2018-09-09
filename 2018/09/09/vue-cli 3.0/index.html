@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1fv3jpwk3rkj307v04qq2u.jpg">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw690/006Zdy2vgy1fv3l79m8e3j30ff0algm2.jpg">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1fv3mh8m150j31j418k0yj.jpg">
-<meta property="og:updated_time" content="2018-09-09T16:13:19.940Z">
+<meta property="og:updated_time" content="2018-09-09T16:41:44.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-cli 3.0 学习">
 <meta name="twitter:description" content="vue-cli 3.0 vue.config.js自行在根目录配置">
@@ -444,16 +444,36 @@ yarn global add @vue/cli<br>
 	</p>
 	<p class="red-p">
 	任何放置在 public 文件夹的静态资源都会被简单的复制，而不经过 webpack。你需要通过绝对路径来引用它们。
-	</p>
+	<br>注意下link rel="icon" href="<%= base_url="" %="">favicon.ico" 在通过html-webpack-plugin引入的时候，html中的路径请添加上<%= base_url="" %="">
+	</%=></%=></p>
 	<blockquote><p>注意我们推荐将资源作为你的模块依赖图的一部分导入，这样它们会通过 webpack 的处理并获得如下好处：<br>  1.脚本和样式表会被压缩且打包在一起，从而避免额外的网络请求。<br>     2.文件丢失会直接在编译时报错，而不是到了用户端才产生 404 错误。<br>     3.最终生成的文件名包含了内容哈希，因此你不必担心浏览器会缓存它们的老版本。</p>
 </blockquote>
-<p class="main-p">六。URL转换规则</p>
+	<p class="main-p">在模板中想使用base_url的时候，推荐在data里面设置一个baseUrl: process.envBASE_URL
+	<br>img引入 :src="` ${baseUrl}my-image.png` "
+	</p>
+	
+	
+<p class="head-p">六。URL转换规则</p>
 	<ul>
 	  <li>如果 URL 是一个绝对路径 (例如 /images/foo.png)，它将会被保留不变。</li>
 	  <li>如果 URL 以 . 开头，它会作为一个相对模块请求被解释且基于你的文件系统中的目录结构进行解析。</li>
 	  <li>如果 URL 以 ~ 开头，其后的任何内容都会作为一个模块请求被解析。这意味着你甚至可以引用 Node 模块中的资源：</li>
 	  <li>如果 URL 以 @ 开头，它也会作为一个模块请求被解析。它的用处在于 Vue CLI 默认会设置一个指向 <projectroot>/src 的别名 @。(仅作用于模版中)</projectroot></li>
 	</ul>
+	
+	
+<p class="head-p">七。css相关</p>
+    <p class="main-p">自动化导入(就是每个单文件中引入变量，相当于全局变量吧)</p>
+	<blockquote><p>如果你想自动化导入文件 (用于颜色、变量、mixin……)，你可以使用 style-resources-loader。这里有一个关于 Stylus 的在每个单文件组件和 Stylus 文件中导入 ./src/styles/imports.styl 的例子：<br>       <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;)</span><br><span class="line"></span><br><span class="line">      module.exports = &#123;</span><br><span class="line">        chainWebpack: config =&gt; &#123;</span><br><span class="line">          const types = [&apos;vue-modules&apos;, &apos;vue&apos;, &apos;normal-modules&apos;, &apos;normal&apos;]</span><br><span class="line">          types.forEach(type =&gt; addStyleResource(config.module.rule(&apos;stylus&apos;).oneOf(type)))</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">      function addStyleResource (rule) &#123;</span><br><span class="line">        rule.use(&apos;style-resource&apos;)</span><br><span class="line">          .loader(&apos;style-resources-loader&apos;)</span><br><span class="line">          .options(&#123;</span><br><span class="line">            patterns: [</span><br><span class="line">              path.resolve(__dirname, &apos;./src/styles/imports.styl&apos;),</span><br><span class="line">            ],</span><br><span class="line">          &#125;)</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
+<p>你也可以选择使用 vue-cli-plugin-style-resources-loader<br>vue add vue-cli-plugin-style-resources-loader<br><a href="https://cli.vuejs.org/zh/guide/plugins-and-presets.html#在现有的项目中安装插件" target="_blank" rel="noopener">看这</a></p>
+</blockquote>
+	
+	<p class="main-p">
+	    PostCSS  <a href="https://www.cnblogs.com/ihardcoder/p/7216345.html" target="_blank" rel="noopener">推荐先去学习一下</a>
+	    </p><p class="red-p">PostCSS并不是另一种CSS预编译器，与SASS、Less等预编译器也并不冲突。PostCSS与Babel的不同之处在于，它所支持的所谓“未来CSS语法”并不是严格的CSS规范，其中大部分语法和特性目前只是CSS4的草案而已。很多人将PostCSS称为“CSS后编译器”，这个称谓可以一定程度上说明目前业界对PostCSS的普遍使用方案</p>
+	<p></p>
+	
+
 	
 </html>
       
@@ -466,7 +486,7 @@ yarn global add @vue/cli<br>
         <p><span>本文标题:</span><a href="/2018/09/09/vue-cli 3.0/">vue-cli 3.0 学习</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">只要js基础好 学东西成本超级低</a></p>
         <p><span>发布时间:</span>2018-09-09, 13:13:31</p>
-        <p><span>最后更新:</span>2018-09-10, 00:13:19</p>
+        <p><span>最后更新:</span>2018-09-10, 00:41:44</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/09/09/vue-cli 3.0/" title="vue-cli 3.0 学习">https://kingbultsea.github.io/2018/09/09/vue-cli 3.0/</a>
             <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/09/09/vue-cli 3.0/　　作者: 只要js基础好 学东西成本超级低" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
