@@ -225,6 +225,72 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-vue-cli 3.0" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/09/09/vue-cli 3.0/" class="article-date">
+      <time datetime="2018-09-09T05:13:31.000Z" itemprop="datePublished">2018-09-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/09/vue-cli 3.0/">vue-cli 3.0 学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              vue-cli 3.0 vue.config.js自行在根目录配置
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-cli/">vue-cli</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/09/09/vue-cli 3.0/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-2018-9-08" class="article article-type-post" itemscope itemprop="blogPost">
   
   
@@ -383,7 +449,9 @@
     <a href="https://zhuanlan.zhihu.com/p/43720663" target="_blank" rel="noopener"><h4>有了这 4 大特性，CDN 好用到飞起(又拍云 CDN)</h4></a><br>
   </p>
 
-
+  <p>
+    <a href="https://blog.csdn.net/songluyi/article/details/79419118" target="_blank" rel="noopener">没有了CommonsChunkPlugin，咱拿什么来分包</a>
+  </p>
 
 
 
@@ -396,7 +464,15 @@
 	异步修改使用Promise.resolve()。
   </p>
 
-
+  <p>
+    <a href="https://jakearchibald.com/2017/es-modules-in-browsers/#always-cors" target="_blank" rel="noopener">ECMAScript modules in browsers --- always-cors</a>
+	
+	<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   script type=&quot;module&quot;</span><br><span class="line">import &apos;https://….now.sh/no-cors&apos;;</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+	这不是普通的script  里面的import也是，他们需要Access-Control-Allow-Origin:*  || your site<br>
+	<a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">CORS</a>
+	使用vue-cli的 时候 记住去配置 crossorigin :use-credentials  
+	<br> 可是奇怪了...   --modern 是build的时候的   我们为嘛需要development的东西？这里留坑。除非是babel poloyfill useBuiltIns: 'usage'
+  </p>
 
 
 
@@ -1188,72 +1264,6 @@ $family: unquote(&apos;zz&apos;)
       
         <p class="article-more-link">
           <a href="/2018/08/04/Prerender-SPA-Plugin是什么东西/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-我现在想在blog处理sass" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/08/03/我现在想在blog处理sass/" class="article-date">
-      <time datetime="2018-08-03T06:00:00.000Z" itemprop="datePublished">2018-08-03</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              hexo搭建的blog，处理html文件，我想使用sass，不然写文章太麻烦了
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/08/03/我现在想在blog处理sass/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

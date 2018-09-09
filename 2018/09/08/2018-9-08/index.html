@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1fv0958dej0j32ak0kewr9.jpg">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw690/006Zdy2vgy1fv0957uljoj30zi0fkta4.jpg">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1fv0957937jj30pr0eck63.jpg">
-<meta property="og:updated_time" content="2018-09-09T10:03:24.215Z">
+<meta property="og:updated_time" content="2018-09-09T15:49:00.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每周记录---第一期">
 <meta name="twitter:description" content=".laa{   display: grid;   grid-template-columns: 50% 50%;    grid-gap: 1em; }    .laa&amp;gt;p {   padding: 1em;    }   .head-p {   font-weight :blod;   font-size:1.4em;   padding: 1em;   border-bottom">
@@ -400,7 +400,9 @@
     <a href="https://zhuanlan.zhihu.com/p/43720663" target="_blank" rel="noopener"><h4>有了这 4 大特性，CDN 好用到飞起(又拍云 CDN)</h4></a><br>
   </p>
 
-
+  <p>
+    <a href="https://blog.csdn.net/songluyi/article/details/79419118" target="_blank" rel="noopener">没有了CommonsChunkPlugin，咱拿什么来分包</a>
+  </p>
 
 
 
@@ -413,7 +415,15 @@
 	异步修改使用Promise.resolve()。
   </p>
 
-
+  <p>
+    <a href="https://jakearchibald.com/2017/es-modules-in-browsers/#always-cors" target="_blank" rel="noopener">ECMAScript modules in browsers --- always-cors</a>
+	
+	<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   script type=&quot;module&quot;</span><br><span class="line">import &apos;https://….now.sh/no-cors&apos;;</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+	这不是普通的script  里面的import也是，他们需要Access-Control-Allow-Origin:*  || your site<br>
+	<a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">CORS</a>
+	使用vue-cli的 时候 记住去配置 crossorigin :use-credentials  
+	<br> 可是奇怪了...   --modern 是build的时候的   我们为嘛需要development的东西？这里留坑。除非是babel poloyfill useBuiltIns: 'usage'
+  </p>
 
 
 
@@ -438,7 +448,7 @@
         <p><span>本文标题:</span><a href="/2018/09/08/2018-9-08/">每周记录---第一期</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">只要js基础好 学东西成本超级低</a></p>
         <p><span>发布时间:</span>2018-09-08, 14:00:00</p>
-        <p><span>最后更新:</span>2018-09-09, 18:03:24</p>
+        <p><span>最后更新:</span>2018-09-09, 23:49:00</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/09/08/2018-9-08/" title="每周记录---第一期">https://kingbultsea.github.io/2018/09/08/2018-9-08/</a>
             <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/09/08/2018-9-08/　　作者: 只要js基础好 学东西成本超级低" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -452,6 +462,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/09/09/vue-cli 3.0/">
+                    vue-cli 3.0 学习
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -525,7 +541,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/09/09/vue-cli 3.0/" title="上一篇: vue-cli 3.0 学习">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -537,7 +555,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/08/2018-9-08/">每周记录---第一期</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/15个样式问题，美化/">Common webpage design mistakes(翻译：网页设计的常见错误)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/sass设计/">sass用法总结和思考</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/vue源码分析(1)/">vue源码分析(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/css display：content/">display:conetnt可以用来干嘛？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/SSR构建/">SSR</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/09/vue-cli 3.0/">vue-cli 3.0 学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/08/2018-9-08/">每周记录---第一期</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/15个样式问题，美化/">Common webpage design mistakes(翻译：网页设计的常见错误)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/sass设计/">sass用法总结和思考</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/vue源码分析(1)/">vue源码分析(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/css display：content/">display:conetnt可以用来干嘛？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/SSR构建/">SSR</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li></ul>
 
 
 
