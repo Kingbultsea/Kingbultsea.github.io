@@ -15,21 +15,18 @@
 
 
 
-<meta name="description" content="css display:content 是用来把ul的子元素li设置成grid-item">
+<meta name="description" content="这写了一下repeat(fit | fill)的不同点，以及怎么利用，内有实例（堆叠式布局，卡片式布局）Grid。">
 <meta name="keywords" content="css,css-grid">
 <meta property="og:type" content="article">
-<meta property="og:title" content="display:conetnt可以用来干嘛？">
-<meta property="og:url" content="https://kingbultsea.github.io/2018/08/19/css display：content/index.html">
+<meta property="og:title" content="Grid的fit fill">
+<meta property="og:url" content="https://kingbultsea.github.io/2018/08/01/weex-study/index.html">
 <meta property="og:site_name" content="死亡诗社">
-<meta property="og:description" content="css display:content 是用来把ul的子元素li设置成grid-item">
+<meta property="og:description" content="这写了一下repeat(fit | fill)的不同点，以及怎么利用，内有实例（堆叠式布局，卡片式布局）Grid。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1fuf57n15u1j31840oowgp.jpg">
-<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1fuf57mh38xj30kz07oabf.jpg">
-<meta property="og:updated_time" content="2018-08-22T15:05:55.866Z">
+<meta property="og:updated_time" content="2018-09-12T08:55:54.456Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="display:conetnt可以用来干嘛？">
-<meta name="twitter:description" content="css display:content 是用来把ul的子元素li设置成grid-item">
-<meta name="twitter:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1fuf57n15u1j31840oowgp.jpg">
+<meta name="twitter:title" content="Grid的fit fill">
+<meta name="twitter:description" content="这写了一下repeat(fit | fill)的不同点，以及怎么利用，内有实例（堆叠式布局，卡片式布局）Grid。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -59,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>display:conetnt可以用来干嘛？ | 死亡诗社</title>
+<title>Grid的fit fill | 死亡诗社</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -228,12 +225,12 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-css display：content" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-weex-study" class="article article-type-post" itemscope itemprop="blogPost">
   
   
     <div class="article-meta">
-      <a href="/2018/08/19/css display：content/" class="article-date">
-      <time datetime="2018-08-19T05:13:31.000Z" itemprop="datePublished">2018-08-19</time>
+      <a href="/2018/08/01/weex-study/" class="article-date">
+      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
 </a>
 
 
@@ -248,7 +245,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      display:conetnt可以用来干嘛？
+      Grid的fit fill
     </h1>
   
 
@@ -276,20 +273,65 @@
 <body>
 <head>
 <style>
+.laa{
+  display: grid;
+  grid-template-columns: 50% 50%; 
+  grid-gap: 1em;
+}
+  
+.laa>p {
+  padding: 1em;
+  
+}
+
+
+.head-p {
+  font-weight :blod;
+  font-size:1.4em;
+  padding: 1em;
+  border-bottom: 1px solid;
+}
+
+.small-p {
+  font-szie: 1.2em;
+}
+
+.block {
+  padding: 1em;
+}
 
 </style>
 <head>
 
-<h3>兼容性</h3>
-<img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1fuf57n15u1j31840oowgp.jpg">
-
-   <blockquote><p>  2018年8月19日 更新——-<br>  display: contents to the rescue</p>
-  <p>With display: contents, we can have our markup and our grid placement. This property makes the element so that it no longer seems to exist. It does not generate a box, so backgrounds, borders and other box-related properties will no longer work on it. Grid placement properties will also no longer work. But all of these things will work for the element’s children. The spec says the element behaves ‘as if it had been replaced […] by its contents’. If that sounds weird, I can recommend Ire Aderinokun’s detailed explainer.</p>
-
-<p>  <img src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1fuf57mh38xj30kz07oabf.jpg"><br>  意思就是 ul是li的markup ，但是我不想用div来包裹，我更愿意用li(li的好处是浏览器的阅读模式it will stay a list outside the context of our page, for example in Safari Reader mode, it will show as a list)<br>  然后设置ul为 display:content 这样就OK了 li就成为grid-item了。<br>  但是display:content 在firefox 62中 只是stept five。<br>   detal info:<a href="https://hiddedevries.nl/en/blog/2018-04-21-more-accessible-markup-with-display-contents" target="_blank" rel="noopener"> link</a><br><a href="https://twitter.com/jensimmons/status/1030125167199113216" target="_blank" rel="noopener">Jen simmon</a></p>
+<blockquote><p>就试试weex好不好用吧，学习成本也是很低的。</p>
 </blockquote>
 
-</head></head></body>
+<p class="head-p">一。hellow world!</p>
+    <p class="small-p">这个例子在屏幕正中间渲染了一个单词 “Yo”。
+	如果你想在移动设备上预览渲染结果，你只需要安装Weex playground app 
+	或将 Weex SDK 集成到您自己的应用程序中，然后使用扫描网页右侧的二维码。
+	https://weex.apache.org/cn/tools/playground.html
+	</p>
+    <p class="red-p">算了 我直接跳过了，直接写自己所遇到的坑吧。</p>
+
+<p class="hea-p">二。wtf?? node版本不兼容？</p>
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WARN node unsupported &quot;node@v8.10.0&quot; is incompatible with weex-previewer@1.5.1 › dns@0.2.2 › tomahawk@0.1.6, expected node@&gt;= 0.8.0 &lt; 0.11.0</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+	<p class="red-p">解决方法，升级npm: 注意: 在weex-toolkit1.0.8版本后添加了npm5规范的npm-shrinkwrap.json用于锁定包依赖，故npm版本<5的用户需要通过npm i="" npm@latest="" -g更新一下npm的版本，使用前请确认版本是否正确。<="" p="">
+	不对哇...  这明明是node版本的问题，又不是npm问题
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\user\AppData\Roaming\npm\node_modules</span><br><span class="line">删除weex-toolkit</span><br><span class="line">然后npm i weex-toolkit -g</span><br><span class="line">出错的原因我分析出是：</span><br><span class="line">cnpm的问题，还有缓存问题，我一直以为npm cache clean --force 是用来删除那些没有安装成功的东西</span><br><span class="line">其实不是的 npm install或npm update命令，从 registry 下载压缩包之后，都存放在本地的缓存目录。</span><br><span class="line">可以去ruanf那看看 http://www.ruanyifeng.com/blog/2016/01/npm-install.html</span><br><span class="line">在改使用npm之后，我是发现no access mission to ......什么什么的。意思就是！他写入不了！所以诞生出一个想法：</span><br><span class="line">那么我们把原来的东西删除。</span><br></pre></td></tr></table></figure>
+
+<p class="hea-p">三。weex debug安装weex debugger的时候报错</p>	
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR: Failed to download Chromium r588429! Set &quot;PUPPETEER_SKIP_CHROMIUM_DOWNLOAD&quot; env variable to skip download.</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+	
+	<p class="">意思是你安装不了Chromium，你可以通过 set PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1   来跳过 </p>
+	现在开启debug模式 
+	<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You may not have installed chromium properly, you can find solution here https://github.com/weexteam/weex-toolkit/issues/275.</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+    好了，去那个Link手动安装Chromium吧。
+	
+	
+	
+	
+</5的用户需要通过npm></p></head></head></body>
 </html>
       
     </div>
@@ -298,13 +340,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/19/css display：content/">display:conetnt可以用来干嘛？</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/01/weex-study/">Grid的fit fill</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">很清楚自己很垃圾</a></p>
-        <p><span>发布时间:</span>2018-08-19, 13:13:31</p>
-        <p><span>最后更新:</span>2018-08-22, 23:05:55</p>
+        <p><span>发布时间:</span>2018-08-01, 23:13:31</p>
+        <p><span>最后更新:</span>2018-09-12, 16:55:54</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/19/css display：content/" title="display:conetnt可以用来干嘛？">https://kingbultsea.github.io/2018/08/19/css display：content/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/08/19/css display：content/　　作者: 很清楚自己很垃圾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/01/weex-study/" title="Grid的fit fill">https://kingbultsea.github.io/2018/08/01/weex-study/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/08/01/weex-study/　　作者: 很清楚自己很垃圾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -317,15 +359,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/25/vue源码分析(1)/">
-                    vue源码分析(1)
+                <a href="/2018/08/01/css shape -outside polygon/">
+                    css shape的用法
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/13/SSR构建/">
-                    SSR
+                <a href="/2018/08/01/auto min max-content/">
+                    auto min max-content in css Grid
                 </a>
             </div>
         
@@ -338,7 +380,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">兼容性</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -374,7 +416,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"display:conetnt可以用来干嘛？　| 死亡诗社　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Grid的fit fill　| 死亡诗社　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -394,7 +436,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/25/vue源码分析(1)/" title="上一篇: vue源码分析(1)">
+            <a href="/2018/08/01/css shape -outside polygon/" title="上一篇: css shape的用法">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -402,7 +444,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/13/SSR构建/" title="下一篇: SSR">
+            <a href="/2018/08/01/auto min max-content/" title="下一篇: auto min max-content in css Grid">
                 <i class="fa fa-angle-right"></i>
             </a>
         
