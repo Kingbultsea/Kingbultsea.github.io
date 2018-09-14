@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="死亡诗社">
 <meta property="og:description" content="weex很久之前写的，放下上来">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-13T14:53:45.261Z">
+<meta property="og:updated_time" content="2018-09-14T07:43:33.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="weex的坑，以后也记录在这里了">
 <meta name="twitter:description" content="weex很久之前写的，放下上来">
@@ -303,7 +303,7 @@
 </style>
 <head>
 
-<blockquote><p>就试试weex好不好用吧，学习成本也是很低的。</p>
+<blockquote><p>就试试weex好不好用吧，学习成本也是很低的。 直接把cli的项目移植过来真的是想多了…</p>
 </blockquote>
 
 <p class="head-p">一。hellow world!</p>
@@ -320,7 +320,7 @@
 	不对哇...  这明明是node版本的问题，又不是npm问题
     <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\user\AppData\Roaming\npm\node_modules</span><br><span class="line">删除weex-toolkit</span><br><span class="line">然后npm i weex-toolkit -g</span><br><span class="line">出错的原因我分析出是：</span><br><span class="line">cnpm的问题，还有缓存问题，我一直以为npm cache clean --force 是用来删除那些没有安装成功的东西</span><br><span class="line">其实不是的 npm install或npm update命令，从 registry 下载压缩包之后，都存放在本地的缓存目录。</span><br><span class="line">可以去ruanf那看看 http://www.ruanyifeng.com/blog/2016/01/npm-install.html</span><br><span class="line">在改使用npm之后，我是发现no access mission to ......什么什么的。意思就是！他写入不了！所以诞生出一个想法：</span><br><span class="line">那么我们把原来的东西删除。</span><br></pre></td></tr></table></figure>
 
-<p class="hea-p">三。weex debug安装weex debugger的时候报错</p>	
+<p class="head-p">三。weex debug安装weex debugger的时候报错</p>	
     <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR: Failed to download Chromium r588429! Set &quot;PUPPETEER_SKIP_CHROMIUM_DOWNLOAD&quot; env variable to skip download.</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 	
 	<p class="">意思是你安装不了Chromium，你可以通过 set PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1   来跳过 </p>
@@ -328,8 +328,35 @@
 	<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You may not have installed chromium properly, you can find solution here https://github.com/weexteam/weex-toolkit/issues/275.</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
     chromium装不装都没影响。
 	
+<p class="head-p">四。css</p>
+	<p class="red-p">ERROR: Selector `a` is not supported. Weex only support single-classname selector
+	weex只支持类选择器，因此标签a不能够使用。</p>
+	
+	<p class="red-p">ERROR: property value `all` is not supported for `transition-property` (only css property is valid)
+	<a href="http://www.w3school.com.cn/cssref/pr_transition-property.asp" target="_blank" rel="noopener">就是transition的那个动画</a>
+	你需要all的话，只能一个个写用逗号间隔
+	</p>
+
 	
 	
+	<p>以下是warning 他会帮你自动修改。(但是不一定符号你的意思)</p>
+	<p class="red-p">
+	property value `.5s` is autofixed to `500`  不支持transition: opacity  .5s的写法 应该按照ms的写法  代替为500
+	</p>
+	<p class="red-p">
+	unit `%` is not supported and property value `100%` is autofixed to `100`
+	不支持百分号%，他将帮你自动更改为100,这相当于px了。推荐使用vw  vh
+	</p>
+	<p class="red-p">
+	 WARNING: `background` is not a standard property name (may not be supported), suggest `background-color`
+	 background 不标准，继续使用有概率不支持，应该使用background-color代替，
+	</p>
+	<p class="red-p">
+	 property value `#fff` is autofixed to `#ffffff`  
+	 应该使用标准写法fff
+	</p>
+	<blockquote><p>这是不能使用的：<br>list-style-type(消除·)  word-wrap  float  display  box-sizing  border-bottom  -webkit-line-clamp<br>  -webkit-box-orient  rem em  flex-wrap  relative   <code>pink</code> is autofixed to <code>#FFC0CB</code><br>  property value <code>initial</code> is not supported for <code>line-height</code> (only number and pixel values are supported)</p>
+</blockquote>
 	
 </5的用户需要通过npm></p></head></head></body>
 </html>
@@ -343,7 +370,7 @@
         <p><span>本文标题:</span><a href="/2018/09/05/weex-study/">weex的坑，以后也记录在这里了</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">很清楚自己很垃圾</a></p>
         <p><span>发布时间:</span>2018-09-05, 23:13:31</p>
-        <p><span>最后更新:</span>2018-09-13, 22:53:45</p>
+        <p><span>最后更新:</span>2018-09-14, 15:43:33</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/09/05/weex-study/" title="weex的坑，以后也记录在这里了">https://kingbultsea.github.io/2018/09/05/weex-study/</a>
             <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/09/05/weex-study/　　作者: 很清楚自己很垃圾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
