@@ -166,7 +166,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSR/">SSR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-grid/">css-grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-shape/">css-shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fr/">fr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plugin/">plugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week/">week</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weex/">weex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指令/">指令</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSR/">SSR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-grid/">css-grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-shape/">css-shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fr/">fr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plugin/">plugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webgl/">webgl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week/">week</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weex/">weex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指令/">指令</a></li></ul>
                     </div>
                 </section>
                 
@@ -224,6 +224,307 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-paperjs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/10/02/paperjs/" class="article-date">
+      <time datetime="2018-10-02T15:13:31.000Z" itemprop="datePublished">2018-10-02</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/02/paperjs/">paperjs 学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <!DOCTYPE html>
+<html>
+
+
+<body>
+<head>
+<style>
+
+</style>
+<head>
+<h3 id="one">paperjs在vuecli中使用</h3>
+<blockquote><p>推荐方式：<br>cnpm i paper -s</p>
+<p>import paper from ‘paper’<br>mounted(){<br>    paper.install(window)<br>    paper.setup(document.getElementById(‘mycanvas’))<br>    paper.settings.handleSize = 0;<br>    paper.settings.hitTolerance = 4;<br>}</p>
+<p>methods{<br>    paperStart(){<br>        require(‘你写papaer动画的js’)<br>    }<br>}</p>
+<p>按照上面的方式，来进行初始化就OK了<br>当然你也可以通过script标签引入paper 然后在vue里面require(‘你写papaer动画的js’)<br>但是不能通过script标签的方式引入你写papaer动画的js(除非你直接在dist放入，好吧，你非要这样我也没办法。)</p>
+<p class="red-p">另外你可能会遇到onFrame(){}等等之类的操作不能使用，你需要改写成view.onFrame = ()=&gt;{console.log(‘这样就有效果了’)}</p></blockquote>
+
+<h3 id="asd">如何获取相交的点？</h3>
+<a href="http://sketch.paperjs.org/#S/dVFNb4MwDP0rVk5URZQi9UK3U0+7TesROLBgICJLUBI2TYj/Piela7WPS+L4+b1nOzNT9RuynJ0HdLxnMeO68e/32sBYu34Pj6DwA54pTk7CcIlRsU/TGOioYjikm2OprtXZffULcler7gfhFnvibhdMknaS8vOMkijYkIgzE37D2X/whWud0QOetNSGoJIZbEq2otkvtDOIKuC+aaGcpfRFqEP3pBwaSzZCKxsFBd8mp5eWmEjdRZ6SSFSd66+jc6/udYrVPb4Z+VAb2gOWrKL6lvqIgjXVp0e6HuBOkhLb7QbmUgGErf6x/9nUjZhsDocYWiFlGC5fuyhEtfi+AMZk1Fb4SUjDWxBEKYoIXuirXw3WQ0hYlhfV8gU=" target="_blank" rel="noopener">链接</a>
+<blockquote><p>var path1 = new Path.Circle([100,100],50)<br>var path2 = new Path.Circle([100,100],50)</p>
+<p>path1.strokeColor = ‘red’<br>path2.strokeColor = ‘green’</p>
+<p>var ints = path1.getIntersections(path2)<br>console.log(ints.length)</p>
+<p>var colors = [“red”, “green”, “orange”];<br>for (var i = 0; i &lt; ints.length; i++) {<br>  var p = new Path.Circle({radius: 5, fillColor: colors[i]});<br>  p.position = ints[i].point;<br>}</p>
+<p>就是通过一个getIntersections的方法来获取相交的点 </p>
+</blockquote>
+
+<h3 id="asdasd">如何改变fillColor?(动画)</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.fillColor.hue += 1;</span><br></pre></td></tr></table></figure>
+
+<h3 id="asdasd">如何添加文字？</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var text = new PointText(&#123;</span><br><span class="line">    point: view.center,</span><br><span class="line">	justification: &apos;center&apos;,</span><br><span class="line">	fontSize: 10,</span><br><span class="line">	fillColor: &apos;red&apos;</span><br><span class="line">&#125;)</span><br><span class="line">text.content = &apos;asd&apos;</span><br></pre></td></tr></table></figure>
+
+<h3 id="asd">如何获得point的随机数？还有point和位置的计算问题？
+<blockquote><p>通过Point.random()*view.size 可以获得随机的point位置。<br>Path.position = Path.position + [10,10]加法减法乘法除法%运算都是这样。</p>
+</blockquote>
+</h3>
+
+<h3 id="aasd">小知识</h3>
+<blockquote><p class="red-p">所有绘图的东西都是路径构成的，而且你可以通过path.position = new Point(100,100)，设置位置的方式通过一个点来控制</p><br><p class="red-p">在canvas设置resize=’true’属性,假如width和height视乎不是你想要的，那么你需要设置<br>html,<br>  body {<br>    margin: 0;<br>    overflow: hidden;<br>    height: 100%;<br>  }<br>  canvas[resize] {<br>    width: 100%;<br>    height: 100%;<br>  }<br></p><br><p class="red-p">Point.length是两点起始的距离</p><br><p class="red-p">在onFrame中，var value = destination - position 这只会执行一次var value 。<br>当destination或者position改变的时候，才会重新赋值<br></p>
+</blockquote>
+
+</head></head></body>
+</html>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-webgl学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/09/26/webgl学习/" class="article-date">
+      <time datetime="2018-09-26T15:13:31.000Z" itemprop="datePublished">2018-09-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/26/webgl学习/">Grid的fit fill</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              webgl
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webgl/">webgl</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/09/26/webgl学习/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-在mac中的坑" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/09/25/在mac中的坑/" class="article-date">
+      <time datetime="2018-09-25T15:13:31.000Z" itemprop="datePublished">2018-09-25</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/25/在mac中的坑/">Grid的fit fill</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这里写一下我在mac上开发出现的一些问题
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/09/25/在mac中的坑/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-webpack manifest" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/09/25/webpack manifest/" class="article-date">
+      <time datetime="2018-09-25T15:13:31.000Z" itemprop="datePublished">2018-09-25</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/25/webpack manifest/">是时候研究下webpack的manifest了</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              没有任何描述哦
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/09/25/webpack manifest/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-weex-study" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1019,273 +1320,9 @@ $family: unquote(&apos;zz&apos;)
 
 
   
-    <article id="post-css display：content" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/08/19/css display：content/" class="article-date">
-      <time datetime="2018-08-19T05:13:31.000Z" itemprop="datePublished">2018-08-19</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/19/css display：content/">display:conetnt可以用来干嘛？</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              css display:content 是用来把ul的子元素li设置成grid-item
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/08/19/css display：content/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-SSR构建" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/08/13/SSR构建/" class="article-date">
-      <time datetime="2018-08-13T15:13:31.000Z" itemprop="datePublished">2018-08-13</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/13/SSR构建/">SSR</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              2018-08-22更新 (你可以去用koa的 好像是叫koa-wepack-dev-middle,那里帮你封装好了)
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSR/">SSR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/08/13/SSR构建/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-构建一个延迟渲染指令(拆v-if 来渲染)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/" class="article-date">
-      <time datetime="2018-08-11T06:17:53.000Z" itemprop="datePublished">2018-08-11</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              终结！如需要延迟渲染 看这个https://vuefe.cn/v2/guide/components-dynamic-async.html#异步组件
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-构建一个vue-cli" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/08/07/构建一个vue-cli/" class="article-date">
-      <time datetime="2018-08-07T14:08:53.000Z" itemprop="datePublished">2018-08-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              构建了dev , 速度很快。 production还没有去构建。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/plugin/">plugin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/08/07/构建一个vue-cli/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

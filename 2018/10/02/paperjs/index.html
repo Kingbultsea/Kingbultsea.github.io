@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="= =！  想去的公司，技术面太紧张了，连bind都答不出，啊，我看的书都干嘛了。" />
+
+
+
+<meta name="description" content="paperjs在vuecli中使用 推荐方式：cnpm i paper -s import paper from ‘paper’mounted(){    paper.install(window)    paper.setup(document.getElementById(‘mycanvas’))    paper.settings.handleSize = 0;    p">
+<meta name="keywords" content="css,css-grid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="paperjs 学习">
+<meta property="og:url" content="https://kingbultsea.github.io/2018/10/02/paperjs/index.html">
+<meta property="og:site_name" content="死亡诗社">
+<meta property="og:description" content="paperjs在vuecli中使用 推荐方式：cnpm i paper -s import paper from ‘paper’mounted(){    paper.install(window)    paper.setup(document.getElementById(‘mycanvas’))    paper.settings.handleSize = 0;    p">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-02T17:31:52.915Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="paperjs 学习">
+<meta name="twitter:description" content="paperjs在vuecli中使用 推荐方式：cnpm i paper -s import paper from ‘paper’mounted(){    paper.install(window)    paper.setup(document.getElementById(‘mycanvas’))    paper.settings.handleSize = 0;    p">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="死亡诗社" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>paperjs 学习 | 死亡诗社</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: false,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: false
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/one-prorify.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">= =！  想去的公司，技术面太紧张了，连bind都答不出，啊，我看的书都干嘛了。</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/894275157@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/Kingbultsea" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSR/">SSR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-grid/">css-grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-shape/">css-shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fr/">fr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plugin/">plugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webgl/">webgl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week/">week</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weex/">weex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指令/">指令</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">前端是一个敲门砖，我一定要在两年后，就是我毕业之前，能在前端游刃有余。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1  class="header-author js-mobile-header hide"><a href="/" style="color:black" title="回到主页">= =！  想去的公司，技术面太紧张了，连bind都答不出，啊，我看的书都干嘛了。</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/one-prorify.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">= =！  想去的公司，技术面太紧张了，连bind都答不出，啊，我看的书都干嘛了。</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/894275157@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/Kingbultsea" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-paperjs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/10/02/paperjs/" class="article-date">
+      <time datetime="2018-10-02T15:13:31.000Z" itemprop="datePublished">2018-10-02</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      paperjs 学习
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <!DOCTYPE html>
+<html>
+
+
+<body>
+<head>
+<style>
+
+</style>
+<head>
+<h3 id="one">paperjs在vuecli中使用</h3>
+<blockquote><p>推荐方式：<br>cnpm i paper -s</p>
+<p>import paper from ‘paper’<br>mounted(){<br>    paper.install(window)<br>    paper.setup(document.getElementById(‘mycanvas’))<br>    paper.settings.handleSize = 0;<br>    paper.settings.hitTolerance = 4;<br>}</p>
+<p>methods{<br>    paperStart(){<br>        require(‘你写papaer动画的js’)<br>    }<br>}</p>
+<p>按照上面的方式，来进行初始化就OK了<br>当然你也可以通过script标签引入paper 然后在vue里面require(‘你写papaer动画的js’)<br>但是不能通过script标签的方式引入你写papaer动画的js(除非你直接在dist放入，好吧，你非要这样我也没办法。)</p>
+<p class="red-p">另外你可能会遇到onFrame(){}等等之类的操作不能使用，你需要改写成view.onFrame = ()=&gt;{console.log(‘这样就有效果了’)}</p></blockquote>
+
+<h3 id="asd">如何获取相交的点？</h3>
+<a href="http://sketch.paperjs.org/#S/dVFNb4MwDP0rVk5URZQi9UK3U0+7TesROLBgICJLUBI2TYj/Piela7WPS+L4+b1nOzNT9RuynJ0HdLxnMeO68e/32sBYu34Pj6DwA54pTk7CcIlRsU/TGOioYjikm2OprtXZffULcler7gfhFnvibhdMknaS8vOMkijYkIgzE37D2X/whWud0QOetNSGoJIZbEq2otkvtDOIKuC+aaGcpfRFqEP3pBwaSzZCKxsFBd8mp5eWmEjdRZ6SSFSd66+jc6/udYrVPb4Z+VAb2gOWrKL6lvqIgjXVp0e6HuBOkhLb7QbmUgGErf6x/9nUjZhsDocYWiFlGC5fuyhEtfi+AMZk1Fb4SUjDWxBEKYoIXuirXw3WQ0hYlhfV8gU=" target="_blank" rel="noopener">链接</a>
+<blockquote><p>var path1 = new Path.Circle([100,100],50)<br>var path2 = new Path.Circle([100,100],50)</p>
+<p>path1.strokeColor = ‘red’<br>path2.strokeColor = ‘green’</p>
+<p>var ints = path1.getIntersections(path2)<br>console.log(ints.length)</p>
+<p>var colors = [“red”, “green”, “orange”];<br>for (var i = 0; i &lt; ints.length; i++) {<br>  var p = new Path.Circle({radius: 5, fillColor: colors[i]});<br>  p.position = ints[i].point;<br>}</p>
+<p>就是通过一个getIntersections的方法来获取相交的点 </p>
+</blockquote>
+
+<h3 id="asdasd">如何改变fillColor?(动画)</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.fillColor.hue += 1;</span><br></pre></td></tr></table></figure>
+
+<h3 id="asdasd">如何添加文字？</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var text = new PointText(&#123;</span><br><span class="line">    point: view.center,</span><br><span class="line">	justification: &apos;center&apos;,</span><br><span class="line">	fontSize: 10,</span><br><span class="line">	fillColor: &apos;red&apos;</span><br><span class="line">&#125;)</span><br><span class="line">text.content = &apos;asd&apos;</span><br></pre></td></tr></table></figure>
+
+<h3 id="asd">如何获得point的随机数？还有point和位置的计算问题？
+<blockquote><p>通过Point.random()*view.size 可以获得随机的point位置。<br>Path.position = Path.position + [10,10]加法减法乘法除法%运算都是这样。</p>
+</blockquote>
+</h3>
+
+<h3 id="aasd">小知识</h3>
+<blockquote><p class="red-p">所有绘图的东西都是路径构成的，而且你可以通过path.position = new Point(100,100)，设置位置的方式通过一个点来控制</p><br><p class="red-p">在canvas设置resize=’true’属性,假如width和height视乎不是你想要的，那么你需要设置<br>html,<br>  body {<br>    margin: 0;<br>    overflow: hidden;<br>    height: 100%;<br>  }<br>  canvas[resize] {<br>    width: 100%;<br>    height: 100%;<br>  }<br></p><br><p class="red-p">Point.length是两点起始的距离</p><br><p class="red-p">在onFrame中，var value = destination - position 这只会执行一次var value 。<br>当destination或者position改变的时候，才会重新赋值<br></p>
+</blockquote>
+
+</head></head></body>
+</html>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/10/02/paperjs/">paperjs 学习</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">= =！  想去的公司，技术面太紧张了，连bind都答不出，啊，我看的书都干嘛了。</a></p>
+        <p><span>发布时间:</span>2018-10-02, 23:13:31</p>
+        <p><span>最后更新:</span>2018-10-03, 01:31:52</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/10/02/paperjs/" title="paperjs 学习">https://kingbultsea.github.io/2018/10/02/paperjs/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/10/02/paperjs/　　作者: = =！  想去的公司，技术面太紧张了，连bind都答不出，啊，我看的书都干嘛了。" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/09/26/webgl学习/">
+                    Grid的fit fill
+                </a>
+            </div>
+        
+    </nav>
+
+  
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#one"><span class="toc-number">1.</span> <span class="toc-text">paperjs在vuecli中使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#asd"><span class="toc-number">2.</span> <span class="toc-text">如何获取相交的点？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#asdasd"><span class="toc-number">3.</span> <span class="toc-text">如何改变fillColor?(动画)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#asdasd"><span class="toc-number">4.</span> <span class="toc-text">如何添加文字？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#asd"><span class="toc-number">5.</span> <span class="toc-text">如何获得point的随机数？还有point和位置的计算问题？
+通过Point.random()*view.size 可以获得随机的point位置。Path.position = Path.position + [10,10]加法减法乘法除法%运算都是这样。
+
+</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aasd"><span class="toc-number">6.</span> <span class="toc-text">小知识</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"paperjs 学习　| 死亡诗社　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/09/26/webgl学习/" title="下一篇: Grid的fit fill">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/paperjs/">paperjs 学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/26/webgl学习/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/25/在mac中的坑/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/25/webpack manifest/">是时候研究下webpack的manifest了</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/13/weex-study/">weex的坑，以后也记录在这里了</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/09/vue-cli 3.0/">vue-cli 3.0 学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/08/2018-9-08/">每周记录---第一期</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/15个样式问题，美化/">Common webpage design mistakes(翻译：网页设计的常见错误)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/sass设计/">sass用法总结和思考</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/vue源码分析(1)/">vue源码分析(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/css display：content/">display:conetnt可以用来干嘛？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/SSR构建/">SSR</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018 = =！  想去的公司，技术面太紧张了，连bind都答不出，啊，我看的书都干嘛了。
+            </div>
+            <div class="footer-right">
+                <a href="https://github.com/Kingbultsea" target="_blank" title="超超超欢迎">Hold</a>  Hold the door
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background": "url(http://wx1.sinaimg.cn/large/006Zdy2vgy1fty0jvcdsvj31040mp1kx.jpg)", "background-size": "auto 100%","background-attachment": "fixed"});
+            }
+            else {
+                var backgroundnum = 1;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <!--<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>-->
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
