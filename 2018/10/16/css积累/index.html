@@ -25,7 +25,10 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1fw9xfulqe7j30cl03t74f.jpg">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1fw9xfxy0akj30d908o0so.jpg">
-<meta property="og:updated_time" content="2018-10-16T04:13:42.099Z">
+<meta property="og:image" content="http://wx4.sinaimg.cn/mw690/006Zdy2vgy1fw9yidx4foj30wz0gu41j.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1fw9yqfr81nj307f06fjrw.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1fwab7x86dxj30lu0axtab.jpg">
+<meta property="og:updated_time" content="2018-10-16T11:55:58.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="嘛积累下css也是很有必要的">
 <meta name="twitter:description" content="记录好用的css">
@@ -329,6 +332,18 @@
 	<p>png图片展示，说明这个border其实是拉伸，中间内容padding 将现实为内容而已。</p>
 </div>
 
+<p class="head-p">css变量</p>
+<img src="http://wx4.sinaimg.cn/mw690/006Zdy2vgy1fw9yidx4foj30wz0gu41j.jpg">
+<blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   :root &#123; //:root是根元素选择器</span><br><span class="line">  –font-size: 8px;  //全局定义的变量</span><br><span class="line">&#125;</span><br><span class="line">.window &#123;</span><br><span class="line">  font-size: var(–font-size, 20px) //默认值20px，意思是假如css寻找不到这个变量的话，就默认值为20px吧。</span><br><span class="line">  //有什么用？  对代码定义处理更加清晰吧，向后兼容？？ 哇估计不行吧</span><br><span class="line">&#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure><br>变量的定义语法为：  –<em>    使用的语法为： var(–</em>) 。   <em> 代表没有任何限制，css选择器不能数字开头  js濒临不能直接数组，但css变量没有任何的限制。<br>但是，不能包含$，[，^，(，%等字符，普通字符局限在只要是“数字[0-9]”“字母[a-zA-Z]”“下划线_”和“短横线-”这些组合，但是可以是中文，日文或者韩文<br>变量也是分权重的，和css权重一个概念<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> p&#123;</span><br><span class="line">   –font:90;</span><br><span class="line">font-size: var(–font)px;   //不不 并不能这样用…   因为会被“编译”成 90   px   后面是有空格的，所以这个就能用了</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> p&#123;</span><br><span class="line">   -font:90;</span><br><span class="line">font-size: calc( var(-font) </span></pre></td></tr></table></figure></em> 1px );  //这才是正确的打开方式<br><span class="line"> &#125;</span><br><span class="line"> </span><br>
+
+<p><img src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1fw9yqfr81nj307f06fjrw.jpg"></p>
+</blockquote>
+
+<p class="head-p">figure</p>
+<blockquote><p>语义化插入图片和描述，里面也有自己的样式<br><img src="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1fwab7x86dxj30lu0axtab.jpg"></p>
+</blockquote>
+
+
 </head></head></body>
 </html>
       
@@ -341,7 +356,7 @@
         <p><span>本文标题:</span><a href="/2018/10/16/css积累/">嘛积累下css也是很有必要的</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">= =！  想去的公司，技术面太紧张了，连bind都答不出，啊，我看的书都干嘛了。</a></p>
         <p><span>发布时间:</span>2018-10-16, 23:13:31</p>
-        <p><span>最后更新:</span>2018-10-16, 12:13:42</p>
+        <p><span>最后更新:</span>2018-10-16, 19:55:58</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/10/16/css积累/" title="嘛积累下css也是很有必要的">https://kingbultsea.github.io/2018/10/16/css积累/</a>
             <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/10/16/css积累/　　作者: = =！  想去的公司，技术面太紧张了，连bind都答不出，啊，我看的书都干嘛了。" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
