@@ -15,21 +15,18 @@
 
 
 
-<meta name="description" content="css display:content 是用来把ul的子元素li设置成grid-item">
+<meta name="description" content="就是你们滑动的时候，上下留白，同时，如何优化滚动？">
 <meta name="keywords" content="css,css-grid">
 <meta property="og:type" content="article">
-<meta property="og:title" content="display:conetnt可以用来干嘛？">
-<meta property="og:url" content="https://kingbultsea.github.io/2018/08/19/css display：content/index.html">
+<meta property="og:title" content="H5解决ios滑动出现白条 和引发的相关问题解决方法">
+<meta property="og:url" content="https://kingbultsea.github.io/2018/10/24/h5解决ios滑动出现白条/index.html">
 <meta property="og:site_name" content="弱鸡">
-<meta property="og:description" content="css display:content 是用来把ul的子元素li设置成grid-item">
+<meta property="og:description" content="就是你们滑动的时候，上下留白，同时，如何优化滚动？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1fuf57n15u1j31840oowgp.jpg">
-<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1fuf57mh38xj30kz07oabf.jpg">
-<meta property="og:updated_time" content="2018-08-22T15:05:55.866Z">
+<meta property="og:updated_time" content="2018-10-24T12:51:55.202Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="display:conetnt可以用来干嘛？">
-<meta name="twitter:description" content="css display:content 是用来把ul的子元素li设置成grid-item">
-<meta name="twitter:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1fuf57n15u1j31840oowgp.jpg">
+<meta name="twitter:title" content="H5解决ios滑动出现白条 和引发的相关问题解决方法">
+<meta name="twitter:description" content="就是你们滑动的时候，上下留白，同时，如何优化滚动？">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -59,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>display:conetnt可以用来干嘛？ | 弱鸡</title>
+<title>H5解决ios滑动出现白条 和引发的相关问题解决方法 | 弱鸡</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -228,12 +225,12 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-css display：content" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-h5解决ios滑动出现白条" class="article article-type-post" itemscope itemprop="blogPost">
   
   
     <div class="article-meta">
-      <a href="/2018/08/19/css display：content/" class="article-date">
-      <time datetime="2018-08-19T05:13:31.000Z" itemprop="datePublished">2018-08-19</time>
+      <a href="/2018/10/24/h5解决ios滑动出现白条/" class="article-date">
+      <time datetime="2018-10-24T15:13:31.000Z" itemprop="datePublished">2018-10-24</time>
 </a>
 
 
@@ -248,7 +245,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      display:conetnt可以用来干嘛？
+      H5解决ios滑动出现白条 和引发的相关问题解决方法
     </h1>
   
 
@@ -279,15 +276,21 @@
 
 </style>
 <head>
-
-<h3>兼容性</h3>
-<img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1fuf57n15u1j31840oowgp.jpg">
-
-   <blockquote><p>  2018年8月19日 更新——-<br>  display: contents to the rescue</p>
-  <p>With display: contents, we can have our markup and our grid placement. This property makes the element so that it no longer seems to exist. It does not generate a box, so backgrounds, borders and other box-related properties will no longer work on it. Grid placement properties will also no longer work. But all of these things will work for the element’s children. The spec says the element behaves ‘as if it had been replaced […] by its contents’. If that sounds weird, I can recommend Ire Aderinokun’s detailed explainer.</p>
-
-<p>  <img src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1fuf57mh38xj30kz07oabf.jpg"><br>  意思就是 ul是li的markup ，但是我不想用div来包裹，我更愿意用li(li的好处是浏览器的阅读模式it will stay a list outside the context of our page, for example in Safari Reader mode, it will show as a list)<br>  然后设置ul为 display:content 这样就OK了 li就成为grid-item了。<br>  但是display:content 在firefox 62中 只是stept five。<br>   detal info:<a href="https://hiddedevries.nl/en/blog/2018-04-21-more-accessible-markup-with-display-contents" target="_blank" rel="noopener"> link</a><br><a href="https://twitter.com/jensimmons/status/1030125167199113216" target="_blank" rel="noopener">Jen simmon</a></p>
+<h3 id="one">你们百度到的方法</h3>
+<blockquote><p>你们百度到的方法一般是<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> #app&#123;</span><br><span class="line">   pisition:fixed;</span><br><span class="line">overflow:scroll;</span><br><span class="line">width:100%;</span><br><span class="line">height:100%;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure><br>  可是这样做有什么弊端呢？<br>  你会发现这样去处理，ios的确是上下滚动，白条不会出现了。<br>  可是有没有发现，你滚动的时候，特别不舒服？就是你的手指拖动多少，它就滚动多少，那么如何去解决？</p>
 </blockquote>
+
+<h3 id="two">better-scroll</h3>
+<blockquote><p>不废话，直接上代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">   npm i better-scroll -s</span><br><span class="line"></span><br><span class="line">import BScroll from &apos;better-scroll&apos;</span><br><span class="line"></span><br><span class="line">const warpper = document.querySelector(&apos;#app&apos;) //注意哦，只对#app里面的第一个元素生效哦</span><br><span class="line">const scroll = new BScroll(warpper, &#123;</span><br><span class="line">  click: true,</span><br><span class="line">  bounce: &#123;</span><br><span class="line">    top: false,</span><br><span class="line">    bottom: false,</span><br><span class="line">    left: false,</span><br><span class="line">    right: false   //为什么要设置这三个方式呢？ 因为他默认是苹果式滚动内容~</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> #app&#123;</span><br><span class="line">   position: relative;</span><br><span class="line">height:100%;  //我是苹果6设计图 px2html(667px)</span><br><span class="line">width:100%;  //反正我是px2html(200px)  px2html是我自己弄的转换，具体请百度em rem 适应屏幕适配的用法 再不用天猫的适配库</span><br><span class="line"> &#125;</span><br><span class="line"> body&#123;</span><br><span class="line">   position:fixed;</span><br><span class="line">width:100%;</span><br><span class="line">height:100%;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<p class="red-p">这是重点！这里面有坑的！ 注意，你在app的所应用的第一个元素，请把里面的position:fixed;提取出来！否则，这个东西不会呈现出fixed效果，会呈现absolute效果！！！！！！！！！<br>  例如弹窗 tips的 请务必放在app里面 和第一个元素兄弟关系！<del>~</del><br></p>
+
+<p>你们想要的效果的参考链接<a href="https://web.debug.psy-1.com/cosleep/voice/index.html?func_type=4&func_id=10009&sharecode=26856ed529bc39aab81fe0e17738481040d19342&apk_source=applestore&awarder_mac=c7b7336a3bf14f549e3cf493653d6f8bi&awarder_secure=2f35c785f259205f489e712fbd55a15f&platformid=1&packageid=13&sourceid=33#/" target="_blank" rel="noopener"><br>快去看效果~ 点我~！<br></a></p>
+</blockquote>
+
 
 </head></head></body>
 </html>
@@ -298,13 +301,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/19/css display：content/">display:conetnt可以用来干嘛？</a></p>
+        <p><span>本文标题:</span><a href="/2018/10/24/h5解决ios滑动出现白条/">H5解决ios滑动出现白条 和引发的相关问题解决方法</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？</a></p>
-        <p><span>发布时间:</span>2018-08-19, 13:13:31</p>
-        <p><span>最后更新:</span>2018-08-22, 23:05:55</p>
+        <p><span>发布时间:</span>2018-10-24, 23:13:31</p>
+        <p><span>最后更新:</span>2018-10-24, 20:51:55</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/19/css display：content/" title="display:conetnt可以用来干嘛？">https://kingbultsea.github.io/2018/08/19/css display：content/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/08/19/css display：content/　　作者: 日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/10/24/h5解决ios滑动出现白条/" title="H5解决ios滑动出现白条 和引发的相关问题解决方法">https://kingbultsea.github.io/2018/10/24/h5解决ios滑动出现白条/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/10/24/h5解决ios滑动出现白条/　　作者: 日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -316,16 +319,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/25/vue源码分析(1)/">
-                    vue源码分析(1)
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/13/SSR构建/">
-                    SSR
+                <a href="/2018/10/16/css积累/">
+                    嘛积累下css也是很有必要的
                 </a>
             </div>
         
@@ -338,7 +335,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">兼容性</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#one"><span class="toc-number">1.</span> <span class="toc-text">你们百度到的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#two"><span class="toc-number">2.</span> <span class="toc-text">better-scroll</span></a></li></ol>
         
     </div>
     <style>
@@ -374,7 +371,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"display:conetnt可以用来干嘛？　| 弱鸡　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"H5解决ios滑动出现白条 和引发的相关问题解决方法　| 弱鸡　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -394,15 +391,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/25/vue源码分析(1)/" title="上一篇: vue源码分析(1)">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/13/SSR构建/" title="下一篇: SSR">
+            <a href="/2018/10/16/css积累/" title="下一篇: 嘛积累下css也是很有必要的">
                 <i class="fa fa-angle-right"></i>
             </a>
         

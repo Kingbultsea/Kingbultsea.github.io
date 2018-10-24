@@ -225,6 +225,310 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-sass设计" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/09/01/sass设计/" class="article-date">
+      <time datetime="2018-09-01T05:13:31.000Z" itemprop="datePublished">2018-09-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/01/sass设计/">sass用法总结和思考</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <!DOCTYPE html>
+<html>
+
+
+<body>
+<head>
+<style>
+
+</style>
+<head> 
+<blockquote><p></p><h3 a="mpim">media pc mobile ipad</h3><br>mobile  pc  ipad<p></p>
+<p>mobile: @media screen and(max-width:700px) and(max-aspect-ratio:1/1.6)</p>
+<p>pc: @media screen and(max-width:700px) and(min-aspect-ratio:16/9)</p>
+<p>ipad: @media only screen and(max-width:1000px) and(min-aspect-ratio:1/1.3) and (max-aspect-ratio:17/9)</p>
+<p>#container {<br>    p , a {<br>      编译: container p   。  container a<br>    }</p>
+<pre><code>&amp; : hover { //&amp;是根那个选择器 #container 实际上就是根选择器的全名称
+
+}
+
+&amp;-asd {
+  编译: #container-asd
+  用途: 组件名称-具体工具名称
+}
+
+&lt;h3 a=&quot;asda&quot;&gt;style简写&lt;/h3&gt;
+margin {
+  top:
+  right:
+  bottom:
+  left:
+  用途:
+  ①margin直接设置的话，是会根据值的个数不同而不同的，3值2会作为left right ，2值1 top bottom 2 left right
+  ②其他各种font-family font-size 
+}
+
+
+/*这
+ *注释
+ *不会
+  被放进编译好的css中*/
+//但是这个会
+$version: &quot;1.2.3&quot;;
+/* 版本 #{$version}插值语句同样适用*/
+
+$width: 5em;  //块级变量
+&lt;h3 a=&apos;mpimbg&apos;&gt;golbal&lt;/h3&gt;
+.inner {
+  $height: 4em !global;
+  //任何地方都能使用了
+  width: $width;
+
+}
+
+.another {
+  height: $height;
+  用途: 我能想到的就是覆盖了
+}
+
+
+
+//#{} 引号字符串将被弄成无引号字符串 方便mixin中引用选择器名
+
+p {
+  font: 10px/8px
+  编译: font: 10px/8px
+  用途: 这部分感觉有点乱 到底是除法还是css分隔数字？1.如果值或值的一部分是变量或者函数的返回值
+  2.如果值被圆括号包裹
+  3.如果值是算术表达式的一部分 1px + 2px /2px   或者 8px / 2 
+  当你的值是变量，但是又不想被当作除法处理的时候 #{$value} / #{$another}
+  color: #050709 * 2 ;
+  编译: 05 *2 + 07 *2 + 09 *2;
+  color: rgba(1,2,3,0.5) +rgba(3,5,9,0.1)
+  编译: 1+3,2+5,3+9,0.5+0.1
+  $color-red: rgba(255, 0, 0, 0.3)
+  color:opacify(  $color-red, 0.1  ) 
+  编译: color: rgba(255, 0, 0, 0.4)
+  color: transparentize (   $color-red, 0.1  )
+  编译: color: rgba(255, 0, 0, 0.1)
+}
+
+&lt;h3 a=&apos;mpimbgzz&apos;&gt;字符串算法&lt;/h3&gt;
+.my-div {
+  display: g + rid;
+  编译display: grid;
+  //注意，如果有引号字符串（位于 + 左侧）连接无引号字符串，运算结果是有引号的，相反，无引号字符串（位于 + 左侧）连接有引号字符串，运算结果则没有引号。
+  //总的来说是 谁在最左边谁用自身来决定返回的是有引号还是无引号
+  //什么时候需要有引号？  content: &apos;这样就需要引号了&apos; 
+}
+
+$name_z: class-name
+.#{$name_z}{
+  编译: .class-name{}
+}
+
+$content: null;
+$content: &quot;Non-null content&quot; !default;
+
+.z {
+  content: $content ;
+  编译： Non-null content
+}
+
+&lt;h3 a=&apos;mpimbgzzaa&apos;&gt;默认import&lt;/h3&gt;
+//Sass 拓展了 @import 的功能，允许其导入 SCSS 或 Sass 文件。被导入的文件将合并编译到同一个 CSS 文件中，另外，被导入的文件中所包含的变量或者混合指令 (mixin) 都可以在导入的文件中使用。
+@import &apos;zz.css&apos; //导入zz.css
+@import &apos;zz&apos;  //尝试寻找sass 或者 scss 但是不会是css
+@import &apos;a&apos; , &apos;b&apos;  //允许导入多个文件 这是css不支持的
+$family: unquote(&apos;zz&apos;)
+@import url(&apos;http://fonts.googleapis.com/css?family=\#{$family}&apos;)
+//这里说一下unquote，是用来把引号变成无引号的 所以会编译成\#zz 
+//@import 可以用于很多位置 但是会为其嵌套
+//不可以在混合指令 (mixin) 或控制指令 (control directives) 中嵌套 @import。
+
+.example {
+  color: red;
+}
+
+#main {
+  @import &apos;example&apos;
+}
+对应的scss为：
+ #main {
+   .example {
+     color: red;
+   }
+ }
+</code></pre><p>}</p>
+</blockquote>
+
+<blockquote><p></p><h3 a="mpimzzaqxza">extend 占位符</h3><br>现在假设组件A 和组件B 部分样式不一样<p></p>
+<p>#main %exterme {</p>
+<p>}</p>
+<p>#A {<br>  @extend %exterme;   //#main #A   //#A取代%exterme<br>  selfcss ;<br>}</p>
+<p>#B {<br>  @extend %exterme;<br>  selfcss ;<br>}</p>
+<p class="red-p">可为什么用@extend而不是直接在外层套进去呢？因为这样拓展性更高 ，假设你专门弄一套scss是%extend的，那么其他不在同一套体系的，可以直接extend来拓展。<br>你是在外层套进去的话，就不能组织管理%extend起来了，其不在同一套scss的，也难以拓展。</p>
+
+
+<p></p><h3 a="miuja">extend .类</h3><br>.a {<br>  width:10px;<br>}<p></p>
+<p>.a.ccc {<br>  color: red;<br>}</p>
+<p class="red-p">这里叫多类选择器，不懂请百度下</p>
+
+<p>.b {<br>  @extend .a; //这里继承.a的东西  就是直接把 .b 添加进.a<br>  height:6px;<br>}</p>
+<p>//编译后 .a , .b{  }    .a.ccc{}  .b.ccc{}</p>
+<p></p><p class="red-p">注意 不是直接把.a里面的内容填进去 而是.a , .b。<br>任何其他使用到.a的样式 也会同样继承给.b ，这里请好好理解下extend的作用，这意味着拓展一切相关的东西(你也<br>可以理解为 编译出一套新的 把.a的名称改成.b 的css样式)</p><p></p>
+<blockquote><p>当合并选择器时，@extend 会很聪明地避免无谓的重复，.seriousError.seriousError 将编译为 .seriousError，不能匹配任何元素的选择器（比如 #main#footer ）也会删除。</p><br></blockquote>
+
+<p>sass 可以extend任何单个元素的选择器 :hover伪类 ::after伪元素 .a.ccc 多类选择器 a[a ^=”https://“]<br><a a="http://www.w3school.com.cn/css/css_syntax_attribute_selector.asp">来复习一波熟悉选择器</a><br>还可以多重延伸，就是可以@extend .a , .b  等于 @extend .a ; @extend .b;</p>
+<blockquote><p>.foo .bar {</p><br><p>}<br>.a {<br>  @extend .foo .bar<br>}</p><br><p>这是不允许的，因为不是单个元素的选择器！ 这是基于单个元素的选择器！看上面的举例。</p><br></blockquote>
+
+
+<blockquote><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;h3 a=&apos;mol&apos;&gt;!optional&lt;/h3&gt;</span><br><span class="line">h1.c&#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">a.text &#123;</span><br><span class="line">  @extend .c;</span><br><span class="line">  background-color: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><img src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1fusyh4r8lpj30m606q0sm.jpg"><br>现在修改为<br>a.text {<br>  @extend .c !optional;<br>}<br>编译：<br>h1.c{<br>  color: red;<br>}<br>a.text {<br>  background-color: pink;<br>}<br>造成这样的一个原因是 h1与a是有冲突的 添加!optional 是为了解决冲突 如果遇到这种情况 那么不生成，等同于@extend c; 在这个样式中失败。</p><br></blockquote>
+
+<blockquote><p>@media screen and() {<br>  .a {}<br>}<br>.c {<br>  @extend .a;<br>}<br>这样子是不允许的，在@media中使用@extend 你只能在@media里面选取<br>原文： </p><p class="red-p"><br>在指令中使用 @extend 时（比如在 @media 中）有一些限制：Sass 不可以将 @media 层外的 CSS 规则延伸给指令层内的 CSS，这样会生成大量的无用代码。也就是说，如果在 @media （或者其他 CSS 指令）中使用 @extend，必须延伸给相同指令层中的选择器。<br></p><p></p><br></blockquote>
+
+
+</blockquote>
+
+<blockquote><p></p><h3 a="mpfenyin">分音_</h3><br>当你想混合scss的时候 你使用@import ‘a.scss’<br>假如你不想sass去编译你的a为a.css<br>那么你可以修改文件名为 _a.scss<br>注意，不可以同时存在添加下划线与未添加下划线的同名文件，添加下划线的文件将会被忽略。<p></p>
+</blockquote>
+
+<blockquote><p></p><h3 a="mpfeqtynyin">@media嵌套</h3><br>@media 和css用法一样，但是sass允许被嵌套<br>允许使用插值#{} 变量 函数 @media #{$media} and ($feature: $value)<br>.main {<br>  width: 100px;<br>  @media screen and (max-width:300px) {<br>    width: 600px;<br>    color: red;<br>  }<br>}<p></p>
+<p>编译：//把@media被嵌套的父选择器 来嵌套@media所写的规则<br>.main {<br>  width: 100px;<br>}<br>@media screen and (max-width: 300px) {<br>  .main {<br>    width: 600px;<br>    color: red;<br>  }<br>}</p>
+<p class="red-p">这样的做法 更方便于选取父选择器 ，这里要注意的是 父选择器是css编译完成后的父选择器</p>
+</blockquote>
+
+<blockquote><h3 a="akklz">@at-root</h3>
+
+<p>.parent {<br>  color: red;<br>  @at-root .child{<br>    font-size:1em;<br>  }<br>}<br>编译：<br>.parent {<br>  color: red; }<br>.child {<br>  font-size: 1em; }</p>
+<p>.parent {<br>  color: red;<br>  @at-root {<br>    .child { font-size:1em; }<br>    .sec { background-color: red; }<br>  }<br>}<br>编译：<br>.parent {<br>  color: red; }<br>  .child {<br>    font-size: 1em; }<br>  .sec {<br>    background-color: red; }</p>
+<p></p><p>@at-root 指令，编译到根，摆脱父选择器的影响</p><p></p>
+<p>@media print{<br>  .parent {<br>    color: red;<br>    @at-root .child{<br>      background-color: red;<br>    }<br>  }<br>}<br>编译：<br>@media print {<br>  .parent {<br>    color: red; }<br>    .child {<br>      background-color: red; } }</p>
+<p class="red-p">@at-root是用来摆脱选择器的，但并摆脱不了@media 假如你想摆脱@media 那么@at-root (without:media)</p>      
+
+<p>出一道关于@media的题给你吧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;h3 a=&apos;zltynyin&apos;&gt;@at-root (without: media support 指令)&lt;/h3&gt;</span><br><span class="line">@media screen and(max-width:100px) &#123;</span><br><span class="line">  @support (display:grid)&#123;</span><br><span class="line">  </span><br><span class="line">    .GG&#123;</span><br><span class="line">    </span><br><span class="line">      font-szie: 50px;</span><br><span class="line">      @media (min-width:50px)&#123;</span><br><span class="line">      </span><br><span class="line">        .parent &#123;</span><br><span class="line">          color: red;</span><br><span class="line">          @at-root (without: media support) .child&#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">答案：</span><br><span class="line">@media screen and (max-width: 100px) &#123;</span><br><span class="line">  @support (display:grid) &#123;</span><br><span class="line">    .GG &#123;</span><br><span class="line">      font-szie: 50px; &#125;</span><br><span class="line">      @media (min-width: 50px) &#123;</span><br><span class="line">        .GG .parent &#123;</span><br><span class="line">          color: red; &#125; &#125; &#125; &#125;</span><br><span class="line"></span><br><span class="line">.child &#123;</span><br><span class="line">  background-color: red; &#125;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote><p>你还可以去去除其他指令 例如@support  ，你还可以without: all 摆脱一切指令。</p><br></blockquote>
+
+<p>@debug 指令用于输出表达式的值<br>such as: @debug 1px + 2px<br>@warn 用于输出警告</p>
+</blockquote>
+
+<blockquote><p></p><h3 a="zltifin">@if</h3><br>p {<br>  @if 1 + 1 == 2 { border: 1px solid; }<br>  @if 5 &lt; 3 { border: 2px dotted; }<br>  @if null  { border: 3px double; }<br>}<br>@if 后面可以跟@else if    <p></p>
+</blockquote>
+<blockquote><p></p><h3 a="for">for</h3><br>语法格式： @for $var from <start> through <end><br>@for $i from 1 through 3 {<br>  .item-#{$i} {  }  //包含start 和 end<br>}<p></p>
+<p>语法格式： @for $var from <start> to <end><br>@for $i from 1 through 3 {<br>  .item-#{$i} {  }  //包含start 但是不包含end<br>}<br>语法格式： @each $var in <list><br>@each $animal in puma, sea-slug, egret, salamander {<br>  .#{$animal}-icon {<br>    background-image: url(‘/images/#{$animal}.png’);<br>  }<br>}<br>编译：<br>.puma-icon {<br>  background-image: url(‘/images/puma.png’); }<br>.sea-slug-icon {<br>  background-image: url(‘/images/sea-slug.png’); }<br>.egret-icon {<br>  background-image: url(‘/images/egret.png’); }<br>.salamander-icon {<br>  background-image: url(‘/images/salamander.png’); }</list></end></start></p>
+<p>用途：类似于 for let {null,value}in 循环输出value</p>
+<p></p><h3 a="shuzu">数组</h3><br>puma, sea-slug, egret, salamander 这是数组<br>还有一种数组是 ( A B C D E F G)<p></p>
+<p>高级用法 @each $A $B $C in (xzx,zxz,xzxz),(zx,zxz,xza),(zxzxm,xzxz,zxzxz)<br>例子：<br>@each $animal, $color, $cursor in (puma, black, default),<br>                                  (sea-slug, blue, pointer),<br>                                  (egret, white, move) {<br>  .#{$animal}-icon {<br>    background-image: url(‘/images/#{$animal}.png’);<br>    border: 2px solid $color;<br>    cursor: $cursor;<br>  }<br>}<br>js里面的剧名匹配法:<br>@each $A $B in(1:10px,2:20px,3:30px ){<br>  h#{$A} {<br>    font-size: $B;<br>  }<br>}</p>
+</end></start></blockquote>
+
+<blockquote><p></p><h3 a="while">while<br>$i: 6;<br>@while $i &gt; 0{  //6次<p></p>
+<p>  $i: $i +1;<br>}</p>
+</h3></blockquote>
+
+<blockquote><p></p><h3 a="mixin">Mixin 与include</h3><br>用来定于可重复使用的样式<br>@mixin 名称{<br>  cssstyle: 1;<br>  //可以引用父选择器<br>  &amp;:hover{<p></p>
+<p>  }<br>}<br>.style {<br>  @include: 名称;<br>}</p>
+<p>当然你在最外层使用@include 名称  也可以。就当全局了。<br>疑问 ：名称支持 #{$var}吗？</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$var: haha;</span><br><span class="line"></span><br><span class="line">@mixin #&#123;$var&#125;&#123;</span><br><span class="line">  a&#123;</span><br><span class="line">    color: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@include haha ;</span><br></pre></td></tr></table></figure><br>报错，我也不知道为嘛不允许。</p>
+<p></p><h3 a="dadasx">参数模式mixin</h3><br>@mixin asd($a, $b: 5) { //有默认值功能<br>  font-#{$a}: $b + px;<br>}<br>p{<br>  @include asd($a:’size’, 10);  //你传size也行，我里面已经帮你转换了#{$a}    。<br>  //$a是关键词参数 方便看 也方便默认值的空缺<br>}<p></p>
+<p>默认值空缺：<br>@mixin asd($a: 10, $b: 10){<br>  font-size: #{$b};</p>
+<p>}</p>
+<p>p{<br>  @include asd($b: 20px);<br>}<br>这预示着可以打乱顺序了</p>
+<p>哇，这厉害了，这也有。<br>就是不确认参数有多少个的时候<br>@mixin name ($arguments…){<br>  margin: $arguments ;//这是第一个<br>  padding: $arguments ;//这是第二个<br>}<br>p{<br>  @include name ( $width: 1px,2px,3px,4px   ,5px, 6px, 7px, 8px )  //你可以传入关键词  ！！！这里警告下 把$width删除吧。<br>}</p>
+<p>不要传入关键词，我现在还不理解传关键词的目的和作用，传进去了直接报错Error: ordinal arguments must precede named arguments<br>，而且按照语义解释 name怎么才利用到$width? 也没有相关语法。<br></p>
+
+<p>反转过来也OK<br>$arguments: 1, 2, 3;</p>
+<p>@mixin name ($a,$b,$c){<br>  font-size: $a+ px;<br>  padding-right: $b+ px;<br>  padding-left: $c+ px;<br>}</p>
+<p>p{<br>  @include name ($arguments…)<br>}</p>
+<p>翻译结果：<br>p {<br>  font-size: 1px;<br>  padding-right: 2px;<br>  padding-left: 3px; }</p>
+</blockquote>
+
+<blockquote><p></p><h3 a="3wfd">向混合样式中导入内容 @content</h3><br>这个我感觉是mixin的相反了。include插进mixin。<br>@mixin name {<br>  html {<br>    @content<br>  }<br>}<p></p>
+<p>@include name {  //这里的用法很奇特 不熟悉就对比下上面的<br>  p {<br>    color: red;<br>  }<br>}</p>
+<p>转换成sass理解就是<br>html {<br> p {<br>   color: red;<br> }<br>}</p>
+<p>这里还需要注意下 如果没有html{} 包裹会怎么样？<br>对的 你的name 会被这样翻译：<br>.name p {<br>  color: red;<br>}</p>
+<p></p><h3 a="xood">方便表示法</h3><p></p>
+<p class="red-p"><br>为便于书写，@mixin 可以用 = 表示，而 @include 可以用 + 表示<br></p></blockquote>
+
+<blockquote><p></p><h3 a="oosasaacx">来看看作用域</h3><br>$color: white;<br>@mixin colors($color: blue) {<br>  background-color: $color;<br>  @content;<br>  border-color: $color;<br>}<br>.colors {<br>  @include colors { color: $color; }<br>}<p></p>
+<p>编译：<br>.colors{<br>  background-color: blue;<br>  color: white;<br>  border-color: blue;<br>}</p>
+<p>这个太简单了吧..  自己看代码理解？ 就是一开始没有传值，所以在块里面是默认值嘛，然后content的<br>是引用外部的。嘛，很好理解。</p>
+<p class="red-p">注意这里就是没有被包裹，看上面我说的html{}去除，重点！name变成一个类 .name</p>
+
+</blockquote>
+
+<blockquote><p></p><h3 a="asdaxxll">真正的函数指令来了！</h3><br>和mixin的区别在于 有return <p></p>
+<p>@function caculation ($a,$b){<br>  @return ($a + $b) + px;<br>}<br>p {<br>  font-size: caculation(1,2);<br>}</p>
+<p class="red-p">这里说下，一个我多次犯错的点就是我写函数的时候，使用的时候也喜欢加一个空格<br>，这个习惯要改，因为加了空格进去 caculation (1,2) 就被当成css的两部分了</p>
+</blockquote>
+
+<blockquote><p></p><h3 a="jiq">输出格式</h3><br>设置方式 :style option<p></p>
+<p>:nested 这是默认输出的<br>这样让你看起来，知道他是嵌套的。<br>例如这样：</p>
+<p>#main {<br>  color: #fff;<br>  background-color: #000; }</p>
+<p>  #main p {<br>    width: 10em; }</p>
+<p>.huge {<br>  font-size: 10em;<br>  font-weight: bold;<br>  text-decoration: underline; }</p>
+<p>:expanded<br>就平时手写那样<br>例如：<br>a {<br>  …<br>}<br>a.b {<br>  …<br>}<br>a.b .c{<br>  …<br>}</p>
+<p>:compact 每条样式只占据一行，嵌套过的选择器在输出时没有空行，不嵌套的选择器会输出空白行作为分隔符。<br>a{}<br>a.b{}<br>a.b c{}</p>
+<p>.nothing{}<br>.nothing.op{}</p>
+<p>.nothing2{}</p>
+<p> :compress 力求样式体积压缩到最小</p>
+</blockquote>
+</head></head></body>
+</html>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scss/">scss</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-vue源码分析(1)" class="article article-type-post" itemscope itemprop="blogPost">
   
   
@@ -734,72 +1038,6 @@
       
         <p class="article-more-link">
           <a href="/2018/08/02/利用grid-auto-flow dense制作相册/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-auto min max-content" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/08/01/auto min max-content/" class="article-date">
-      <time datetime="2018-08-01T15:13:31.000Z" itemprop="datePublished">2018-08-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              记录了一些Grid的小知识点
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/08/01/auto min max-content/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
