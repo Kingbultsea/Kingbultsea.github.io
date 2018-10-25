@@ -414,10 +414,10 @@
 </blockquote>
 
 <h3 id="asdasd">如何改变fillColor?(动画)</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.fillColor.hue += 1;</span><br></pre></td></tr></table></figure>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">path</span>.fillColor.hue += <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 
 <h3 id="asdasd">如何添加文字？</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var text = new PointText(&#123;</span><br><span class="line">    point: view.center,</span><br><span class="line">	justification: &apos;center&apos;,</span><br><span class="line">	fontSize: 10,</span><br><span class="line">	fillColor: &apos;red&apos;</span><br><span class="line">&#125;)</span><br><span class="line">text.content = &apos;asd&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>[]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="keyword">new</span> PointText(&#123;</span><br><span class="line">    point: view.center,</span><br><span class="line">	justification: <span class="string">'center'</span>,</span><br><span class="line">	fontSize: <span class="number">10</span>,</span><br><span class="line">	fillColor: <span class="string">'red'</span></span><br><span class="line">&#125;)</span><br><span class="line">text.content = <span class="string">'asd'</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="asd">如何获得point的随机数？还有point和位置的计算问题？
 <blockquote><p>通过Point.random()*view.size 可以获得随机的point位置。<br>Path.position = Path.position + [10,10]加法减法乘法除法%运算都是这样。</p>
