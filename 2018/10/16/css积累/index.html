@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1fw9yqfr81nj307f06fjrw.jpg">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw690/006Zdy2vgy1fwab7x86dxj30lu0axtab.jpg">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw690/006Zdy2vgy1fwjkerqrhyj30kt0gddix.jpg">
-<meta property="og:updated_time" content="2018-10-25T03:50:33.817Z">
+<meta property="og:updated_time" content="2018-10-27T04:41:19.842Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="嘛积累下css也是很有必要的">
 <meta name="twitter:description" content="记录好用的css">
@@ -338,6 +338,8 @@
 <blockquote><figure class="highlight css"><figcaption><span>[]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   :root &#123; //:root是根元素选择器</span><br><span class="line">  –font-size: 8px;  //全局定义的变量</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.window</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="built_in">var</span>(–font-size, 20px) //默认值<span class="number">20px</span>，意思是假如css寻找不到这个变量的话，就默认值为<span class="number">20px</span>吧。</span><br><span class="line">  //有什么用？  对代码定义处理更加清晰吧，向后兼容？？ 哇估计不行吧</span><br><span class="line">&#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure><br>变量的定义语法为：  –<em>    使用的语法为： var(–</em>) 。   <em> 代表没有任何限制，css选择器不能数字开头  js濒临不能直接数组，但css变量没有任何的限制。<br>但是，不能包含$，[，^，(，%等字符，普通字符局限在只要是“数字[0-9]”“字母[a-zA-Z]”“下划线_”和“短横线-”这些组合，但是可以是中文，日文或者韩文<br>变量也是分权重的，和css权重一个概念<br><br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="selector-tag">p</span>&#123;</span><br><span class="line">   –<span class="attribute">font</span>:<span class="number">90</span>;</span><br><span class="line"><span class="attribute">font-size</span>: var(–font)px;   <span class="comment">//不不 并不能这样用…   因为会被“编译”成 90   px   后面是有空格的，所以这个就能用了</span></span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="selector-tag">p</span>&#123;</span><br><span class="line">   -<span class="attribute">font</span>:<span class="number">90</span>;</span><br><span class="line"><span class="attribute">font-size</span>: calc( var(-font) </span></pre></td></tr></table></figure></em> <span class="number">1px</span> );  <span class="comment">//这才是正确的打开方式</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br>
 
 <p><img src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1fw9yqfr81nj307f06fjrw.jpg"></p>
+<p>有一个很不错的用法</p>
+<p><figure class="highlight css"><figcaption><span>[]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.group</span> &#123;</span><br><span class="line"><span class="attribute">left</span>: <span class="built_in">calc</span>(var(–x)<em><span class="number">2</span>);</em></span><br><span class="line"><span class="attribute">right</span>: <span class="built_in">calc</span>(var(–y)<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.group</span> <span class="selector-tag">miao</span> &#123;</span><br><span class="line"><span class="attribute">–x</span>: <span class="number">2em</span>;</span><br><span class="line"><span class="attribute">–y</span>: <span class="number">4em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>在scss中这叫@mixin<br>对比scss有什么优势？ 没有…  原生css吧 唯一优势…  不不 还有一个优势 就是可以直接在调试器中用按钮 上下调位置  结合scss就完美了(这是我想法.. 我不肯定能用)</p>
 </blockquote>
 
 <p class="head-p">figure</p>
@@ -353,6 +355,10 @@
 <a href="https://darrylhuffman.com/sites/Scrollbar-gen/" target="_blank" rel="noopener">点我link</a>
 
 
+<p class="head-p">超级小的知识</p>
+<blockquote><p class="rea-p"><br>border是占空间的，outline是不占空间的，他在border的外面 outline的作用就是 css调试啦~<br></p><br><p class="rea-p">border-radius: 左 上 右 下</p></blockquote>
+
+
 </head></head></body>
 </html>
       
@@ -365,7 +371,7 @@
         <p><span>本文标题:</span><a href="/2018/10/16/css积累/">嘛积累下css也是很有必要的</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？</a></p>
         <p><span>发布时间:</span>2018-10-16, 23:13:31</p>
-        <p><span>最后更新:</span>2018-10-25, 11:50:33</p>
+        <p><span>最后更新:</span>2018-10-27, 12:41:19</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/10/16/css积累/" title="嘛积累下css也是很有必要的">https://kingbultsea.github.io/2018/10/16/css积累/</a>
             <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/10/16/css积累/　　作者: 日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
