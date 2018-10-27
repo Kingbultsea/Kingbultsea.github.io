@@ -15,20 +15,20 @@
 
 
 
-<meta name="description" content="来看响应式布局啦，这可以制作一个很美的相册框。">
-<meta name="keywords" content="css,css-grid">
+<meta name="description" content="觉得他写的代码，很老练，很不错，这里记录下，创建动画的思路">
+<meta name="keywords" content="css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用grid-auto-flow dense制作相册">
-<meta property="og:url" content="https://kingbultsea.github.io/2018/08/02/利用grid-auto-flow dense制作相册/index.html">
+<meta property="og:title" content="前端每日实战系列的思路解读 128#">
+<meta property="og:url" content="https://kingbultsea.github.io/2018/10/27/前端每日实战系列的思路解读/index.html">
 <meta property="og:site_name" content="弱鸡">
-<meta property="og:description" content="来看响应式布局啦，这可以制作一个很美的相册框。">
+<meta property="og:description" content="觉得他写的代码，很老练，很不错，这里记录下，创建动画的思路">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://kingbultsea.github.io/img/Grid教程/exam.png">
-<meta property="og:updated_time" content="2018-08-19T09:30:48.529Z">
+<meta property="og:image" content="https://segmentfault.com/img/bVbgvcJ?w=400&h=301">
+<meta property="og:updated_time" content="2018-10-27T08:09:18.285Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用grid-auto-flow dense制作相册">
-<meta name="twitter:description" content="来看响应式布局啦，这可以制作一个很美的相册框。">
-<meta name="twitter:image" content="https://kingbultsea.github.io/img/Grid教程/exam.png">
+<meta name="twitter:title" content="前端每日实战系列的思路解读 128#">
+<meta name="twitter:description" content="觉得他写的代码，很老练，很不错，这里记录下，创建动画的思路">
+<meta name="twitter:image" content="https://segmentfault.com/img/bVbgvcJ?w=400&h=301">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>利用grid-auto-flow dense制作相册 | 弱鸡</title>
+<title>前端每日实战系列的思路解读 128# | 弱鸡</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -227,12 +227,12 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-利用grid-auto-flow dense制作相册" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-前端每日实战系列的思路解读" class="article article-type-post" itemscope itemprop="blogPost">
   
   
     <div class="article-meta">
-      <a href="/2018/08/02/利用grid-auto-flow dense制作相册/" class="article-date">
-      <time datetime="2018-08-02T15:13:31.000Z" itemprop="datePublished">2018-08-02</time>
+      <a href="/2018/10/27/前端每日实战系列的思路解读/" class="article-date">
+      <time datetime="2018-10-27T08:13:31.000Z" itemprop="datePublished">2018-10-27</time>
 </a>
 
 
@@ -247,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      利用grid-auto-flow dense制作相册
+      前端每日实战系列的思路解读 128#
     </h1>
   
 
@@ -258,7 +258,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -275,54 +275,16 @@
 <body>
 <head>
 <style>
-@import 'css/main.css'
+
 </style>
-</head>
+<head>
 
-<div class="main">
-  <h3 id="one">实例</h3>
-  <div class="grid">
-    <div></div>
-    <div></div>
-    <div></div>
-	<div></div>
-    <div></div>
-    <div></div>
-	<div></div>
-    <div></div>
-    <div></div>
-	<div></div>
-    <div></div>
-    <div></div>
-	<div></div>
-    <div></div>
-    <div></div>
-	<div></div>
-    <div></div>
-	<div></div>
-	<div></div>
-    <div></div>
-  </div>
- 
-   <h3 id="two">Jensimmon</h3>
-   <img src="/img/Grid教程/exam.png">
-   <p>我想模仿那个jensimmon，她是由@media来控制的。
-   她是真的厉害，里面不知道怎么计算的，以后可以参考下那scss文件吧。
-   果然是css大师。
-   </p>
-   <p>
-   clip-path: polygon(10px 6px, calc(100% - 7px) 6px, calc(100% - 7px) calc(100% - 6px), 10px calc(100% - 6px));
-   她利用了这个，来多图形进行多余的切割。firefox有自动切割工具的。
-   啊啊啊啊啊啊，果然是厉害的大师啊。
-   </p>
-   <a href="http://labs.jensimmons.com/2017/01-011C.html" target="_blank" rel="noopener">大师的实例Link</a>
-   
-
- 
-</div>
+<img src="https://segmentfault.com/img/bVbgvcJ?w=400&h=301">
+<blockquote><p>帖子： <a href="https://segmentfault.com/a/1190000016287188" target="_blank" rel="noopener">link</a><br>创建五个正方形，后4个座位跳动的正方形，称之为 d 第一个slide平滑移动，称之为 f<br>为d 1-4 设置跳动动画（单纯的跳动，利用百分比时间，来过渡每一个d的延迟跳动） rotate 然后利用transform-orgin设置旋转的基点 -50% center 就是元素左边50% 垂直居中的点<br>然后animation-name: 添加动画名称 其余的d-2 3 4 就百分比设置跳动的时机<br>好了，1问题来了，那么另外一个动画，就是scale这个写在哪里？<br>这里利用了一个::before伪元素的技巧，把动画给拆分开来管理。<br>在d 1-4 设置::before{display:absolute;height:inherit;width:inherit;background-color:skyblue}<br>设置动画 animation scale  但是还需要设置 transform-origin: 为什么呢？你试试不设置就知道了，改变他的位置，让他固定在底部，哇这也是一个技巧~  超厉害~！！！<br>思路完毕。<br>我觉得可以用scss优化的是把动画设置成mixin 或者function 然后不同的d 设置不同的百分比，无需写多3 *2个animation了<br>还是不太喜欢css3的变量，因为他是css风格的优先级，不太明确（嗯，不能嵌套造成的，主要是不能嵌套！像function那样包裹）<br>我喜欢用$value 代替</p>
+</blockquote>
 
 
-</body>
+</head></head></body>
 </html>
       
     </div>
@@ -331,13 +293,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></p>
+        <p><span>本文标题:</span><a href="/2018/10/27/前端每日实战系列的思路解读/">前端每日实战系列的思路解读 128#</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？</a></p>
-        <p><span>发布时间:</span>2018-08-02, 23:13:31</p>
-        <p><span>最后更新:</span>2018-08-19, 17:30:48</p>
+        <p><span>发布时间:</span>2018-10-27, 16:13:31</p>
+        <p><span>最后更新:</span>2018-10-27, 16:09:18</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/02/利用grid-auto-flow dense制作相册/" title="利用grid-auto-flow dense制作相册">https://kingbultsea.github.io/2018/08/02/利用grid-auto-flow dense制作相册/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/08/02/利用grid-auto-flow dense制作相册/　　作者: 日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/10/27/前端每日实战系列的思路解读/" title="前端每日实战系列的思路解读 128#">https://kingbultsea.github.io/2018/10/27/前端每日实战系列的思路解读/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/10/27/前端每日实战系列的思路解读/　　作者: 日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -349,16 +311,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/03/我现在想在blog处理sass/">
-                    我现在想在blog处理sass
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/01/Grid layout example/">
-                    Grid的fit fill
+                <a href="/2018/10/24/h5解决ios滑动出现白条/">
+                    H5解决ios滑动出现白条 和引发的相关问题解决方法
                 </a>
             </div>
         
@@ -371,7 +327,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#one"><span class="toc-number">1.</span> <span class="toc-text">实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#two"><span class="toc-number">2.</span> <span class="toc-text">Jensimmon</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -407,7 +363,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"利用grid-auto-flow dense制作相册　| 弱鸡　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"前端每日实战系列的思路解读 128#　| 弱鸡　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -427,15 +383,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/03/我现在想在blog处理sass/" title="上一篇: 我现在想在blog处理sass">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/01/Grid layout example/" title="下一篇: Grid的fit fill">
+            <a href="/2018/10/24/h5解决ios滑动出现白条/" title="下一篇: H5解决ios滑动出现白条 和引发的相关问题解决方法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
