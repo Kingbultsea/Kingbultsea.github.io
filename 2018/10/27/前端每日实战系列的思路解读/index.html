@@ -23,12 +23,12 @@
 <meta property="og:site_name" content="弱鸡">
 <meta property="og:description" content="觉得他写的代码，很老练，很不错，这里记录下，创建动画的思路">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://segmentfault.com/img/bVbgvcJ?w=400&h=301">
-<meta property="og:updated_time" content="2018-10-27T08:09:18.285Z">
+<meta property="og:image" content="https://kingbultsea.github.io/2018/10/27/前端每日实战系列的思路解读/a.gif">
+<meta property="og:updated_time" content="2018-10-27T08:22:12.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端每日实战系列的思路解读 128#">
 <meta name="twitter:description" content="觉得他写的代码，很老练，很不错，这里记录下，创建动画的思路">
-<meta name="twitter:image" content="https://segmentfault.com/img/bVbgvcJ?w=400&h=301">
+<meta name="twitter:image" content="https://kingbultsea.github.io/2018/10/27/前端每日实战系列的思路解读/a.gif">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -279,7 +279,7 @@
 </style>
 <head>
 
-<img src="https://segmentfault.com/img/bVbgvcJ?w=400&h=301">
+<img src="./a.gif">
 <blockquote><p>帖子： <a href="https://segmentfault.com/a/1190000016287188" target="_blank" rel="noopener">link</a><br>创建五个正方形，后4个座位跳动的正方形，称之为 d 第一个slide平滑移动，称之为 f<br>为d 1-4 设置跳动动画（单纯的跳动，利用百分比时间，来过渡每一个d的延迟跳动） rotate 然后利用transform-orgin设置旋转的基点 -50% center 就是元素左边50% 垂直居中的点<br>然后animation-name: 添加动画名称 其余的d-2 3 4 就百分比设置跳动的时机<br>好了，1问题来了，那么另外一个动画，就是scale这个写在哪里？<br>这里利用了一个::before伪元素的技巧，把动画给拆分开来管理。<br>在d 1-4 设置::before{display:absolute;height:inherit;width:inherit;background-color:skyblue}<br>设置动画 animation scale  但是还需要设置 transform-origin: 为什么呢？你试试不设置就知道了，改变他的位置，让他固定在底部，哇这也是一个技巧~  超厉害~！！！<br>思路完毕。<br>我觉得可以用scss优化的是把动画设置成mixin 或者function 然后不同的d 设置不同的百分比，无需写多3 *2个animation了<br>还是不太喜欢css3的变量，因为他是css风格的优先级，不太明确（嗯，不能嵌套造成的，主要是不能嵌套！像function那样包裹）<br>我喜欢用$value 代替</p>
 </blockquote>
 
@@ -296,7 +296,7 @@
         <p><span>本文标题:</span><a href="/2018/10/27/前端每日实战系列的思路解读/">前端每日实战系列的思路解读 128#</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？</a></p>
         <p><span>发布时间:</span>2018-10-27, 16:13:31</p>
-        <p><span>最后更新:</span>2018-10-27, 16:09:18</p>
+        <p><span>最后更新:</span>2018-10-27, 16:22:12</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/10/27/前端每日实战系列的思路解读/" title="前端每日实战系列的思路解读 128#">https://kingbultsea.github.io/2018/10/27/前端每日实战系列的思路解读/</a>
             <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/10/27/前端每日实战系列的思路解读/　　作者: 日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
