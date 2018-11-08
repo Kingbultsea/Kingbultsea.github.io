@@ -15,21 +15,18 @@
 
 
 
-<meta name="description" content="css display:content 是用来把ul的子元素li设置成grid-item">
-<meta name="keywords" content="css,css-grid">
+<meta name="description" content="遇到better-scroll 对不准内容的 可以来看看">
+<meta name="keywords" content="js,better-scroll">
 <meta property="og:type" content="article">
-<meta property="og:title" content="display:conetnt可以用来干嘛？">
-<meta property="og:url" content="https://kingbultsea.github.io/2018/08/19/css display：content/index.html">
+<meta property="og:title" content="better-scroll修改源码适配移动端">
+<meta property="og:url" content="https://kingbultsea.github.io/2018/11/08/better-scroll修改源码适配移动端/index.html">
 <meta property="og:site_name" content="弱鸡">
-<meta property="og:description" content="css display:content 是用来把ul的子元素li设置成grid-item">
+<meta property="og:description" content="遇到better-scroll 对不准内容的 可以来看看">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1fuf57n15u1j31840oowgp.jpg">
-<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1fuf57mh38xj30kz07oabf.jpg">
-<meta property="og:updated_time" content="2018-08-22T15:05:55.866Z">
+<meta property="og:updated_time" content="2018-11-08T14:35:23.326Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="display:conetnt可以用来干嘛？">
-<meta name="twitter:description" content="css display:content 是用来把ul的子元素li设置成grid-item">
-<meta name="twitter:image" content="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1fuf57n15u1j31840oowgp.jpg">
+<meta name="twitter:title" content="better-scroll修改源码适配移动端">
+<meta name="twitter:description" content="遇到better-scroll 对不准内容的 可以来看看">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -59,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>display:conetnt可以用来干嘛？ | 弱鸡</title>
+<title>better-scroll修改源码适配移动端 | 弱鸡</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -228,12 +225,12 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-css display：content" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-better-scroll修改源码适配移动端" class="article article-type-post" itemscope itemprop="blogPost">
   
   
     <div class="article-meta">
-      <a href="/2018/08/19/css display：content/" class="article-date">
-      <time datetime="2018-08-19T05:13:31.000Z" itemprop="datePublished">2018-08-19</time>
+      <a href="/2018/11/08/better-scroll修改源码适配移动端/" class="article-date">
+      <time datetime="2018-11-08T15:13:31.000Z" itemprop="datePublished">2018-11-08</time>
 </a>
 
 
@@ -248,7 +245,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      display:conetnt可以用来干嘛？
+      better-scroll修改源码适配移动端
     </h1>
   
 
@@ -259,7 +256,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/better-scroll/">better-scroll</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -279,15 +276,19 @@
 
 </style>
 <head>
-
-<h3>兼容性</h3>
-<img src="http://wx2.sinaimg.cn/mw690/006Zdy2vgy1fuf57n15u1j31840oowgp.jpg">
-
-   <blockquote><p>  2018年8月19日 更新——-<br>  display: contents to the rescue</p>
-  <p>With display: contents, we can have our markup and our grid placement. This property makes the element so that it no longer seems to exist. It does not generate a box, so backgrounds, borders and other box-related properties will no longer work on it. Grid placement properties will also no longer work. But all of these things will work for the element’s children. The spec says the element behaves ‘as if it had been replaced […] by its contents’. If that sounds weird, I can recommend Ire Aderinokun’s detailed explainer.</p>
-
-<p>  <img src="http://wx3.sinaimg.cn/mw690/006Zdy2vgy1fuf57mh38xj30kz07oabf.jpg"><br>  意思就是 ul是li的markup ，但是我不想用div来包裹，我更愿意用li(li的好处是浏览器的阅读模式it will stay a list outside the context of our page, for example in Safari Reader mode, it will show as a list)<br>  然后设置ul为 display:content 这样就OK了 li就成为grid-item了。<br>  但是display:content 在firefox 62中 只是stept five。<br>   detal info:<a href="https://hiddedevries.nl/en/blog/2018-04-21-more-accessible-markup-with-display-contents" target="_blank" rel="noopener"> link</a><br><a href="https://twitter.com/jensimmons/status/1030125167199113216" target="_blank" rel="noopener">Jen simmon</a></p>
+<blockquote><p>之前使用better-scroll的时候，我也没有太注意到这点，直到我发现better-scroll展示的内容，在不同的机型上，展示长度不一致，现在来看看better-scroll的源码。<br>发现需要我们去手动做一些适配。</p>
 </blockquote>
+这里贴上我所使用的适配方法：
+<figure class="highlight css"><figcaption><span>[]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">function</span> px2html($px)&#123;</span><br><span class="line">  $rem: 37.5px;</span><br><span class="line">  @<span class="keyword">return</span> ($px / $rem) + rem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight"><figcaption><span>[]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">function</span> <span class="selector-tag">setSizeRem</span> () &#123;</span><br><span class="line">  const width = document.documentElement.clientWidth</span><br><span class="line">  let html = document.querySelector('html')</span><br><span class="line">  html.style.fontSize = width / 10 + 'px'</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">setSizeRem</span>()</span><br><span class="line">window.addEventListener('resize', setSizeRem)</span><br></pre></td></tr></table></figure>
+
+git clone git@github.com:ustbhuangyi/better-scroll.git
+sudo cnpm i
+修改src/srcoll/core.js 
+
+<figure class="highlight js"><figcaption><span>[]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.options.useTransform) &#123;</span><br><span class="line">      <span class="keyword">this</span>.scrollerStyle[style.transform] = <span class="string">`translate(<span class="subst">$&#123;x&#125;</span>px,<span class="subst">$&#123;px2Html(y)&#125;</span>rem) scale(<span class="subst">$&#123;scale&#125;</span>)<span class="subst">$&#123;<span class="keyword">this</span>.translateZ&#125;</span>`</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      x = <span class="built_in">Math</span>.round(x)</span><br><span class="line">      y = <span class="built_in">Math</span>.round(y)</span><br><span class="line">      <span class="keyword">this</span>.scrollerStyle.left = <span class="string">`<span class="subst">$&#123;x&#125;</span>px`</span></span><br><span class="line">      <span class="keyword">this</span>.scrollerStyle.top = <span class="string">`<span class="subst">$&#123;px2Html(y)&#125;</span>rem`</span></span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">// 任意地方写上方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">px2Html</span> (<span class="params">px</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> rem = <span class="number">37.5</span></span><br><span class="line">  <span class="keyword">return</span> px / rem</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ok成功 
 
 </head></head></body>
 </html>
@@ -298,13 +299,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/19/css display：content/">display:conetnt可以用来干嘛？</a></p>
+        <p><span>本文标题:</span><a href="/2018/11/08/better-scroll修改源码适配移动端/">better-scroll修改源码适配移动端</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？</a></p>
-        <p><span>发布时间:</span>2018-08-19, 13:13:31</p>
-        <p><span>最后更新:</span>2018-08-22, 23:05:55</p>
+        <p><span>发布时间:</span>2018-11-08, 23:13:31</p>
+        <p><span>最后更新:</span>2018-11-08, 22:35:23</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/19/css display：content/" title="display:conetnt可以用来干嘛？">https://kingbultsea.github.io/2018/08/19/css display：content/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/08/19/css display：content/　　作者: 日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/11/08/better-scroll修改源码适配移动端/" title="better-scroll修改源码适配移动端">https://kingbultsea.github.io/2018/11/08/better-scroll修改源码适配移动端/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/11/08/better-scroll修改源码适配移动端/　　作者: 日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -316,16 +317,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/25/vue源码分析(1)/">
-                    vue源码分析(1)
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/13/SSR构建/">
-                    SSR
+                <a href="/2018/10/27/前端每日实战系列的思路解读/">
+                    前端每日实战系列的思路解读 128#
                 </a>
             </div>
         
@@ -338,7 +333,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">兼容性</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -374,7 +369,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"display:conetnt可以用来干嘛？　| 弱鸡　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"better-scroll修改源码适配移动端　| 弱鸡　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -394,15 +389,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/25/vue源码分析(1)/" title="上一篇: vue源码分析(1)">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/13/SSR构建/" title="下一篇: SSR">
+            <a href="/2018/10/27/前端每日实战系列的思路解读/" title="下一篇: 前端每日实战系列的思路解读 128#">
                 <i class="fa fa-angle-right"></i>
             </a>
         
