@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kingbultsea.github.io/about/index.html</loc>
+    
+    <lastmod>2019-01-20T20:49:16.555Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://kingbultsea.github.io/2018/11/08/better-scroll%E4%BF%AE%E6%94%B9%E6%BA%90%E7%A0%81%E9%80%82%E9%85%8D%E7%A7%BB%E5%8A%A8%E7%AB%AF/</loc>
     
     <lastmod>2018-11-08T14:36:52.451Z</lastmod>
@@ -187,13 +194,6 @@
     <loc>https://kingbultsea.github.io/2018/08/01/Grid%20layout%20example/</loc>
     
     <lastmod>2018-08-02T06:44:22.003Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kingbultsea.github.io/about/index.html</loc>
-    
-    <lastmod>2018-08-02T04:31:11.190Z</lastmod>
     
   </url>
   
