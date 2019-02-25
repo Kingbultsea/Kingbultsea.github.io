@@ -166,7 +166,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSR/">SSR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/better-scroll/">better-scroll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-grid/">css-grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-shape/">css-shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fr/">fr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plugin/">plugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webgl/">webgl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week/">week</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weex/">weex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指令/">指令</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSR/">SSR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/better-scroll/">better-scroll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-grid/">css-grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-shape/">css-shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fr/">fr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plugin/">plugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webgl/">webgl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week/">week</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weex/">weex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指令/">指令</a></li></ul>
                     </div>
                 </section>
                 
@@ -224,6 +224,76 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-lottie-web踩坑" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2019/02/26/lottie-web踩坑/" class="article-date">
+      <time datetime="2019-02-25T19:03:46.000Z" itemprop="datePublished">2019-02-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/26/lottie-web踩坑/">lottie-web踩坑</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="lottie-web-踩坑"><a href="#lottie-web-踩坑" class="headerlink" title="lottie-web 踩坑"></a>lottie-web 踩坑</h1><p>官网的demo是这样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lottie.loadAnimation(&#123;</span><br><span class="line">  container: element, // the dom element that will contain the animation</span><br><span class="line">  renderer: &apos;svg&apos;,</span><br><span class="line">  loop: true,</span><br><span class="line">  autoplay: true,</span><br><span class="line">  path: &apos;data.json&apos; // the path to the animation json</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>我实际使用的代码是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lottie.loadAnimation(&#123;</span><br><span class="line">        container: <span class="keyword">this</span>.$refs.animationHeart, <span class="comment">// the dom element that will contain the animation</span></span><br><span class="line">        renderer: <span class="string">'svg'</span>,</span><br><span class="line">        loop: <span class="literal">true</span>,</span><br><span class="line">        autoplay: <span class="literal">true</span>,</span><br><span class="line">        path: path.join(__dirname, <span class="string">'./4265-favoriete-producten.json'</span>) <span class="comment">// the path to the animation json</span></span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure></p>
+<pre><code>报错：
+</code></pre><font color="#dd0000">Uncaught DOMException: Failed to read the ‘responseText’ property from ‘XMLHttpRequest’: The value is only accessible if the object’s ‘responseType’ is ‘’ or ‘text’ (was ‘json’).<br>    at formatResponse (webpack-internal:<a href="mailto:///./node_modules/_lottie-web@5.4.4" target="_blank" rel="noopener">///./node_modules/_lottie-web@5.4.4</a>@lottie-web/build/player/lottie.js:4325:17)<br>    at XMLHttpRequest.xhr.onreadystatechange (webpack-internal:<a href="mailto:///./node_modules/_lottie-web@5.4.4" target="_blank" rel="noopener">///./node_modules/_lottie-web@5.4.4</a>@lottie-web/build/player/lottie.js:4340:26)</font>
+
+<p>查了一下在Vue使用的方法<br><a href="https://github.com/bienvenidoY/blog/issues/4" target="_blank" rel="noopener">https://github.com/bienvenidoY/blog/issues/4</a></p>
+<h4 id="注意下-lottie-web在vue运行下是有问题的，很多方法都无效。"><a href="#注意下-lottie-web在vue运行下是有问题的，很多方法都无效。" class="headerlink" title="注意下 lottie-web在vue运行下是有问题的，很多方法都无效。"></a>注意下 lottie-web在vue运行下是有问题的，很多方法都无效。</h4><p>正确使用<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm <span class="selector-tag">i</span> vue-lottie --save</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://juejin.im/post/5b180a706fb9a01e780a49d4" target="_blank" rel="noopener">https://juejin.im/post/5b180a706fb9a01e780a49d4</a></p>
+<h2 id="小坑记录"><a href="#小坑记录" class="headerlink" title="小坑记录"></a>小坑记录</h2><p>lottie组件中,width和height在不设定的情况下，是根据父元素size来调整的，width将会是父元素的width。<br>但是组件的width不会超出父元素的width，即使你设置的width大于父元素的width。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-better-scroll修改源码适配移动端" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -592,72 +662,6 @@
 
 
   
-    <article id="post-在mac中的坑" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/09/26/在mac中的坑/" class="article-date">
-      <time datetime="2018-09-26T15:13:31.000Z" itemprop="datePublished">2018-09-26</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/26/在mac中的坑/">我在使用mac的时候遇到的问题和解决方法记录</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              这里写一下我在mac上开发出现的一些问题
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/09/26/在mac中的坑/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-webgl学习" class="article article-type-post" itemscope itemprop="blogPost">
   
   
@@ -705,6 +709,72 @@
       
         <p class="article-more-link">
           <a href="/2018/09/26/webgl学习/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-在mac中的坑" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  
+    <div class="article-meta">
+      <a href="/2018/09/26/在mac中的坑/" class="article-date">
+      <time datetime="2018-09-26T15:13:31.000Z" itemprop="datePublished">2018-09-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/26/在mac中的坑/">我在使用mac的时候遇到的问题和解决方法记录</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这里写一下我在mac上开发出现的一些问题
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/09/26/在mac中的坑/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -837,72 +907,6 @@
       
         <p class="article-more-link">
           <a href="/2018/09/13/weex-study/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-vue-cli 3.0" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/09/09/vue-cli 3.0/" class="article-date">
-      <time datetime="2018-09-09T05:13:31.000Z" itemprop="datePublished">2018-09-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/09/vue-cli 3.0/">vue-cli 3.0 学习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              vue-cli 3.0 vue.config.js自行在根目录配置
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-cli/">vue-cli</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/09/09/vue-cli 3.0/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

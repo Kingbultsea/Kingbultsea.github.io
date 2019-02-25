@@ -15,23 +15,18 @@
 
 
 
-<meta name="description" content="构建了dev , 速度很快。 production还没有去构建。">
-<meta name="keywords" content="webpack,plugin,vue-cli">
+<meta name="description" content="lottie-web 踩坑官网的demo是这样的1234567lottie.loadAnimation(&amp;#123;  container: element, // the dom element that will contain the animation  renderer: &amp;apos;svg&amp;apos;,  loop: true,  autoplay: true,  path: &amp;apo">
+<meta name="keywords" content="node">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue-cli 构建(期限2天内，因为还不是很熟悉webpack)">
-<meta property="og:url" content="https://kingbultsea.github.io/2018/08/07/构建一个vue-cli/index.html">
+<meta property="og:title" content="lottie-web踩坑">
+<meta property="og:url" content="https://kingbultsea.github.io/2019/02/26/lottie-web踩坑/index.html">
 <meta property="og:site_name" content="弱鸡">
-<meta property="og:description" content="构建了dev , 速度很快。 production还没有去构建。">
+<meta property="og:description" content="lottie-web 踩坑官网的demo是这样的1234567lottie.loadAnimation(&amp;#123;  container: element, // the dom element that will contain the animation  renderer: &amp;apos;svg&amp;apos;,  loop: true,  autoplay: true,  path: &amp;apo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://kingbultsea.github.io/2018/08/07/构建一个vue-cli/img/1.png">
-<meta property="og:image" content="https://kingbultsea.github.io/2018/08/07/构建一个vue-cli/img/2.png">
-<meta property="og:image" content="https://kingbultsea.github.io/2018/08/07/构建一个vue-cli/img/3.png">
-<meta property="og:image" content="https://kingbultsea.github.io/2018/08/07/构建一个vue-cli/img/4.png">
-<meta property="og:updated_time" content="2018-08-11T10:04:29.981Z">
+<meta property="og:updated_time" content="2019-02-25T19:05:59.390Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue-cli 构建(期限2天内，因为还不是很熟悉webpack)">
-<meta name="twitter:description" content="构建了dev , 速度很快。 production还没有去构建。">
-<meta name="twitter:image" content="https://kingbultsea.github.io/2018/08/07/构建一个vue-cli/img/1.png">
+<meta name="twitter:title" content="lottie-web踩坑">
+<meta name="twitter:description" content="lottie-web 踩坑官网的demo是这样的1234567lottie.loadAnimation(&amp;#123;  container: element, // the dom element that will contain the animation  renderer: &amp;apos;svg&amp;apos;,  loop: true,  autoplay: true,  path: &amp;apo">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -61,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>vue-cli 构建(期限2天内，因为还不是很熟悉webpack) | 弱鸡</title>
+<title>lottie-web踩坑 | 弱鸡</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -230,12 +225,12 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-构建一个vue-cli" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-lottie-web踩坑" class="article article-type-post" itemscope itemprop="blogPost">
   
   
     <div class="article-meta">
-      <a href="/2018/08/07/构建一个vue-cli/" class="article-date">
-      <time datetime="2018-08-07T14:08:53.000Z" itemprop="datePublished">2018-08-07</time>
+      <a href="/2019/02/26/lottie-web踩坑/" class="article-date">
+      <time datetime="2019-02-25T19:03:46.000Z" itemprop="datePublished">2019-02-26</time>
 </a>
 
 
@@ -250,7 +245,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      vue-cli 构建(期限2天内，因为还不是很熟悉webpack)
+      lottie-web踩坑
     </h1>
   
 
@@ -261,7 +256,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/plugin/">plugin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -271,67 +266,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <!DOCTYPE html>
-<html>
+        <h1 id="lottie-web-踩坑"><a href="#lottie-web-踩坑" class="headerlink" title="lottie-web 踩坑"></a>lottie-web 踩坑</h1><p>官网的demo是这样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lottie.loadAnimation(&#123;</span><br><span class="line">  container: element, // the dom element that will contain the animation</span><br><span class="line">  renderer: &apos;svg&apos;,</span><br><span class="line">  loop: true,</span><br><span class="line">  autoplay: true,</span><br><span class="line">  path: &apos;data.json&apos; // the path to the animation json</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>我实际使用的代码是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lottie.loadAnimation(&#123;</span><br><span class="line">        container: <span class="keyword">this</span>.$refs.animationHeart, <span class="comment">// the dom element that will contain the animation</span></span><br><span class="line">        renderer: <span class="string">'svg'</span>,</span><br><span class="line">        loop: <span class="literal">true</span>,</span><br><span class="line">        autoplay: <span class="literal">true</span>,</span><br><span class="line">        path: path.join(__dirname, <span class="string">'./4265-favoriete-producten.json'</span>) <span class="comment">// the path to the animation json</span></span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure></p>
+<pre><code>报错：
+</code></pre><font color="#dd0000">Uncaught DOMException: Failed to read the ‘responseText’ property from ‘XMLHttpRequest’: The value is only accessible if the object’s ‘responseType’ is ‘’ or ‘text’ (was ‘json’).<br>    at formatResponse (webpack-internal:<a href="mailto:///./node_modules/_lottie-web@5.4.4" target="_blank" rel="noopener">///./node_modules/_lottie-web@5.4.4</a>@lottie-web/build/player/lottie.js:4325:17)<br>    at XMLHttpRequest.xhr.onreadystatechange (webpack-internal:<a href="mailto:///./node_modules/_lottie-web@5.4.4" target="_blank" rel="noopener">///./node_modules/_lottie-web@5.4.4</a>@lottie-web/build/player/lottie.js:4340:26)</font>
 
+<p>查了一下在Vue使用的方法<br><a href="https://github.com/bienvenidoY/blog/issues/4" target="_blank" rel="noopener">https://github.com/bienvenidoY/blog/issues/4</a></p>
+<h4 id="注意下-lottie-web在vue运行下是有问题的，很多方法都无效。"><a href="#注意下-lottie-web在vue运行下是有问题的，很多方法都无效。" class="headerlink" title="注意下 lottie-web在vue运行下是有问题的，很多方法都无效。"></a>注意下 lottie-web在vue运行下是有问题的，很多方法都无效。</h4><p>正确使用<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm <span class="selector-tag">i</span> vue-lottie --save</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://juejin.im/post/5b180a706fb9a01e780a49d4" target="_blank" rel="noopener">https://juejin.im/post/5b180a706fb9a01e780a49d4</a></p>
+<h2 id="小坑记录"><a href="#小坑记录" class="headerlink" title="小坑记录"></a>小坑记录</h2><p>lottie组件中,width和height在不设定的情况下，是根据父元素size来调整的，width将会是父元素的width。<br>但是组件的width不会超出父元素的width，即使你设置的width大于父元素的width。</p>
 
-<body>
-<head>
-<style>
-@import 'css/main.css'
-</style>
-</head>
-
-  <div class="main">
-    <h3 id="one">什么是--inline ?</h3>
-	<blockquote><p>在 dev-server 的两种不同模式之间切换。默认情况下，应用程序启用内联模式(inline mode)。这意味着一段处理实时重载的脚本被插入到你的包(bundle)中，并且构建消息将会出现在浏览器控制台。</p>
-</blockquote>
-	<h3 id="two">什么是--progress ?</h3>
-	<blockquote><p>将运行进度输出到控制台。</p>
-</blockquote>
-	2018年8月8日19点47分
-	<h3 id="three">我弄了一个可以正常使用的vue了。</h3>
-	里面的坑有 improt vue from "vue"，然后运行的时候，告诉我不能使用template。
-	我去看看vue的package.json文件，发现，哇。
-	<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"main"</span>: <span class="string">"dist/vue.runtime.common.js"</span></span><br></pre></td></tr></table></figure>
-	现在可以去查查vue.runtime.common.js是什么文件了。
-	<img src="img/1.png">
-	<blockquote><p>运行时：用来创建 Vue 实例、渲染并处理虚拟 DOM 等的代码。基本上就是除去编译器的其它一切。</p>
-</blockquote>
-	<img src="img/2.png">
-	
-	我是按照vue-cli那样搭建的，我也感觉不需要优化吧。<br>
-	<p class="red-p">= = 因为我想不到有什么很好的办法。“直接标签引入就好啦。“不不，这需要编译器的。”mount("#app)呢“不清楚...哦 直接render丢进去绝对OK的。</p>
-	<a>https://www.cnblogs.com/hefty/p/6221183.html</a>
-	<h3 id="four">compress前后</h3>
-	<img src="img/3.png">
-	<img src="img/4.png">
-	<h3 id="five">一定要使用copy-webpack-plugin(虚拟,相关可以查devServer)</h3>
-	
-	  我到现在还不明白 我使用file-loader加载图片，然后也看了vue-loader相关资源文档，告诉我
-	  图片会使用require('')来处理
-	  <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">createElement</span>(<span class="string">'img'</span>, &#123;</span><br><span class="line">       <span class="attribute">attrs</span>: &#123;</span><br><span class="line">           <span class="attribute">src</span>: require(<span class="string">'../image.png'</span>) <span class="comment">// 现在这是一个模块的请求了</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">transformToRequire</span>:&#123;</span><br><span class="line">       <span class="attribute">video</span>: [<span class="string">'src'</span>, <span class="string">'poster'</span>],</span><br><span class="line">       <span class="attribute">source</span>: <span class="string">'src'</span>,</span><br><span class="line">       <span class="attribute">img</span>: <span class="string">'src'</span>,</span><br><span class="line">       <span class="attribute">image</span>: <span class="string">'xlink:href'</span></span><br><span class="line">   &#125;<span class="comment">//这是vue-loader那的一个options</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-	  也就是说不需要使用file-loader(我也看到vue-cli的base没有使用
-	  file-loader)。好吧，我搞了很久，一直都说路径有
-	  问题，明明是正确的，可是就是有问题。
-	  然后又看了<br>
-	     <p class="red-p">vue-html-loader and css-loader translates non-root URLs to relative paths. In order to treat it like a module path, prefix it with ~:
-         <br>
-         img class="logo" src="~assets/logo.png"
-		 <br>
-		 </p>
-		 这根本就不是我想要的。
-		 怎么办？直接vue-cli一探究竟吧！
-	  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   new CopyWebpackPlugin([</span><br><span class="line">     &#123;</span><br><span class="line">       from: path.resolve(__dirname, <span class="string">'../static'</span>),</span><br><span class="line">       to: config<span class="selector-class">.dev</span><span class="selector-class">.assetsSubDirectory</span>,</span><br><span class="line">       ignore: [<span class="string">'.*'</span>]</span><br><span class="line">     &#125;</span><br><span class="line">   ])</span><br><span class="line"></span><br><span class="line">devserver<span class="selector-class">.contentBase</span>:false</span><br></pre></td></tr></table></figure>
-	  这下可以猜测:
-	  <blockquote><p>我所查的那些东西，和vue-loader所说的东西！是mode:production的。<br>我想要的devServer可不管这些东西。所以正确做法就是使用<br><a id="link" href="https://blog.csdn.net/qianqian901108_/article/details/77987814" target="_blank" rel="noopener">copy-webpack-plugin</a><br>你可以再深入点，为什么这个插件也是虚拟的。我觉得的可能性有一.这个插件根据mode的情况来判断。<br>二.devServer的特性就是不真正处理文件。<br>自己研究吧，把mode: ‘development’改一下。</p>
-</blockquote>
-	
-  </div>
-
-
-</body>
-</html>
       
     </div>
     
@@ -339,13 +283,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></p>
+        <p><span>本文标题:</span><a href="/2019/02/26/lottie-web踩坑/">lottie-web踩坑</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？</a></p>
-        <p><span>发布时间:</span>2018-08-07, 22:08:53</p>
-        <p><span>最后更新:</span>2018-08-11, 18:04:29</p>
+        <p><span>发布时间:</span>2019-02-26, 03:03:46</p>
+        <p><span>最后更新:</span>2019-02-26, 03:05:59</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/07/构建一个vue-cli/" title="vue-cli 构建(期限2天内，因为还不是很熟悉webpack)">https://kingbultsea.github.io/2018/08/07/构建一个vue-cli/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2018/08/07/构建一个vue-cli/　　作者: 日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/02/26/lottie-web踩坑/" title="lottie-web踩坑">https://kingbultsea.github.io/2019/02/26/lottie-web踩坑/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2019/02/26/lottie-web踩坑/　　作者: 日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -357,16 +301,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">
-                    构建一个延迟渲染指令(拆v-if 来渲染)
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">
-                    Prerender-SPA-Plugin是什么东西?
+                <a href="/2018/11/08/better-scroll修改源码适配移动端/">
+                    better-scroll修改源码适配移动端
                 </a>
             </div>
         
@@ -379,7 +317,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#one"><span class="toc-number">1.</span> <span class="toc-text">什么是--inline ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#two"><span class="toc-number">2.</span> <span class="toc-text">什么是--progress ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#three"><span class="toc-number">3.</span> <span class="toc-text">我弄了一个可以正常使用的vue了。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#four"><span class="toc-number">4.</span> <span class="toc-text">compress前后</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#five"><span class="toc-number">5.</span> <span class="toc-text">一定要使用copy-webpack-plugin(虚拟,相关可以查devServer)</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lottie-web-踩坑"><span class="toc-number">1.</span> <span class="toc-text">lottie-web 踩坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注意下-lottie-web在vue运行下是有问题的，很多方法都无效。"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">注意下 lottie-web在vue运行下是有问题的，很多方法都无效。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小坑记录"><span class="toc-number">1.1.</span> <span class="toc-text">小坑记录</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -415,7 +353,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"vue-cli 构建(期限2天内，因为还不是很熟悉webpack)　| 弱鸡　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"lottie-web踩坑　| 弱鸡　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -435,15 +373,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/" title="上一篇: 构建一个延迟渲染指令(拆v-if 来渲染)">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/04/Prerender-SPA-Plugin是什么东西/" title="下一篇: Prerender-SPA-Plugin是什么东西?">
+            <a href="/2018/11/08/better-scroll修改源码适配移动端/" title="下一篇: better-scroll修改源码适配移动端">
                 <i class="fa fa-angle-right"></i>
             </a>
         
