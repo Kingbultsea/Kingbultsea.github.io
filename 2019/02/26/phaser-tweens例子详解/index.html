@@ -14,17 +14,19 @@
 <meta name="author" content="日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？" />
 
 
-    
-    
 
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="弱鸡">
-<meta property="og:url" content="https://kingbultsea.github.io/index.html">
+<meta name="description" content="phaser的相关方法TP、spriteTP每张图片都拥有一个target目标的锚点，在phaser中，可以通过add.sprite(x, y, ’场景‘, ‘图片位置’)来设置。 预加载sprite图：1this.load.multiatlas(&apos;cityscene&apos;, &apos;assets/cityscene.json&apos;, &quot;assets&quot;) 使用sprite：1this.add.sprite(0,">
+<meta name="keywords" content="phaser">
+<meta property="og:type" content="article">
+<meta property="og:title" content="phaser.tweens例子详解">
+<meta property="og:url" content="https://kingbultsea.github.io/2019/02/26/phaser-tweens例子详解/index.html">
 <meta property="og:site_name" content="弱鸡">
+<meta property="og:description" content="phaser的相关方法TP、spriteTP每张图片都拥有一个target目标的锚点，在phaser中，可以通过add.sprite(x, y, ’场景‘, ‘图片位置’)来设置。 预加载sprite图：1this.load.multiatlas(&apos;cityscene&apos;, &apos;assets/cityscene.json&apos;, &quot;assets&quot;) 使用sprite：1this.add.sprite(0,">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-25T19:09:38.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="弱鸡">
+<meta name="twitter:title" content="phaser.tweens例子详解">
+<meta name="twitter:description" content="phaser的相关方法TP、spriteTP每张图片都拥有一个target目标的锚点，在phaser中，可以通过add.sprite(x, y, ’场景‘, ‘图片位置’)来设置。 预加载sprite图：1this.load.multiatlas(&apos;cityscene&apos;, &apos;assets/cityscene.json&apos;, &quot;assets&quot;) 使用sprite：1this.add.sprite(0,">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -54,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>弱鸡</title>
+<title>phaser.tweens例子详解 | 弱鸡</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -63,8 +65,8 @@
     var yiliaConfig = {
         fancybox: true,
         animate: false,
-        isHome: true,
-        isPost: false,
+        isHome: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -223,9 +225,7 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-phaser-tweens例子详解" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-phaser-tweens例子详解" class="article article-type-post" itemscope itemprop="blogPost">
   
   
     <div class="article-meta">
@@ -244,12 +244,23 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/26/phaser-tweens例子详解/">phaser.tweens例子详解</a>
+    <h1 class="article-title" itemprop="name">
+      phaser.tweens例子详解
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/phaser/">phaser</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -308,673 +319,120 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/phaser/">phaser</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-lottie-web踩坑" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2019/02/26/lottie-web踩坑/" class="article-date">
-      <time datetime="2019-02-25T19:03:46.000Z" itemprop="datePublished">2019-02-26</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/26/lottie-web踩坑/">lottie-web踩坑</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="lottie-web-踩坑"><a href="#lottie-web-踩坑" class="headerlink" title="lottie-web 踩坑"></a>lottie-web 踩坑</h1><p>官网的demo是这样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lottie.loadAnimation(&#123;</span><br><span class="line">  container: element, // the dom element that will contain the animation</span><br><span class="line">  renderer: &apos;svg&apos;,</span><br><span class="line">  loop: true,</span><br><span class="line">  autoplay: true,</span><br><span class="line">  path: &apos;data.json&apos; // the path to the animation json</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>我实际使用的代码是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lottie.loadAnimation(&#123;</span><br><span class="line">        container: <span class="keyword">this</span>.$refs.animationHeart, <span class="comment">// the dom element that will contain the animation</span></span><br><span class="line">        renderer: <span class="string">'svg'</span>,</span><br><span class="line">        loop: <span class="literal">true</span>,</span><br><span class="line">        autoplay: <span class="literal">true</span>,</span><br><span class="line">        path: path.join(__dirname, <span class="string">'./4265-favoriete-producten.json'</span>) <span class="comment">// the path to the animation json</span></span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure></p>
-<pre><code>报错：
-</code></pre><font color="#dd0000">Uncaught DOMException: Failed to read the ‘responseText’ property from ‘XMLHttpRequest’: The value is only accessible if the object’s ‘responseType’ is ‘’ or ‘text’ (was ‘json’).<br>    at formatResponse (webpack-internal:<a href="mailto:///./node_modules/_lottie-web@5.4.4" target="_blank" rel="noopener">///./node_modules/_lottie-web@5.4.4</a>@lottie-web/build/player/lottie.js:4325:17)<br>    at XMLHttpRequest.xhr.onreadystatechange (webpack-internal:<a href="mailto:///./node_modules/_lottie-web@5.4.4" target="_blank" rel="noopener">///./node_modules/_lottie-web@5.4.4</a>@lottie-web/build/player/lottie.js:4340:26)</font>
-
-<p>查了一下在Vue使用的方法<br><a href="https://github.com/bienvenidoY/blog/issues/4" target="_blank" rel="noopener">https://github.com/bienvenidoY/blog/issues/4</a></p>
-<h4 id="注意下-lottie-web在vue运行下是有问题的，很多方法都无效。"><a href="#注意下-lottie-web在vue运行下是有问题的，很多方法都无效。" class="headerlink" title="注意下 lottie-web在vue运行下是有问题的，很多方法都无效。"></a>注意下 lottie-web在vue运行下是有问题的，很多方法都无效。</h4><p>正确使用<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm <span class="selector-tag">i</span> vue-lottie --save</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://juejin.im/post/5b180a706fb9a01e780a49d4" target="_blank" rel="noopener">https://juejin.im/post/5b180a706fb9a01e780a49d4</a></p>
-<h2 id="小坑记录"><a href="#小坑记录" class="headerlink" title="小坑记录"></a>小坑记录</h2><p>lottie组件中,width和height在不设定的情况下，是根据父元素size来调整的，width将会是父元素的width。<br>但是组件的width不会超出父元素的width，即使你设置的width大于父元素的width。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-better-scroll修改源码适配移动端" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/11/08/better-scroll修改源码适配移动端/" class="article-date">
-      <time datetime="2018-11-08T15:13:31.000Z" itemprop="datePublished">2018-11-08</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/08/better-scroll修改源码适配移动端/">better-scroll修改源码适配移动端</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              遇到better-scroll 对不准内容的 可以来看看
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/better-scroll/">better-scroll</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/11/08/better-scroll修改源码适配移动端/#more">more >></a>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/02/26/phaser-tweens例子详解/">phaser.tweens例子详解</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？</a></p>
+        <p><span>发布时间:</span>2019-02-26, 03:08:47</p>
+        <p><span>最后更新:</span>2019-02-26, 03:09:38</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/02/26/phaser-tweens例子详解/" title="phaser.tweens例子详解">https://kingbultsea.github.io/2019/02/26/phaser-tweens例子详解/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://kingbultsea.github.io/2019/02/26/phaser-tweens例子详解/　　作者: 日，我的纯webpack搭建的VUE SSR怎么就炸了？？？？" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-前端每日实战系列的思路解读" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/10/27/前端每日实战系列的思路解读/" class="article-date">
-      <time datetime="2018-10-27T08:13:31.000Z" itemprop="datePublished">2018-10-27</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/27/前端每日实战系列的思路解读/">前端每日实战系列的思路解读 128#</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              觉得他写的代码，很老练，很不错，这里记录下，创建动画的思路
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/10/27/前端每日实战系列的思路解读/#more">more >></a>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
-      
-      <div class="clearfix"></div>
     </div>
-    
-  </div>
-  
-  
-</article>
 
 
 
-
-
-
-
-
-
-  
-    <article id="post-h5解决ios滑动出现白条" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/10/24/h5解决ios滑动出现白条/" class="article-date">
-      <time datetime="2018-10-24T15:13:31.000Z" itemprop="datePublished">2018-10-24</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+    <nav id="article-nav">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/24/h5解决ios滑动出现白条/">H5解决ios滑动出现白条 和引发的相关问题解决方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              就是你们滑动的时候，上下留白，同时，如何优化滚动？
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/10/24/h5解决ios滑动出现白条/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-css积累" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/10/16/css积累/" class="article-date">
-      <time datetime="2018-10-16T15:13:31.000Z" itemprop="datePublished">2018-10-16</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/16/css积累/">嘛积累下css也是很有必要的</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              记录好用的css
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/10/16/css积累/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-paperjs" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/10/02/paperjs/" class="article-date">
-      <time datetime="2018-10-02T15:13:31.000Z" itemprop="datePublished">2018-10-02</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/02/26/lottie-web踩坑/">
+                    lottie-web踩坑
+                </a>
+            </div>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/02/paperjs/">paperjs 学习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <!DOCTYPE html>
-<html>
-
-
-<body>
-<head>
-<style>
-
-</style>
-<head>
-<h3 id="one">paperjs在vuecli中使用</h3>
-<blockquote><p>推荐方式：<br>cnpm i paper -s</p>
-<p>import paper from ‘paper’<br>mounted(){<br>    paper.install(window)<br>    paper.setup(document.getElementById(‘mycanvas’))<br>    paper.settings.handleSize = 0;<br>    paper.settings.hitTolerance = 4;<br>}</p>
-<p>methods{<br>    paperStart(){<br>        require(‘你写papaer动画的js’)<br>    }<br>}</p>
-<p>按照上面的方式，来进行初始化就OK了<br>当然你也可以通过script标签引入paper 然后在vue里面require(‘你写papaer动画的js’)<br>但是不能通过script标签的方式引入你写papaer动画的js(除非你直接在dist放入，好吧，你非要这样我也没办法。)</p>
-<p class="red-p">另外你可能会遇到onFrame(){}等等之类的操作不能使用，你需要改写成view.onFrame = ()=&gt;{console.log(‘这样就有效果了’)}</p></blockquote>
-
-<h3 id="asd">如何获取相交的点？</h3>
-<a href="http://sketch.paperjs.org/#S/dVFNb4MwDP0rVk5URZQi9UK3U0+7TesROLBgICJLUBI2TYj/Piela7WPS+L4+b1nOzNT9RuynJ0HdLxnMeO68e/32sBYu34Pj6DwA54pTk7CcIlRsU/TGOioYjikm2OprtXZffULcler7gfhFnvibhdMknaS8vOMkijYkIgzE37D2X/whWud0QOetNSGoJIZbEq2otkvtDOIKuC+aaGcpfRFqEP3pBwaSzZCKxsFBd8mp5eWmEjdRZ6SSFSd66+jc6/udYrVPb4Z+VAb2gOWrKL6lvqIgjXVp0e6HuBOkhLb7QbmUgGErf6x/9nUjZhsDocYWiFlGC5fuyhEtfi+AMZk1Fb4SUjDWxBEKYoIXuirXw3WQ0hYlhfV8gU=" target="_blank" rel="noopener">链接</a>
-<blockquote><p>var path1 = new Path.Circle([100,100],50)<br>var path2 = new Path.Circle([100,100],50)</p>
-<p>path1.strokeColor = ‘red’<br>path2.strokeColor = ‘green’</p>
-<p>var ints = path1.getIntersections(path2)<br>console.log(ints.length)</p>
-<p>var colors = [“red”, “green”, “orange”];<br>for (var i = 0; i &lt; ints.length; i++) {<br>  var p = new Path.Circle({radius: 5, fillColor: colors[i]});<br>  p.position = ints[i].point;<br>}</p>
-<p>就是通过一个getIntersections的方法来获取相交的点 </p>
-</blockquote>
-
-<h3 id="asdasd">如何改变fillColor?(动画)</h3>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">path</span>.fillColor.hue += <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="asdasd">如何添加文字？</h3>
-<figure class="highlight javascript"><figcaption><span>[]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="keyword">new</span> PointText(&#123;</span><br><span class="line">    point: view.center,</span><br><span class="line">	justification: <span class="string">'center'</span>,</span><br><span class="line">	fontSize: <span class="number">10</span>,</span><br><span class="line">	fillColor: <span class="string">'red'</span></span><br><span class="line">&#125;)</span><br><span class="line">text.content = <span class="string">'asd'</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="asd">如何获得point的随机数？还有point和位置的计算问题？
-<blockquote><p>通过Point.random()*view.size 可以获得随机的point位置。<br>Path.position = Path.position + [10,10]加法减法乘法除法%运算都是这样。</p>
-</blockquote>
-</h3>
-
-<h3 id="aasd">小知识</h3>
-<blockquote><p class="red-p">所有绘图的东西都是路径构成的，而且你可以通过path.position = new Point(100,100)，设置位置的方式通过一个点来控制</p><br><p class="red-p">在canvas设置resize=’true’属性,假如width和height视乎不是你想要的，那么你需要设置<br>html,<br>  body {<br>    margin: 0;<br>    overflow: hidden;<br>    height: 100%;<br>  }<br>  canvas[resize] {<br>    width: 100%;<br>    height: 100%;<br>  }<br></p><br><p class="red-p">Point.length是两点起始的距离</p><br><p class="red-p">在onFrame中，var value = destination - position 这只会执行一次var value 。<br>当destination或者position改变的时候，才会重新赋值<br></p>
-</blockquote>
-
-</head></head></body>
-</html>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-在mac中的坑" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/09/26/在mac中的坑/" class="article-date">
-      <time datetime="2018-09-26T15:13:31.000Z" itemprop="datePublished">2018-09-26</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/26/在mac中的坑/">我在使用mac的时候遇到的问题和解决方法记录</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              这里写一下我在mac上开发出现的一些问题
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-grid/">css-grid</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/09/26/在mac中的坑/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-webgl学习" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/09/26/webgl学习/" class="article-date">
-      <time datetime="2018-09-26T15:13:31.000Z" itemprop="datePublished">2018-09-26</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/26/webgl学习/">Grid的fit fill</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              webgl
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webgl/">webgl</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/09/26/webgl学习/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-webpack manifest" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  
-    <div class="article-meta">
-      <a href="/2018/09/25/webpack manifest/" class="article-date">
-      <time datetime="2018-09-25T15:13:31.000Z" itemprop="datePublished">2018-09-25</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/25/webpack manifest/">是时候研究下webpack的manifest了</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              没有任何描述哦
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/09/25/webpack manifest/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
+
   
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#phaser的相关方法"><span class="toc-number">1.</span> <span class="toc-text">phaser的相关方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TP、sprite"><span class="toc-number">1.0.1.</span> <span class="toc-text">TP、sprite</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#预加载sprite图："><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">预加载sprite图：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用sprite："><span class="toc-number">1.0.1.0.2.</span> <span class="toc-text">使用sprite：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sprite动画渲染："><span class="toc-number">1.0.1.0.3.</span> <span class="toc-text">sprite动画渲染：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于调整canvas的"><span class="toc-number">1.1.</span> <span class="toc-text">关于调整canvas的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tweens-timeline"><span class="toc-number">1.2.</span> <span class="toc-text">tweens.timeline </span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#offset参数"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">offset参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过add方法来添加动画"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">通过add方法来添加动画</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ease参数"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">ease参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#target等其他参数都是可以写进tweens里面"><span class="toc-number">1.2.0.4.</span> <span class="toc-text">target等其他参数都是可以写进tweens里面</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命周期"><span class="toc-number">1.3.</span> <span class="toc-text">生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Phaser-Actions-GridAlign-做成组的动画"><span class="toc-number">1.4.</span> <span class="toc-text">Phaser.Actions.GridAlign()做成组的动画</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一个角度旋转的正方形动画-angle-getEnd-target-key-value-getStart-target-key-value"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">一个角度旋转的正方形动画  angle: { getEnd(target, key, value){}, getStart(target, key, value){}}</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一个蛋蛋球的动画"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">一个蛋蛋球的动画</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#深入蛋蛋球动画"><span class="toc-number">1.4.0.3.</span> <span class="toc-text">深入蛋蛋球动画</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#easeParams-ease的额外参数"><span class="toc-number">1.4.0.4.</span> <span class="toc-text">easeParams ease的额外参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flipX配合props-x-来使用"><span class="toc-number">1.4.0.5.</span> <span class="toc-text">flipX配合props: {x: {}}来使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#loop-loopDelay-和-repeat-repeatDelay-的区别"><span class="toc-number">1.4.0.6.</span> <span class="toc-text">loop loopDelay 和 repeat repeatDelay 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onComplete-onCompleteParams"><span class="toc-number">1.4.0.7.</span> <span class="toc-text">onComplete  onCompleteParams</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#动画的暂停与运行-this-tweens-pauseAll-this-tweens-resumeAll"><span class="toc-number">1.4.0.8.</span> <span class="toc-text">动画的暂停与运行 this.tweens.pauseAll() this.tweens.resumeAll()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#input事件监听类型"><span class="toc-number">1.4.0.9.</span> <span class="toc-text">input事件监听类型</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"phaser.tweens例子详解　| 弱鸡　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/02/26/lottie-web踩坑/" title="下一篇: lottie-web踩坑">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/phaser-tweens例子详解/">phaser.tweens例子详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/lottie-web踩坑/">lottie-web踩坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/08/better-scroll修改源码适配移动端/">better-scroll修改源码适配移动端</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/前端每日实战系列的思路解读/">前端每日实战系列的思路解读 128#</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/24/h5解决ios滑动出现白条/">H5解决ios滑动出现白条 和引发的相关问题解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/16/css积累/">嘛积累下css也是很有必要的</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/paperjs/">paperjs 学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/26/在mac中的坑/">我在使用mac的时候遇到的问题和解决方法记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/26/webgl学习/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/25/webpack manifest/">是时候研究下webpack的manifest了</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/13/weex-study/">weex的坑，以后也记录在这里了</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/09/vue-cli 3.0/">vue-cli 3.0 学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/08/2018-9-08/">每周记录---第一期</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/15个样式问题，美化/">Common webpage design mistakes(翻译：网页设计的常见错误)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/sass设计/">sass用法总结和思考</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/vue源码分析(1)/">vue源码分析(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/css display：content/">display:conetnt可以用来干嘛？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/SSR构建/">SSR</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/构建一个延迟渲染指令(拆v-if 来渲染)/">构建一个延迟渲染指令(拆v-if 来渲染)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/07/构建一个vue-cli/">vue-cli 构建(期限2天内，因为还不是很熟悉webpack)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/Prerender-SPA-Plugin是什么东西/">Prerender-SPA-Plugin是什么东西?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/03/我现在想在blog处理sass/">我现在想在blog处理sass</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/利用grid-auto-flow dense制作相册/">利用grid-auto-flow dense制作相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Grid layout example/">Grid的fit fill</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/auto min max-content/">auto min max-content in css Grid</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Sizing/">关于Grid的尺寸大小设置问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/css shape -outside polygon/">css shape的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/Flexbox and grid/">Flexbox 和 Grid哪个更加好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/01/example/">这是一个在杂志看到的布局，我们使用Grid来实现一个</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
